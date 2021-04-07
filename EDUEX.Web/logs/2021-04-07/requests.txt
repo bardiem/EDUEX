@@ -1,0 +1,2 @@
+2021-04-07 11:58:33.5826|DEBUG|EDUEX.Web.Program|init main
+2021-04-07 11:58:37.7632|INFO|EDUEX.Web.Middlewares.RequestLogMiddleware|[ERROR]	404	478 ms	GET: /	User : 
