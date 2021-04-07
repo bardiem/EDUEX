@@ -1,6 +1,6 @@
-﻿using webTemplate.Domain;
+﻿using EDUEX.Domain;
 
-namespace webTemplate.BL
+namespace EDUEX.BL
 {
     public interface IUserAuthBL : IBaseBL
     {

@@ -1,4 +1,4 @@
-﻿namespace webTemplate.Web.Helpers
+﻿namespace EDUEX.Web.Helpers
 {
     public class AppSettings
     {

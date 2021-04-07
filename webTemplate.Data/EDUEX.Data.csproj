@@ -21,7 +21,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\webTemplate.Domain\webTemplate.Domain.csproj" />
+    <ProjectReference Include="..\webTemplate.Domain\EDUEX.Domain.csproj" />
   </ItemGroup>
 
 </Project>

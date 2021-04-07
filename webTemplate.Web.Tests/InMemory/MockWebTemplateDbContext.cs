@@ -4,10 +4,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using webTemplate.Data;
-using webTemplate.Domain;
+using EDUEX.Data;
+using EDUEX.Domain;
 
-namespace webTemplate.Web.Tests.InMemory
+namespace EDUEX.Web.Tests.InMemory
 {
     public class MockWebTemplateDbContext : DbContext, IWebTemplateDbContext
     {

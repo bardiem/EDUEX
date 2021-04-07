@@ -8,7 +8,7 @@ using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
 
-namespace webTemplate.Web.Middlewares
+namespace EDUEX.Web.Middlewares
 {
     public class RequestLogMiddleware
     {

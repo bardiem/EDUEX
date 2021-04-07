@@ -1,7 +1,7 @@
-﻿using webTemplate.DAL;
-using webTemplate.Domain;
+﻿using EDUEX.DAL;
+using EDUEX.Domain;
 
-namespace webTemplate.BL
+namespace EDUEX.BL
 {
     public class UserAuthBL : IUserAuthBL
     {

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace webTemplate.ConsoleApp
+namespace EDUEX.ConsoleApp
 {
     class Program
     {

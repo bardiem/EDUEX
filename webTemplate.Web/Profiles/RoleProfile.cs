@@ -1,8 +1,8 @@
 ﻿using AutoMapper;
-using webTemplate.Domain;
-using webTemplate.Web.Dto;
+using EDUEX.Domain;
+using EDUEX.Web.Dto;
 
-namespace webTemplate.Web.Profiles
+namespace EDUEX.Web.Profiles
 {
     public class RoleProfile : Profile
     {

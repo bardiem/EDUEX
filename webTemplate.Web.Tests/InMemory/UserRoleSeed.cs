@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using webTemplate.Domain;
+using EDUEX.Domain;
 
-namespace webTemplate.Web.Tests.InMemory
+namespace EDUEX.Web.Tests.InMemory
 {
     public class UserRoleSeed : Seed<UserRole>
     {

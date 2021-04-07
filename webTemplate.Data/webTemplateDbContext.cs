@@ -1,9 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using NLog.Extensions.Logging;
-using webTemplate.Domain;
+using EDUEX.Domain;
 
-namespace webTemplate.Data
+namespace EDUEX.Data
 {
     public class WebTemplateDbContext : DbContext, IWebTemplateDbContext
     {

@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using webTemplate.Domain;
+using EDUEX.Domain;
 
-namespace webTemplate.DAL
+namespace EDUEX.DAL
 {
     public interface IRoleRepository : IBaseRepository
     {

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace webTemplate.BL
+namespace EDUEX.BL
 {
     public interface IBaseBL
     {

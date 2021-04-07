@@ -1,4 +1,4 @@
-﻿namespace webTemplate.Web.Dto
+﻿namespace EDUEX.Web.Dto
 {
     public class LoginDto
     {

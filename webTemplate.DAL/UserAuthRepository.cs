@@ -2,10 +2,10 @@
 using System;
 using System.Linq;
 using System.Threading.Tasks;
-using webTemplate.Data;
-using webTemplate.Domain;
+using EDUEX.Data;
+using EDUEX.Domain;
 
-namespace webTemplate.DAL
+namespace EDUEX.DAL
 {
     public class UserAuthRepository : BaseRepository, IUserAuthRepository
     {

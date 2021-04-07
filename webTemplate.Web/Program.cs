@@ -5,7 +5,7 @@ using NLog;
 using NLog.Web;
 using System;
 
-namespace webTemplate.Web
+namespace EDUEX.Web
 {
     public class Program
     {

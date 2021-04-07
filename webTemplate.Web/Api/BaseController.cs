@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace webTemplate.Web.Api
+namespace EDUEX.Web.Api
 {
     public class BaseController : Controller
     {

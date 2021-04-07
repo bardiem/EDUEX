@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using webTemplate.Data;
-using webTemplate.Domain;
+using EDUEX.Data;
+using EDUEX.Domain;
 
-namespace webTemplate.DAL
+namespace EDUEX.DAL
 {
     public class RoleRepository : BaseRepository, IRoleRepository
     {

@@ -21,7 +21,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\webTemplate.Web\webTemplate.Web.csproj" />
+    <ProjectReference Include="..\webTemplate.Web\EDUEX.Web.csproj" />
   </ItemGroup>
 
 </Project>

@@ -1,8 +1,8 @@
 using MyTested.AspNetCore.Mvc;
 using NUnit.Framework;
-using webTemplate.Web.Api;
+using EDUEX.Web.Api;
 
-namespace webTemplate.Web.Tests
+namespace EDUEX.Web.Tests
 {
 
     [TestFixture]

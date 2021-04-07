@@ -1,8 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using System;
-using webTemplate.Domain;
+using EDUEX.Domain;
 
-namespace webTemplate.Data
+namespace EDUEX.Data
 {
     public interface IWebTemplateDbContext : IDisposable
     {

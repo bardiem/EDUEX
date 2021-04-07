@@ -1,10 +1,10 @@
 ﻿using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using MyTested.AspNetCore.Mvc;
-using webTemplate.Data;
-using webTemplate.Web.Tests.InMemory;
+using EDUEX.Data;
+using EDUEX.Web.Tests.InMemory;
 
-namespace webTemplate.Web.Tests
+namespace EDUEX.Web.Tests
 {
     public class TestStartup : Startup
     {

@@ -1,4 +1,4 @@
-﻿namespace webTemplate.Web.Services
+﻿namespace EDUEX.Web.Services
 {
     public interface IIdentityService
     {

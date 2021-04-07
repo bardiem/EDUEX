@@ -3,10 +3,10 @@ using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
-using webTemplate.BL;
-using webTemplate.Web.Dto;
+using EDUEX.BL;
+using EDUEX.Web.Dto;
 
-namespace webTemplate.Web.Api
+namespace EDUEX.Web.Api
 {
     [Route("/api/role")]
     public class RoleController : BaseController

@@ -9,11 +9,11 @@ using System.Linq;
 using System.Security.Claims;
 using System.Security.Principal;
 using System.Text;
-using webTemplate.BL;
-using webTemplate.Web.Dto;
-using webTemplate.Web.Helpers;
+using EDUEX.BL;
+using EDUEX.Web.Dto;
+using EDUEX.Web.Helpers;
 
-namespace webTemplate.Web.Services
+namespace EDUEX.Web.Services
 {
     public class IdentityService : IIdentityService
     {

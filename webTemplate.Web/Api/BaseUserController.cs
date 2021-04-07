@@ -5,10 +5,10 @@ using System.Linq;
 using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
-using webTemplate.BL;
-using webTemplate.Domain;
+using EDUEX.BL;
+using EDUEX.Domain;
 
-namespace webTemplate.Web.Api
+namespace EDUEX.Web.Api
 {
     public class BaseUserController : Controller
     {

@@ -3,19 +3,19 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29209.152
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "webTemplate.Domain", "webTemplate.Domain\webTemplate.Domain.csproj", "{ACE0E288-8395-4A5E-AE74-08B875C2193D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EDUEX.Domain", "webTemplate.Domain\EDUEX.Domain.csproj", "{ACE0E288-8395-4A5E-AE74-08B875C2193D}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "webTemplate.Data", "webTemplate.Data\webTemplate.Data.csproj", "{C61001BC-81D7-4F57-9AEC-D108FDC30927}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EDUEX.Data", "webTemplate.Data\EDUEX.Data.csproj", "{C61001BC-81D7-4F57-9AEC-D108FDC30927}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "webTemplate.DAL", "webTemplate.DAL\webTemplate.DAL.csproj", "{A48245CC-A466-404E-B1F7-FEAD16F8E47D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EDUEX.DAL", "webTemplate.DAL\EDUEX.DAL.csproj", "{A48245CC-A466-404E-B1F7-FEAD16F8E47D}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "webTemplate.BL", "webTemplate.BL\webTemplate.BL.csproj", "{4DAD57CC-5A77-4BCE-8968-C1A8C23E1DAF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EDUEX.BL", "webTemplate.BL\EDUEX.BL.csproj", "{4DAD57CC-5A77-4BCE-8968-C1A8C23E1DAF}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "webTemplate.SL", "webTemplate.SL\webTemplate.SL.csproj", "{BC832153-D7F0-40E8-81CC-19460200843D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EDUEX.SL", "webTemplate.SL\EDUEX.SL.csproj", "{BC832153-D7F0-40E8-81CC-19460200843D}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "webTemplate.Web", "webTemplate.Web\webTemplate.Web.csproj", "{0F5FC070-4859-4F3F-9A00-5EAEE4526AB7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EDUEX.Web", "webTemplate.Web\EDUEX.Web.csproj", "{0F5FC070-4859-4F3F-9A00-5EAEE4526AB7}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "webTemplate.ConsoleApp", "webTemplate.ConsoleApp\webTemplate.ConsoleApp.csproj", "{4E0847ED-B3B9-4F92-B6BD-38D34743BC0D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EDUEX.ConsoleApp", "webTemplate.ConsoleApp\EDUEX.ConsoleApp.csproj", "{4E0847ED-B3B9-4F92-B6BD-38D34743BC0D}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tools", "Tools", "{5517A2D3-47C5-4FCC-8508-52ADF6140491}"
 EndProject
@@ -24,7 +24,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		readme.md = readme.md
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "webTemplate.Web.Tests", "webTemplate.Web.Tests\webTemplate.Web.Tests.csproj", "{BFA93748-A7E6-4EB1-AA08-6C2AA897F4F2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EDUEX.Web.Tests", "webTemplate.Web.Tests\EDUEX.Web.Tests.csproj", "{BFA93748-A7E6-4EB1-AA08-6C2AA897F4F2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

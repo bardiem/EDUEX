@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace webTemplate.Web.Api
+namespace EDUEX.Web.Api
 {
     [Route("api/value")]
     public class ValueController : Controller

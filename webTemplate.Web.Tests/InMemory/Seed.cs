@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace webTemplate.Web.Tests.InMemory
+namespace EDUEX.Web.Tests.InMemory
 {
     public abstract class Seed<T> where T : class
     {

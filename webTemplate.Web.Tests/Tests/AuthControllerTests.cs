@@ -1,12 +1,12 @@
 using MyTested.AspNetCore.Mvc;
 using NUnit.Framework;
 using System.Collections.Generic;
-using webTemplate.Data;
-using webTemplate.Domain;
-using webTemplate.Web.Api;
-using webTemplate.Web.Dto;
+using EDUEX.Data;
+using EDUEX.Domain;
+using EDUEX.Web.Api;
+using EDUEX.Web.Dto;
 
-namespace webTemplate.Web.Tests
+namespace EDUEX.Web.Tests
 {
 
     [TestFixture]

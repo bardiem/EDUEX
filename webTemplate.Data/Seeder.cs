@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using webTemplate.Domain;
+using EDUEX.Domain;
 
-namespace webTemplate.Data
+namespace EDUEX.Data
 {
     public class Seeder
     {

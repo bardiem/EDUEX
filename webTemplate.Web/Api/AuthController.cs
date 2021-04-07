@@ -1,10 +1,10 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System.Net;
-using webTemplate.Web.Dto;
-using webTemplate.Web.Errors;
-using webTemplate.Web.Services;
+using EDUEX.Web.Dto;
+using EDUEX.Web.Errors;
+using EDUEX.Web.Services;
 
-namespace webTemplate.Web.Api
+namespace EDUEX.Web.Api
 {
     [Route("api/auth")]
     public class AuthController : BaseController

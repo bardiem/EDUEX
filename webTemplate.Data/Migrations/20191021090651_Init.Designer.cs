@@ -4,9 +4,9 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using webTemplate.Data;
+using EDUEX.Data;
 
-namespace webTemplate.Data.Migrations
+namespace EDUEX.Data.Migrations
 {
     [DbContext(typeof(WebTemplateDbContext))]
     [Migration("20191021090651_Init")]

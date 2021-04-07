@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace webTemplate.Web.Dto
+namespace EDUEX.Web.Dto
 {
     public class UserDto
     {

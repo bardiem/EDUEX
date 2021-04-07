@@ -5,7 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\webTemplate.Data\webTemplate.Data.csproj" />
+    <ProjectReference Include="..\webTemplate.Data\EDUEX.Data.csproj" />
   </ItemGroup>
 
 </Project>

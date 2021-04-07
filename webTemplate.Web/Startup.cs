@@ -13,14 +13,14 @@ using System;
 using System.Linq;
 using System.Reflection;
 using System.Text;
-using webTemplate.BL;
-using webTemplate.DAL;
-using webTemplate.Data;
-using webTemplate.Web.Helpers;
-using webTemplate.Web.Middlewares;
-using webTemplate.Web.Services;
+using EDUEX.BL;
+using EDUEX.DAL;
+using EDUEX.Data;
+using EDUEX.Web.Helpers;
+using EDUEX.Web.Middlewares;
+using EDUEX.Web.Services;
 
-namespace webTemplate.Web
+namespace EDUEX.Web
 {
     public class Startup
     {

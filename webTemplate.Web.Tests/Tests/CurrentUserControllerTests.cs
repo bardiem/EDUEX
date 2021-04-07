@@ -1,10 +1,10 @@
 using MyTested.AspNetCore.Mvc;
 using NUnit.Framework;
 using System.Security.Claims;
-using webTemplate.Web.Api;
-using webTemplate.Web.Dto;
+using EDUEX.Web.Api;
+using EDUEX.Web.Dto;
 
-namespace webTemplate.Web.Tests
+namespace EDUEX.Web.Tests
 {
 
     [TestFixture]

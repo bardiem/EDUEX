@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace webTemplate.Web.Errors
+namespace EDUEX.Web.Errors
 {
     public class BadRequestMessage
     {

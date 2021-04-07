@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace webTemplate.Data.Migrations
+namespace EDUEX.Data.Migrations
 {
     public partial class Init : Migration
     {

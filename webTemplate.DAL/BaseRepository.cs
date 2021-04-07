@@ -1,7 +1,7 @@
 ﻿using System;
-using webTemplate.Data;
+using EDUEX.Data;
 
-namespace webTemplate.DAL
+namespace EDUEX.DAL
 {
     public class BaseRepository
     {

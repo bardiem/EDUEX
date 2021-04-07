@@ -19,10 +19,10 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\webTemplate.BL\webTemplate.BL.csproj" />
-    <ProjectReference Include="..\webTemplate.DAL\webTemplate.DAL.csproj" />
-    <ProjectReference Include="..\webTemplate.Data\webTemplate.Data.csproj" />
-    <ProjectReference Include="..\webTemplate.Domain\webTemplate.Domain.csproj" />
+    <ProjectReference Include="..\webTemplate.BL\EDUEX.BL.csproj" />
+    <ProjectReference Include="..\webTemplate.DAL\EDUEX.DAL.csproj" />
+    <ProjectReference Include="..\webTemplate.Data\EDUEX.Data.csproj" />
+    <ProjectReference Include="..\webTemplate.Domain\EDUEX.Domain.csproj" />
   </ItemGroup>
 
   <ItemGroup>

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace webTemplate.DAL
+namespace EDUEX.DAL
 {
     public interface IBaseRepository
     {

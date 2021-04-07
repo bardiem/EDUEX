@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Builder;
 
-namespace webTemplate.Web.Middlewares
+namespace EDUEX.Web.Middlewares
 {
     public static class RequestLogExtensions
     {

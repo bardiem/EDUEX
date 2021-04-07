@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace webTemplate.Web.Dto
+namespace EDUEX.Web.Dto
 {
     public class TokenDto
     {

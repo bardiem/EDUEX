@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
-namespace webTemplate.Domain
+namespace EDUEX.Domain
 {
     public class User
     {

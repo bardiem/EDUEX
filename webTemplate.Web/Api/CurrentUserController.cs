@@ -7,10 +7,10 @@ using System.Linq;
 using System.Net;
 using System.Text;
 using System.Threading.Tasks;
-using webTemplate.BL;
-using webTemplate.Web.Dto;
+using EDUEX.BL;
+using EDUEX.Web.Dto;
 
-namespace webTemplate.Web.Api
+namespace EDUEX.Web.Api
 {
     [Route("api/current-user")]
     public class CurrentUserController : BaseUserController
