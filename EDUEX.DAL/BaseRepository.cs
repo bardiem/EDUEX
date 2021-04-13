@@ -6,20 +6,20 @@ namespace EDUEX.DAL
     public class BaseRepository
     {
 
-        private readonly Lazy<IWebTemplateDbContext> lazyContext;
+        private readonly Lazy<IEduExDbContext> lazyContext;
 
-        private IWebTemplateDbContext context => lazyContext.Value;
+        private IEduExDbContext context => lazyContext.Value;
 
 
-        protected readonly Func<IWebTemplateDbContext> getDbContext;
+        protected readonly Func<IEduExDbContext> getDbContext;
 
-        public BaseRepository(Func<IWebTemplateDbContext> getDbContext)
+        public BaseRepository(Func<IEduExDbContext> getDbContext)
         {
             this.getDbContext = getDbContext;
-            lazyContext = new Lazy<IWebTemplateDbContext>(() => getDbContext());
+            lazyContext = new Lazy<IEduExDbContext>(() => getDbContext());
         }
 
-        protected T Execute<T>(Func<IWebTemplateDbContext, T> functor)
+        protected T Execute<T>(Func<IEduExDbContext, T> functor)
         {
             using (var dbContext = getDbContext())
             {
@@ -27,7 +27,7 @@ namespace EDUEX.DAL
             }
         }
 
-        protected T Query<T>(Func<IWebTemplateDbContext, T> functor)
+        protected T Query<T>(Func<IEduExDbContext, T> functor)
         {
             return functor(context);
         }

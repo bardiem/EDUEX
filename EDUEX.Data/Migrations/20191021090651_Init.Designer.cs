@@ -8,7 +8,7 @@ using EDUEX.Data;
 
 namespace EDUEX.Data.Migrations
 {
-    [DbContext(typeof(WebTemplateDbContext))]
+    [DbContext(typeof(EduExDbContext))]
     [Migration("20191021090651_Init")]
     partial class Init
     {

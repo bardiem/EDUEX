@@ -9,7 +9,7 @@ using EDUEX.Domain;
 
 namespace EDUEX.Web.Tests.InMemory
 {
-    public class MockWebTemplateDbContext : DbContext, IWebTemplateDbContext
+    public class MockWebTemplateDbContext : DbContext, IEduExDbContext
     {
         public DbSet<User> Users { get; set; }
 

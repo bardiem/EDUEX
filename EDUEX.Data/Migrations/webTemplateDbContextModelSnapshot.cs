@@ -7,7 +7,7 @@ using EDUEX.Data;
 
 namespace EDUEX.Data.Migrations
 {
-    [DbContext(typeof(WebTemplateDbContext))]
+    [DbContext(typeof(EduExDbContext))]
     partial class EDUEXDbContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)

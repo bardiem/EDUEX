@@ -71,10 +71,10 @@ namespace EDUEX.Web
             });
 
             var configurationSection = Configuration.GetSection("ConnectionStrings:DefaultConnection");
-            services.AddDbContext<WebTemplateDbContext>(options => options.UseSqlServer(configurationSection.Value));
-            services.AddScoped<IWebTemplateDbContext, WebTemplateDbContext>();
+            services.AddDbContext<EduExDbContext>(options => options.UseSqlServer(configurationSection.Value));
+            services.AddScoped<IEduExDbContext, EduExDbContext>();
             services.AddScoped(provider =>
-                    new Func<IWebTemplateDbContext>(() => provider.GetService<IWebTemplateDbContext>())
+                    new Func<IEduExDbContext>(() => provider.GetService<IEduExDbContext>())
                 );
             services.AddScoped<IIdentityService, IdentityService>();
 

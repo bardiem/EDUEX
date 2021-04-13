@@ -8,7 +8,7 @@ namespace EDUEX.DAL
 {
     public class RoleRepository : BaseRepository, IRoleRepository
     {
-        public RoleRepository(Func<IWebTemplateDbContext> getDbContext) : base(getDbContext)
+        public RoleRepository(Func<IEduExDbContext> getDbContext) : base(getDbContext)
         {
 
         }

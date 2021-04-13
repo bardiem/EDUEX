@@ -16,7 +16,7 @@ namespace EDUEX.Web.Tests
         {
             base.ConfigureServices(services);
 
-            services.ReplaceScoped<IWebTemplateDbContext, MockWebTemplateDbContext>();
+            services.ReplaceScoped<IEduExDbContext, MockWebTemplateDbContext>();
             // Replace only your own custom services. The ASP.NET Core ones 
             // are already replaced by MyTested.AspNetCore.Mvc. 
             //services.ReplaceScoped<IRoleBL, MockRoleBL>();

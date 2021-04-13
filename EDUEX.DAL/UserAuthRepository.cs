@@ -9,7 +9,7 @@ namespace EDUEX.DAL
 {
     public class UserAuthRepository : BaseRepository, IUserAuthRepository
     {
-        public UserAuthRepository(Func<IWebTemplateDbContext> getDbContext) : base(getDbContext)
+        public UserAuthRepository(Func<IEduExDbContext> getDbContext) : base(getDbContext)
         {
         }
 

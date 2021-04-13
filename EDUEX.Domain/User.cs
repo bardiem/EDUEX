@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace EDUEX.Domain
@@ -16,6 +17,8 @@ namespace EDUEX.Domain
 
         [MaxLength(150)]
         public string Password { get; set; }
+
+        public DateTime BirthDate { get; set; }
 
         public ICollection<UserRole> UserRoles { get; set; }
 
