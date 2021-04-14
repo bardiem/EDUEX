@@ -5,7 +5,7 @@ using System.Text;
 
 namespace EDUEX.Domain
 {
-    public class Students
+    public class Student
     {
         [Key]
         public int Id { get; set; }

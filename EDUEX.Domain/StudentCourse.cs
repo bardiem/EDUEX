@@ -5,13 +5,13 @@ using System.Text;
 
 namespace EDUEX.Domain
 {
-    public class StudentsOfCourses
+    public class StudentCourse
     {
         [Key]
         public int Id { get; set; }
-        public Students Student { get; set; }
+        public Student Student { get; set; }
         public int StudentId { get; set; }
-        public Courses Course { get; set; }
+        public Course Course { get; set; }
         public int CourseId { get; set; }
 
     }

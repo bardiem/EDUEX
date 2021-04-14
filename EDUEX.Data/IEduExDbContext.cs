@@ -12,25 +12,25 @@ namespace EDUEX.Data
 
         DbSet<UserRole> UserRoles { get; set; }
 
-        public DbSet<Teachers> Teachers { get; set; }
+        public DbSet<Teacher> Teachers { get; set; }
 
-        public DbSet<Courses> Courses { get; set; }
+        public DbSet<Course> Courses { get; set; }
 
-        public DbSet<Lections> Lections { get; set; }
+        public DbSet<Lection> Lections { get; set; }
 
-        public DbSet<Students> Students { get; set; }
+        public DbSet<Student> Students { get; set; }
 
-        public DbSet<Attachments> Attachments { get; set; }
+        public DbSet<Attachment> Attachments { get; set; }
 
-        public DbSet<CourseRoles> CourseRoles { get; set; }
+        public DbSet<CourseRole> CourseRoles { get; set; }
 
-        public DbSet<Modules> Modules { get; set; }
+        public DbSet<Module> Modules { get; set; }
 
-        public DbSet<StudentsOfCourses> StudentsOfCourses { get; set; }
+        public DbSet<StudentCourse> StudentCourses { get; set; }
 
-        public DbSet<Tasks> Tasks { get; set; }
+        public DbSet<Task> Tasks { get; set; }
 
-        public DbSet<TeachersOfCourses> TeachersOfCourses { get; set; }
+        public DbSet<TeacherCourse> TeacherCourses { get; set; }
 
         int SaveChanges();
     }

@@ -2,7 +2,7 @@
 
 namespace EDUEX.Domain
 {
-    public class Teachers
+    public class Teacher
     {
         [Key]
         public int Id { get; set; }
