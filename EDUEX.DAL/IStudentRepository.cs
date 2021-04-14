@@ -7,13 +7,13 @@ namespace EDUEX.DAL
 {
     public interface IStudentRepository : IBaseRepository
     {
-        IList<Student> GetAll();
+        IList<StudentInfo> GetAll();
 
-        Student GetById(int id);
+        StudentInfo GetById(int id);
 
-        Student Create(Student student);
+        StudentInfo Create(StudentInfo student);
 
-        Student Update(Student student);
+        StudentInfo Update(StudentInfo student);
 
         void Delete(int studentId);
     }

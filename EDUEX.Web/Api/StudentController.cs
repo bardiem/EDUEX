@@ -44,7 +44,7 @@ namespace EDUEX.Web.Api
         [HttpPost]
         public IActionResult Post([FromBody]StudentDto student)
         {
-            var entry = mapper.Map<Student>(student);
+            var entry = mapper.Map<StudentInfo>(student);
             var newEntry = studentBL.Create(entry);
             var result = mapper.Map<StudentDto>(newEntry);
             return Ok(result);
@@ -53,7 +53,7 @@ namespace EDUEX.Web.Api
         [HttpPut]
         public IActionResult Put([FromBody] StudentDto student)
         {
-            var entry = mapper.Map<Student>(student);
+            var entry = mapper.Map<StudentInfo>(student);
             var newEntry = studentBL.Update(entry);
             var result = mapper.Map<StudentDto>(newEntry);
             return Ok(result);

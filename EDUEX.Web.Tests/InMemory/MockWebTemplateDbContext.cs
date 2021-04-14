@@ -1,11 +1,11 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using EDUEX.Data;
+using EDUEX.Domain;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using EDUEX.Data;
-using EDUEX.Domain;
 
 namespace EDUEX.Web.Tests.InMemory
 {
@@ -17,13 +17,13 @@ namespace EDUEX.Web.Tests.InMemory
 
         public DbSet<UserRole> UserRoles { get; set; }
 
-        public DbSet<Teacher> Teachers { get; set; }
+        public DbSet<TeacherInfo> TeacherInfos { get; set; }
 
         public DbSet<Course> Courses { get; set; }
 
         public DbSet<Lection> Lections { get; set; }
 
-        public DbSet<Student> Students { get; set; }
+        public DbSet<StudentInfo> StudentInfos { get; set; }
 
         public DbSet<Attachment> Attachments { get; set; }
 

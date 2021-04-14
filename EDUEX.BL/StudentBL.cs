@@ -11,19 +11,14 @@ namespace EDUEX.BL
     public class StudentBL : IStudentBL
     {
         private readonly IStudentRepository studentRepository;
-        private readonly IUserRepository userRepository;
-
-        public StudentBL(IStudentRepository studentRepository, IUserRepository userRepository)
+        
+        public StudentBL(IStudentRepository studentRepository)
         {
             this.studentRepository = studentRepository;
-            this.userRepository = userRepository;
         }
 
-        public Student Create(Student student)
+        public StudentInfo Create(StudentInfo student)
         {
-            var user = userRepository.Create(student.User);
-            student.UserId = user.Id;
-            student.User = null;
             return studentRepository.Create(student);
         }
         
@@ -31,13 +26,13 @@ namespace EDUEX.BL
             => studentRepository.Delete(studentId);
        
 
-        public IList<Student> GetAll()
+        public IList<StudentInfo> GetAll()
             => studentRepository.GetAll();
 
-        public Student GetById(int id)
+        public StudentInfo GetById(int id)
             => studentRepository.GetById(id);
 
-        public Student Update(Student student)
+        public StudentInfo Update(StudentInfo student)
             => studentRepository.Update(student);
     }
 }

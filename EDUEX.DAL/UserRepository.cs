@@ -1,5 +1,6 @@
 ﻿using EDUEX.Data;
 using EDUEX.Domain;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,6 +24,9 @@ namespace EDUEX.DAL
             });
 
         public User GetById(int id)
-            => Query(context => context.Users.FirstOrDefault(p => p.Id == id));
+            => Query(context => context.Users
+                .Include(p => p.StudentInfo)
+                .Include(p => p.TeacherInfo)
+                .FirstOrDefault(p => p.Id == id));
     }
 }

@@ -12,13 +12,13 @@ namespace EDUEX.Data
 
         DbSet<UserRole> UserRoles { get; set; }
 
-        public DbSet<Teacher> Teachers { get; set; }
+        public DbSet<TeacherInfo> TeacherInfos { get; set; }
 
         public DbSet<Course> Courses { get; set; }
 
         public DbSet<Lection> Lections { get; set; }
 
-        public DbSet<Student> Students { get; set; }
+        public DbSet<StudentInfo> StudentInfos { get; set; }
 
         public DbSet<Attachment> Attachments { get; set; }
 

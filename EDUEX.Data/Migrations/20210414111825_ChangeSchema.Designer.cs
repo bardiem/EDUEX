@@ -4,14 +4,16 @@ using EDUEX.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace EDUEX.Data.Migrations
 {
     [DbContext(typeof(EduExDbContext))]
-    partial class EduExDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210414111825_ChangeSchema")]
+    partial class ChangeSchema
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -193,9 +195,15 @@ namespace EDUEX.Data.Migrations
                     b.Property<string>("Education")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
 
-                    b.ToTable("StudentInfos");
+                    b.HasIndex("UserId")
+                        .IsUnique();
+
+                    b.ToTable("Students");
                 });
 
             modelBuilder.Entity("EDUEX.Domain.Task", b =>
@@ -265,7 +273,7 @@ namespace EDUEX.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("TeacherInfos");
+                    b.ToTable("Teachers");
                 });
 
             modelBuilder.Entity("EDUEX.Domain.User", b =>
@@ -290,15 +298,10 @@ namespace EDUEX.Data.Migrations
                         .HasColumnType("nvarchar(150)")
                         .HasMaxLength(150);
 
-                    b.Property<int?>("StudentInfoId")
-                        .HasColumnType("int");
-
                     b.Property<int?>("TeacherInfoId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("StudentInfoId");
 
                     b.HasIndex("TeacherInfoId");
 
@@ -390,6 +393,15 @@ namespace EDUEX.Data.Migrations
                         .IsRequired();
                 });
 
+            modelBuilder.Entity("EDUEX.Domain.StudentInfo", b =>
+                {
+                    b.HasOne("EDUEX.Domain.User", "User")
+                        .WithOne("StudentInfo")
+                        .HasForeignKey("EDUEX.Domain.StudentInfo", "UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
             modelBuilder.Entity("EDUEX.Domain.Task", b =>
                 {
                     b.HasOne("EDUEX.Domain.Lection", "Lection")
@@ -422,10 +434,6 @@ namespace EDUEX.Data.Migrations
 
             modelBuilder.Entity("EDUEX.Domain.User", b =>
                 {
-                    b.HasOne("EDUEX.Domain.StudentInfo", "StudentInfo")
-                        .WithMany()
-                        .HasForeignKey("StudentInfoId");
-
                     b.HasOne("EDUEX.Domain.TeacherInfo", "TeacherInfo")
                         .WithMany()
                         .HasForeignKey("TeacherInfoId");

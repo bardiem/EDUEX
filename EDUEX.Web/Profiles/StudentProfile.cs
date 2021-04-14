@@ -13,8 +13,8 @@ namespace EDUEX.Web.Profiles
     {
         public StudentProfile()
         {
-            CreateMap<Student, StudentDto>();
-            CreateMap<StudentDto, Student>();
+            CreateMap<StudentInfo, StudentDto>();
+            CreateMap<StudentDto, StudentInfo>();
         }
     }
 }

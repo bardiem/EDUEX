@@ -14,10 +14,10 @@ namespace EDUEX.DAL
         {
         }
 
-        public Student Create(Student student)
+        public StudentInfo Create(StudentInfo student)
             => Execute(context =>
             {
-                context.Students.Add(student);
+                context.StudentInfos.Add(student);
                 context.SaveChanges();
                 return student;
             });
@@ -25,26 +25,26 @@ namespace EDUEX.DAL
         public void Delete(int studentId)
             => Execute(context =>
             {
-                var entry = context.Students.Find(studentId);
+                var entry = context.StudentInfos.Find(studentId);
                 if (entry != null)
                 {
-                    context.Students.Remove(entry);
+                    context.StudentInfos.Remove(entry);
                     context.SaveChanges();
                 }
             });
 
-        public IList<Student> GetAll()
-            => Execute(context => context.Students.ToList());
+        public IList<StudentInfo> GetAll()
+            => Execute(context => context.StudentInfos.ToList());
 
 
-        public Student GetById(int id)
-             => Execute(context => context.Students.Find(id));
+        public StudentInfo GetById(int id)
+             => Execute(context => context.StudentInfos.Find(id));
 
         
-        public Student Update(Student student)
+        public StudentInfo Update(StudentInfo student)
              => Execute(context =>
              {
-                 context.Students.Update(student);
+                 context.StudentInfos.Update(student);
                  context.SaveChanges();
                  return student;
              });

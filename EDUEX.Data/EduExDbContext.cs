@@ -1,7 +1,7 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using EDUEX.Domain;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using NLog.Extensions.Logging;
-using EDUEX.Domain;
 
 namespace EDUEX.Data
 {
@@ -27,13 +27,13 @@ namespace EDUEX.Data
 
         public DbSet<UserRole> UserRoles { get; set; }
 
-        public DbSet<Teacher> Teachers { get; set; }
+        public DbSet<TeacherInfo> TeacherInfos { get; set; }
 
         public DbSet<Course> Courses { get; set; }
 
         public DbSet<Lection> Lections { get; set; }
 
-        public DbSet<Student> Students { get; set; }
+        public DbSet<StudentInfo> StudentInfos { get; set; }
 
         public DbSet<Attachment> Attachments { get; set; }
 

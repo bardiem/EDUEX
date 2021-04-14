@@ -5,14 +5,10 @@ using System.Text;
 
 namespace EDUEX.Domain
 {
-    public class Student
+    public class StudentInfo
     {
         [Key]
         public int Id { get; set; }
-
-        public int UserId { get; set; }
-
-        public User User { get; set; }
 
         public string Education { get; set; }
         

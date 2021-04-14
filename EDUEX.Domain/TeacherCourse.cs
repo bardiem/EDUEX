@@ -11,8 +11,8 @@ namespace EDUEX.Domain
         public int Id { get; set; }
         public Course Course { get; set; }
         public int CourseId { get; set; }
-        public Teacher Teacher { get; set; }
-        public int TeacherId { get; set; }
+        public User User { get; set; }
+        public int UserId { get; set; }
         public CourseRole TeacherRole { get; set; }
         public int TeacherRoleId { get; set; }
     }

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace EDUEX.Domain
 {
@@ -21,6 +22,23 @@ namespace EDUEX.Domain
         public DateTime BirthDate { get; set; }
 
         public ICollection<UserRole> UserRoles { get; set; }
+
+        public StudentInfo StudentInfo { get; set; }
+
+        public int? StudentInfoId { get; set; }
+
+        public TeacherInfo TeacherInfo { get; set; }
+
+        public int? TeacherInfoId { get; set; }
+
+        [NotMapped]
+        public bool IsStudent
+        {
+            get
+            {
+                return StudentInfo != null;
+            }
+        }
 
         public override string ToString()
         {
