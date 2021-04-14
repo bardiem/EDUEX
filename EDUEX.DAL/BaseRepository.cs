@@ -1,5 +1,5 @@
-﻿using System;
-using EDUEX.Data;
+﻿using EDUEX.Data;
+using System;
 
 namespace EDUEX.DAL
 {
@@ -26,6 +26,15 @@ namespace EDUEX.DAL
                 return functor(dbContext);
             }
         }
+
+        protected void Execute(Action<IEduExDbContext> functor)
+        {
+            using (var dbContext = getDbContext())
+            {
+                functor(dbContext);
+            }
+        }
+
 
         protected T Query<T>(Func<IEduExDbContext, T> functor)
         {

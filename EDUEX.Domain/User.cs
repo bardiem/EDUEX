@@ -22,7 +22,6 @@ namespace EDUEX.Domain
 
         public ICollection<UserRole> UserRoles { get; set; }
 
-
         public override string ToString()
         {
             return $"{Id} {Name} {Email}";

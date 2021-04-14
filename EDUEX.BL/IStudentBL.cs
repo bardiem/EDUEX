@@ -1,11 +1,13 @@
 ﻿using EDUEX.Domain;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 
-namespace EDUEX.DAL
+namespace EDUEX.BL
 {
-    public interface IStudentRepository : IBaseRepository
+    public interface IStudentBL : IBaseBL
     {
         IList<Student> GetAll();
 
@@ -16,5 +18,6 @@ namespace EDUEX.DAL
         Student Update(Student student);
 
         void Delete(int studentId);
+
     }
 }
