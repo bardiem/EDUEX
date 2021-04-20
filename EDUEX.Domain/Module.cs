@@ -12,6 +12,6 @@ namespace EDUEX.Domain
         public string Name { get; set; }
         public string Topic { get; set; }
         public string Description { get; set; }
-        public ICollection<Lection> Lections { get; set; }
+        public virtual ICollection<Lection> Lections { get; set; }
     }
 }

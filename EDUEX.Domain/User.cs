@@ -23,10 +23,12 @@ namespace EDUEX.Domain
 
         public ICollection<UserRole> UserRoles { get; set; }
 
-        public StudentInfo StudentInfo { get; set; }
+        [ForeignKey("StudentInfoId")]
+        public virtual StudentInfo StudentInfo { get; set; }
 
         public int? StudentInfoId { get; set; }
 
+        [ForeignKey("TeacherInfoId")]
         public TeacherInfo TeacherInfo { get; set; }
 
         public int? TeacherInfoId { get; set; }
@@ -37,6 +39,15 @@ namespace EDUEX.Domain
             get
             {
                 return StudentInfo != null;
+            }
+        }
+
+        [NotMapped]
+        public bool IsTeacher
+        {
+            get
+            {
+                return TeacherInfo != null;
             }
         }
 

@@ -6,11 +6,11 @@ namespace EDUEX.Data
 {
     public interface IEduExDbContext : IDisposable
     {
-        DbSet<User> Users { get; set; }
+        public DbSet<User> Users { get; set; }
 
-        DbSet<Role> Roles { get; set; }
+        public DbSet<Role> Roles { get; set; }
 
-        DbSet<UserRole> UserRoles { get; set; }
+        public DbSet<UserRole> UserRoles { get; set; }
 
         public DbSet<TeacherInfo> TeacherInfos { get; set; }
 

@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace EDUEX.Domain
 {
@@ -12,5 +13,6 @@ namespace EDUEX.Domain
         public string Description { get; set; }
         public Module Module { get; set; }
         public int ModuleId { get; set; }
+        public virtual ICollection<Attachment> Attachments { get; set; }
     }
 }
