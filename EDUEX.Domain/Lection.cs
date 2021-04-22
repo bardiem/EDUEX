@@ -8,11 +8,13 @@ namespace EDUEX.Domain
         [Key]
         public int Id { get; set; }
         [MaxLength(200)]
-        public string Subject { get; set; }
+        public string Topic { get; set; }
         [MaxLength(500)]
         public string Description { get; set; }
-        public Module Module { get; set; }
-        public int ModuleId { get; set; }
-        public virtual ICollection<Attachment> Attachments { get; set; }
+        public string VideoPath { get; set; }
+        public string Text { get; set; }
+        public virtual ICollection<LectionAttachments> LectionAttachments { get; set; }
+        public virtual ICollection<ModuleLections> ModuleLections { get; set; }
+        public virtual ICollection<LectionComments> LectionComments { get; set; }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace EDUEX.Domain
 {
@@ -12,6 +13,9 @@ namespace EDUEX.Domain
 
         [MaxLength(150)]
         public string Name { get; set; }
+        public string PermissionDescription { get; set; }
+        public virtual ICollection<UserCourses> UserCourses { get; set; }
+        public virtual ICollection<User> Users { get; set; }
 
         public override string ToString()
         {

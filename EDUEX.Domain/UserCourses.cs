@@ -5,7 +5,7 @@ using System.Text;
 
 namespace EDUEX.Domain
 {
-    public class StudentCourse
+    public class UserCourses
     {
         [Key]
         public int Id { get; set; }
@@ -13,6 +13,10 @@ namespace EDUEX.Domain
         public int UserId { get; set; }
         public Course Course { get; set; }
         public int CourseId { get; set; }
-
+        public Role Role { get; set; }
+        public int RoleId { get; set; }
+        public DateTime StartPartticipationDate { get; set; }
+        public DateTime EndPartticipationDate { get; set; }
+        public bool IsActive { get; set; }
     }
 }

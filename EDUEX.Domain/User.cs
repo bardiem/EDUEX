@@ -21,39 +21,18 @@ namespace EDUEX.Domain
 
         public DateTime BirthDate { get; set; }
 
-        public ICollection<UserRole> UserRoles { get; set; }
+        public virtual ICollection<UserRole> UserRoles { get; set; }
 
-        [ForeignKey("StudentInfoId")]
-        public virtual StudentInfo StudentInfo { get; set; }
+        public string Position { get; set; }
 
-        public int? StudentInfoId { get; set; }
-
-        [ForeignKey("TeacherInfoId")]
-        public TeacherInfo TeacherInfo { get; set; }
-
-        public int? TeacherInfoId { get; set; }
-
-        [NotMapped]
-        public bool IsStudent
-        {
-            get
-            {
-                return StudentInfo != null;
-            }
-        }
-
-        [NotMapped]
-        public bool IsTeacher
-        {
-            get
-            {
-                return TeacherInfo != null;
-            }
-        }
+        public virtual ICollection<Education> Educations { get; set; }
+        public virtual ICollection<Comment> Comments { get; set; }
+        public virtual ICollection<Mark> Marks { get; set; }
+        public virtual ICollection<UserCourses> UserCourses { get; set; }
 
         public override string ToString()
         {
-            return $"{Id} {Name} {Email}";
+            return $"{Id} {Name} {Email} {BirthDate.ToShortDateString()} {Position}";
         }
     }
 }

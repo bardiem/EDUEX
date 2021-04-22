@@ -42,7 +42,7 @@ namespace EDUEX.Web
                 {
                     opt.SerializerSettings.DateFormatString = "yyyy-MM-dd'T'HH:mm:ss'Z'";
                     opt.SerializerSettings.NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore;
-                });
+                }).AddXmlSerializerFormatters();
 
             services.AddSwaggerGen(c =>
             {

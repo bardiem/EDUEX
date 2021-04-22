@@ -25,8 +25,6 @@ namespace EDUEX.DAL
 
         public User GetById(int id)
             => Query(context => context.Users
-                .Include(p => p.StudentInfo)
-                .Include(p => p.TeacherInfo)
                 .FirstOrDefault(p => p.Id == id));
     }
 }
