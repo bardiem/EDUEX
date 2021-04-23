@@ -24,17 +24,21 @@ namespace EDUEX.Data
             modelBuilder.Entity<User>().HasData(new User
             {
                 Id = 1,
-                Name = "Administrator",
+                FirstName = "Administrator",
+                LastName = "Adm",
                 Email = "admin@webtemplate.net",
-                Password = "123456"
+                Password = "123456",
+                Position = "Position1"
             });
 
             modelBuilder.Entity<User>().HasData(new User
             {
                 Id = 2,
-                Name = "Regular User",
+                FirstName = "Regular User",
+                LastName = "Adm",
                 Email = "user@webtemplate.net",
-                Password = "123456"
+                Password = "123456",
+                Position = "Position2"
             });
 
             modelBuilder.Entity<UserRole>().HasData(new UserRole

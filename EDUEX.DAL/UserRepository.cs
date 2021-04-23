@@ -1,4 +1,5 @@
-﻿using EDUEX.Data;
+﻿using AutoMapper;
+using EDUEX.Data;
 using EDUEX.Domain;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -15,6 +16,7 @@ namespace EDUEX.DAL
         {
         }
 
+
         public User Create(User user)
             => Execute(context =>
             {
@@ -23,8 +25,24 @@ namespace EDUEX.DAL
                 return user;
             });
 
+
+        public IList<User> GetAll()
+            => Query(context => context.Users.ToList());
+
+
         public User GetById(int id)
             => Query(context => context.Users
                 .FirstOrDefault(p => p.Id == id));
+
+        public bool IsUserExists(string email)
+            => Query(context => context.Users.Any(u => u.Email == email));
+
+        public User Update(User user)
+            => Execute(context =>
+            {
+                var result = context.Users.Update(user);
+                context.SaveChanges();
+                return result.Entity;
+            });
     }
 }

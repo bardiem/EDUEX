@@ -9,17 +9,17 @@ namespace EDUEX.Domain
         public int Id { get; set; }
 
         [MaxLength(10)]
+        [Required]
         public string Code { get; set; }
 
         [MaxLength(150)]
+        [Required]
         public string Name { get; set; }
+
+        [MaxLength(300)]
         public string PermissionDescription { get; set; }
-        public virtual ICollection<UserCourses> UserCourses { get; set; }
+
         public virtual ICollection<User> Users { get; set; }
 
-        public override string ToString()
-        {
-            return $"{Code}";
-        }
     }
 }

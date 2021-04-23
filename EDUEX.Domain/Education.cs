@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using EDUEX.Domain.Enums;
+using System;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace EDUEX.Domain
 {
@@ -11,13 +8,27 @@ namespace EDUEX.Domain
     {
         [Key]
         public int Id { get; set; }
-        public string Level { get; set; }
+
+        public EducationLevelEnum Level { get; set; }
+
+        [Required]
+        [MaxLength(300)]
         public string Institution { get; set; }
+
+        [Required]
+        [MaxLength(100)]
         public string Faculty { get; set; }
+
+        [Required]
+        [MaxLength(100)]
         public string Specialty { get; set; }
+
         public DateTime StartDate { get; set; }
+
         public DateTime EndDate { get; set; }
+
         public User User { get; set; }
+
         public int UserId { get; set; }
     }
 }

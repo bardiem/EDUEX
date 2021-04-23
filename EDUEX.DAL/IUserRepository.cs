@@ -1,9 +1,5 @@
 ﻿using EDUEX.Domain;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace EDUEX.DAL
 {
@@ -12,5 +8,11 @@ namespace EDUEX.DAL
         User GetById(int id);
 
         User Create(User user);
+
+        IList<User> GetAll();
+
+        User Update(User user);
+
+        bool IsUserExists(string email);
     }
 }

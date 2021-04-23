@@ -4,11 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace EDUEX.Web.Dto
+namespace EDUEX.Domain.Enums
 {
-    public class StudentDto
+    public enum CourseAccessTypeEnum
     {
-        public int Id { get; set; }
-        public string Education { get; set; }
+        Student = 'S',
+        Teacher = 'T',
+        Admin = 'A'
     }
 }
