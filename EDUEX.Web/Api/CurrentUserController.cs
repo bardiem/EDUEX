@@ -1,14 +1,9 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Net;
-using System.Text;
-using System.Threading.Tasks;
 using EDUEX.BL;
-using EDUEX.Web.Dto;
+using EDUEX.Web.Dto.UserDtos;
 
 namespace EDUEX.Web.Api
 {
@@ -24,11 +19,11 @@ namespace EDUEX.Web.Api
 
         [Authorize]
         [Produces("application/json")]
-        [ProducesResponseType(typeof(UserDto), (int)HttpStatusCode.OK)]
+        [ProducesResponseType(typeof(UserDtoWithEmail), (int)HttpStatusCode.OK)]
         public IActionResult Get()
         {
             var headers = this.Request.Headers;
-            var result = mapper.Map<UserDto>(CurrentUser);
+            var result = mapper.Map<UserDtoWithEmail>(CurrentUser);
             return Ok(result);
         }
     }

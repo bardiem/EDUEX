@@ -11,6 +11,10 @@
     <Compile Remove="Migrations\20210422084003_ChangeMarkCommentsToExplanation.Designer.cs" />
     <Compile Remove="Migrations\20210422084213_ChangedIntialDb.cs" />
     <Compile Remove="Migrations\20210422084213_ChangedIntialDb.Designer.cs" />
+    <Compile Remove="Migrations\20210423222311_ImprovedSchemeAndFields.cs" />
+    <Compile Remove="Migrations\20210423222311_ImprovedSchemeAndFields.Designer.cs" />
+    <Compile Remove="Migrations\20210423222523_ImprovedSchemeAndFields.cs" />
+    <Compile Remove="Migrations\20210423222523_ImprovedSchemeAndFields.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>

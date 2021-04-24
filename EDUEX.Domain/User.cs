@@ -18,12 +18,10 @@ namespace EDUEX.Domain
         public string LastName { get; set; }
 
         [Required]
-        //[EmailAddress]
         [MaxLength(150)]
         public string Email { get; set; }
 
         [Required]
-        //[RegularExpression(@"^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$")]
         [MaxLength(150)]
         public string Password { get; set; }
 
@@ -37,8 +35,11 @@ namespace EDUEX.Domain
         public string Position { get; set; }
 
         public virtual ICollection<Education> Educations { get; set; }
+
         public virtual ICollection<Comment> Comments { get; set; }
+
         public virtual ICollection<Mark> Marks { get; set; }
+
         public virtual ICollection<UserCourses> UserCourses { get; set; }
 
         public override string ToString()

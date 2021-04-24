@@ -10,8 +10,8 @@ using System.Security.Claims;
 using System.Security.Principal;
 using System.Text;
 using EDUEX.BL;
-using EDUEX.Web.Dto;
 using EDUEX.Web.Helpers;
+using EDUEX.Web.Dto.UserDtos;
 
 namespace EDUEX.Web.Services
 {
@@ -43,7 +43,7 @@ namespace EDUEX.Web.Services
             var tokenHandler = new JwtSecurityTokenHandler();
             var key = Encoding.ASCII.GetBytes(appSettings.Secret);
 
-            var objUser = JsonConvert.SerializeObject(mapper.Map<UserDto>(user));
+            var objUser = JsonConvert.SerializeObject(mapper.Map<UserDtoWithEmail>(user));
             var claims = new List<Claim>() {
                             new Claim(ClaimTypes.Sid, user.Id.ToString()),
                             new Claim(ClaimTypes.Name, user.Email),

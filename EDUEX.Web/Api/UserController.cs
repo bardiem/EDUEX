@@ -1,10 +1,9 @@
 ﻿using AutoMapper;
 using EDUEX.BL;
 using EDUEX.Domain;
-using EDUEX.Web.Dto;
+using EDUEX.Web.Dto.UserDtos;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
-
 
 namespace EDUEX.Web.Api
 {
@@ -13,8 +12,8 @@ namespace EDUEX.Web.Api
     public class UserController : ControllerBase
     {
         private readonly IUserBL _userBL;
-        private readonly IMapper _mapper;
 
+        private readonly IMapper _mapper;
 
         public UserController(IUserBL userBL, IMapper mapper)
         {
@@ -23,45 +22,41 @@ namespace EDUEX.Web.Api
         }
 
 
-        [HttpGet]
-        public IEnumerable<User> Get()
+        [HttpGet] 
+        public IEnumerable<UserDtoWithEmail> Get()
         {
-            return _userBL.GetAll();
+            var users = _userBL.GetAll();
+            var usersView = _mapper.Map<List<UserDtoWithEmail>>(users);
+            return usersView;
         }
 
 
         [HttpGet("{id}")]
-        public User Get(int id)
+        public UserDtoWithEmail Get(int id)
         {
-            return _userBL.GetById(id);
+            var user = _userBL.GetById(id);
+            var userView = _mapper.Map<UserDtoWithEmail>(user);
+            return userView;
         }
 
         [HttpPost]
-        public IActionResult Post([FromBody] UserDto userDto)
+        public IActionResult Post([FromBody] CreateUserDto userDto)
         {
-
-            if (!ModelState.IsValid || _userBL.IsUserExists(userDto.Email))
-                return BadRequest();
-
-            User user = new User();
-            _mapper.Map(userDto, user);
+            var user = _mapper.Map<User>(userDto);
 
             var result = _userBL.Create(user);
             return Ok(result);
         }
 
-        
+
         [HttpPut("{id}")]
         public IActionResult Put(int id, [FromBody] User user)
         {
-            if (!ModelState.IsValid)
-                return BadRequest();
-
             user.Id = id;
             _userBL.Update(user);
             return Ok();
         }
 
-       
+
     }
 }
