@@ -13,7 +13,7 @@ namespace EDUEX.Domain.ValidationAttributes
             if (!date.HasValue || null == date)
                 return false;
 
-            return now.Year > date.Value.Year && now.Month > date.Value.Month && now.Day > date.Value.Day;
+            return now > date;
         }
     }
 }

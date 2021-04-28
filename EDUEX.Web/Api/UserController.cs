@@ -12,7 +12,6 @@ namespace EDUEX.Web.Api
     public class UserController : ControllerBase
     {
         private readonly IUserBL _userBL;
-
         private readonly IMapper _mapper;
 
         public UserController(IUserBL userBL, IMapper mapper)
@@ -20,7 +19,6 @@ namespace EDUEX.Web.Api
             _userBL = userBL;
             _mapper = mapper;
         }
-
 
         [HttpGet] 
         public IEnumerable<UserDtoWithEmail> Get()

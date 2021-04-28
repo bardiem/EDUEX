@@ -21,7 +21,7 @@ namespace EDUEX.Web.Dto.UserDtos
         [MinLength(2)]
         public List<string> Roles { get; set; }
 
-        [BirthDateCorrect]
+        [DateIsLessThanToday(ErrorMessage = "Атрибут неправильний")]
         public DateTime BirthDate { get; set; }
 
         [MinLength(5)]
