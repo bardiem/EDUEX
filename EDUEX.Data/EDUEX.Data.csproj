@@ -1,0 +1,36 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Migrations\20210422082343_ChangedIntialDb.cs" />
+    <Compile Remove="Migrations\20210422082343_ChangedIntialDb.Designer.cs" />
+    <Compile Remove="Migrations\20210422084003_ChangeMarkCommentsToExplanation.cs" />
+    <Compile Remove="Migrations\20210422084003_ChangeMarkCommentsToExplanation.Designer.cs" />
+    <Compile Remove="Migrations\20210422084213_ChangedIntialDb.cs" />
+    <Compile Remove="Migrations\20210422084213_ChangedIntialDb.Designer.cs" />
+    <Compile Remove="Migrations\20210423222311_ImprovedSchemeAndFields.cs" />
+    <Compile Remove="Migrations\20210423222311_ImprovedSchemeAndFields.Designer.cs" />
+    <Compile Remove="Migrations\20210423222523_ImprovedSchemeAndFields.cs" />
+    <Compile Remove="Migrations\20210423222523_ImprovedSchemeAndFields.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.2" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.2" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.2">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Extensions.Logging.Console" Version="3.1.2" />
+    <PackageReference Include="NLog" Version="4.6.8" />
+    <PackageReference Include="NLog.Extensions.Logging" Version="1.6.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\EDUEX.Domain\EDUEX.Domain.csproj" />
+  </ItemGroup>
+
+</Project>
