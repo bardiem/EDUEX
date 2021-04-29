@@ -3,6 +3,7 @@ using NUnit.Framework;
 using System.Security.Claims;
 using EDUEX.Web.Api;
 using EDUEX.Web.Dto;
+using EDUEX.Web.Dto.UserDtos;
 
 namespace EDUEX.Web.Tests
 {
@@ -22,7 +23,7 @@ namespace EDUEX.Web.Tests
                 .Calling(p => p.Get())
                 .ShouldReturn()
                 .Ok(result => result
-                        .WithModelOfType<UserDto>()
+                        .WithModelOfType<UserDtoWithEmail>()
                         .Passing(p => p.Roles.Contains("admin")));
         }
 
@@ -53,7 +54,7 @@ namespace EDUEX.Web.Tests
                 .Calling(p => p.Get())
                 .ShouldReturn()
                 .Ok(result => result
-                        .WithModelOfType<UserDto>()
+                        .WithModelOfType<UserDtoWithEmail>()
                         .Passing(p => p.Roles.Contains("user")));
         }
 
