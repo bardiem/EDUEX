@@ -19,6 +19,8 @@ using EDUEX.Data;
 using EDUEX.Web.Helpers;
 using EDUEX.Web.Middlewares;
 using EDUEX.Web.Services;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
 
 namespace EDUEX.Web
 {
@@ -95,6 +97,7 @@ namespace EDUEX.Web
             app.UseRequestLog();
 
             app.UseRouting();
+            app.UseMiddleware<CheckAuthMiddleware>();
 
             app.UseSwagger();
             app.UseSwaggerUI(c =>
@@ -163,6 +166,21 @@ namespace EDUEX.Web
 
             IMapper mapper = mappingConfig.CreateMapper();
             services.AddSingleton(mapper);
+        }
+    }
+
+    internal class CheckAuthMiddleware
+    {
+        private readonly RequestDelegate _next;
+
+        public CheckAuthMiddleware(RequestDelegate next)
+        {
+            _next = next;
+        }
+
+        public async Task InvokeAsync(HttpContext context)
+        {
+            await _next.Invoke(context);
         }
     }
 }

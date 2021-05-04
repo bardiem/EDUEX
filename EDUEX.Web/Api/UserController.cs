@@ -2,12 +2,16 @@
 using EDUEX.BL;
 using EDUEX.Domain;
 using EDUEX.Web.Dto.UserDtos;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
+using OverrideAuthorization = System.Web.Http.OverrideAuthorizationAttribute;
+using OverrideAuthentication = System.Web.Http.OverrideAuthenticationAttribute;
 
 namespace EDUEX.Web.Api
 {
     [Route("api/user")]
+    //[Authorize(Roles = "user")]
     [ApiController]
     public class UserController : ControllerBase
     {
@@ -20,7 +24,7 @@ namespace EDUEX.Web.Api
             _mapper = mapper;
         }
 
-        [HttpGet] 
+        [HttpGet]
         public IEnumerable<UserDtoWithEmail> Get()
         {
             var users = _userBL.GetAll();
@@ -29,6 +33,9 @@ namespace EDUEX.Web.Api
         }
 
 
+        
+        [Authorize(Roles = "admin")]
+        [OverrideAuthorization]
         [HttpGet("{id}")]
         public UserDtoWithEmail Get(int id)
         {
@@ -37,6 +44,8 @@ namespace EDUEX.Web.Api
             return userView;
         }
 
+
+        [AllowAnonymous]
         [HttpPost]
         public IActionResult Post([FromBody] CreateUserDto userDto)
         {
