@@ -10,5 +10,10 @@ namespace EDUEX.DAL
     public interface IRoleRepository : IBaseRepository
     {
         IList<Role> GetList();
+
+        Role Create(Role role);
+        Role Update(Role role);
+
+        string Delete(int id);
     }
 }

@@ -21,5 +21,20 @@ namespace EDUEX.BL
         {
             return roleRepository.GetList();
         }
+
+        public Role Create(Role role)
+        {
+            return roleRepository.Create(role);
+        }
+
+        public Role Update(Role role)
+        {
+                return roleRepository.Update(role);
+        }
+
+        public string Delete(int role)
+        {
+            return roleRepository.Delete(role);
+        }
     }
 }
