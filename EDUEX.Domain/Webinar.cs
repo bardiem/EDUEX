@@ -6,7 +6,7 @@ using EDUEX.Domain.Enums;
 
 namespace EDUEX.Domain
 {
-    public class Course
+    public class Webinar
     {
         [Key]
         public int Id { get; set; }
@@ -16,11 +16,7 @@ namespace EDUEX.Domain
         public string Name { get; set; }
 
         [Required]
-        [MaxLength(200)]
-        public string ShortDescription { get; set; }
-
-        [Required]
-        [MaxLength(500)]
+        [MaxLength(300)]
         public string Description { get; set; }
 
         [Required]
@@ -38,8 +34,6 @@ namespace EDUEX.Domain
         [Column(TypeName = "decimal(6, 2)")]
         public decimal Price { get; set; }
 
-        public ICollection<Module> Modules { get; set; }
-
-        public ICollection<UserCourses> UserCourses { get; set; }
+        public ICollection<UserWebinars> UserCourses { get; set; }
     }
 }
