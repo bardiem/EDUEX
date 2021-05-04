@@ -31,9 +31,11 @@ namespace EDUEX.Domain
 
         public DateTime StartDate { get; set; }
 
+        public int DurationMins { get; set; }
+
         [Column(TypeName = "decimal(6, 2)")]
         public decimal Price { get; set; }
 
-        public ICollection<UserWebinars> UserCourses { get; set; }
+        public ICollection<UserWebinars> UserWebinars { get; set; }
     }
 }

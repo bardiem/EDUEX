@@ -12,13 +12,11 @@ namespace EDUEX.Data
 
         public DbSet<UserRole> UserRoles { get; set; }
 
-        public DbSet<Webinar> Courses { get; set; }
-
-        public DbSet<UserWebinars> StudentCourses { get; set; }
+        public DbSet<Webinar> Webinars { get; set; }
 
         public DbSet<Education> Educations { get; set; }
 
-        public DbSet<UserWebinars> UserCourses { get; set; }
+        public DbSet<UserWebinars> UserWebinars { get; set; }
 
 
         int SaveChanges();

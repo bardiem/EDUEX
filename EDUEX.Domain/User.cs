@@ -36,7 +36,7 @@ namespace EDUEX.Domain
 
         public virtual ICollection<Education> Educations { get; set; }
 
-        public virtual ICollection<UserWebinars> UserCourses { get; set; }
+        public virtual ICollection<UserWebinars> UserWebinars { get; set; }
 
         public override string ToString()
         {

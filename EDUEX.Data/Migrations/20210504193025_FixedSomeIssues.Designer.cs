@@ -4,14 +4,16 @@ using EDUEX.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace EDUEX.Data.Migrations
 {
     [DbContext(typeof(EduExDbContext))]
-    partial class EduExDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210504193025_FixedSomeIssues")]
+    partial class FixedSomeIssues
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -238,9 +240,6 @@ namespace EDUEX.Data.Migrations
                         .HasColumnType("nvarchar(300)")
                         .HasMaxLength(300);
 
-                    b.Property<int>("DurationMins")
-                        .HasColumnType("int");
-
                     b.Property<int>("Level")
                         .HasColumnType("int");
 
@@ -297,13 +296,13 @@ namespace EDUEX.Data.Migrations
             modelBuilder.Entity("EDUEX.Domain.UserWebinars", b =>
                 {
                     b.HasOne("EDUEX.Domain.User", "User")
-                        .WithMany("UserWebinars")
+                        .WithMany("UserCourses")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("EDUEX.Domain.Webinar", "Webinar")
-                        .WithMany("UserWebinars")
+                        .WithMany("UserCourses")
                         .HasForeignKey("WebinarId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
