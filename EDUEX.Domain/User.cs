@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace EDUEX.Domain
 {
@@ -28,15 +29,16 @@ namespace EDUEX.Domain
         [Required]
         public DateTime BirthDate { get; set; }
 
-        public virtual ICollection<UserRole> UserRoles { get; set; }
+        public ICollection<UserRole> UserRoles { get; set; }
 
         [Required]
         [MaxLength(150)]
         public string Position { get; set; }
 
-        public virtual ICollection<Education> Educations { get; set; }
+        [Column(TypeName = "decimal(6, 2)")]
+        public decimal Balance { get; set; }
 
-        public virtual ICollection<UserWebinars> UserWebinars { get; set; }
+        public ICollection<UserWebinar> UserWebinars { get; set; }
 
         public override string ToString()
         {

@@ -1,8 +1,7 @@
-﻿using System;
+﻿using EDUEX.Domain.Enums;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using EDUEX.Domain.Enums;
 
 namespace EDUEX.Domain
 {
@@ -23,19 +22,13 @@ namespace EDUEX.Domain
         [MaxLength(100)]
         public string Subject { get; set; }
 
-        [Required]
-        [MaxLength(100)]
-        public string Topic { get; set; }
-
         public CourseDifficultyLevelEnum Level { get; set; }
-
-        public DateTime StartDate { get; set; }
-
-        public int DurationMins { get; set; }
 
         [Column(TypeName = "decimal(6, 2)")]
         public decimal Price { get; set; }
 
-        public ICollection<UserWebinars> UserWebinars { get; set; }
+        public ICollection<UserWebinar> UserWebinars { get; set; }
+
+        public ICollection<Session> Sessions { get; set; }
     }
 }

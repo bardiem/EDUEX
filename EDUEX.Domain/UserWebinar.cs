@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace EDUEX.Domain
 {
-    public class UserWebinars
+    public class UserWebinar
     {
         [Key]
         public int Id { get; set; }
