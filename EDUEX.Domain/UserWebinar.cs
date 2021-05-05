@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace EDUEX.Domain
 {
-    public class UserCourses
+    public class UserWebinar
     {
         [Key]
         public int Id { get; set; }
@@ -13,16 +13,12 @@ namespace EDUEX.Domain
 
         public int UserId { get; set; }
 
-        public Course Course { get; set; }
+        public Webinar Webinar { get; set; }
 
-        public int CourseId { get; set; }
+        public int WebinarId { get; set; }
 
         public CourseAccessTypeEnum AccessType { get; set; }
 
-        public DateTime StartParticipationDate { get; set; }
-
-        public DateTime EndPartticipationDate { get; set; }
-
-        public bool IsActive { get; set; }
+        public DateTime EnrollDate { get; set; }
     }
 }

@@ -4,20 +4,63 @@ using EDUEX.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace EDUEX.Data.Migrations
 {
     [DbContext(typeof(EduExDbContext))]
-    partial class EduExDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210504193025_FixedSomeIssues")]
+    partial class FixedSomeIssues
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
                 .HasAnnotation("ProductVersion", "3.1.13")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+            modelBuilder.Entity("EDUEX.Domain.Education", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<DateTime>("EndDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Faculty")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(100)")
+                        .HasMaxLength(100);
+
+                    b.Property<string>("Institution")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(300)")
+                        .HasMaxLength(300);
+
+                    b.Property<int>("Level")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Specialty")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(100)")
+                        .HasMaxLength(100);
+
+                    b.Property<DateTime>("StartDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("Educations");
+                });
 
             modelBuilder.Entity("EDUEX.Domain.Role", b =>
                 {
@@ -59,47 +102,12 @@ namespace EDUEX.Data.Migrations
                         });
                 });
 
-            modelBuilder.Entity("EDUEX.Domain.Session", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<DateTime>("EndDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Link")
-                        .HasColumnType("nvarchar(200)")
-                        .HasMaxLength(200);
-
-                    b.Property<DateTime>("StartDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Topic")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(100)")
-                        .HasMaxLength(100);
-
-                    b.Property<int?>("WebinarId")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("WebinarId");
-
-                    b.ToTable("Sessions");
-                });
-
             modelBuilder.Entity("EDUEX.Domain.User", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<decimal>("Balance")
-                        .HasColumnType("decimal(6, 2)");
 
                     b.Property<DateTime>("BirthDate")
                         .HasColumnType("datetime2");
@@ -137,7 +145,6 @@ namespace EDUEX.Data.Migrations
                         new
                         {
                             Id = 1,
-                            Balance = 0m,
                             BirthDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "admin@webtemplate.net",
                             FirstName = "Administrator",
@@ -148,7 +155,6 @@ namespace EDUEX.Data.Migrations
                         new
                         {
                             Id = 2,
-                            Balance = 0m,
                             BirthDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "user@webtemplate.net",
                             FirstName = "Regular User",
@@ -194,7 +200,7 @@ namespace EDUEX.Data.Migrations
                         });
                 });
 
-            modelBuilder.Entity("EDUEX.Domain.UserWebinar", b =>
+            modelBuilder.Entity("EDUEX.Domain.UserWebinars", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -245,7 +251,15 @@ namespace EDUEX.Data.Migrations
                     b.Property<decimal>("Price")
                         .HasColumnType("decimal(6, 2)");
 
+                    b.Property<DateTime>("StartDate")
+                        .HasColumnType("datetime2");
+
                     b.Property<string>("Subject")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(100)")
+                        .HasMaxLength(100);
+
+                    b.Property<string>("Topic")
                         .IsRequired()
                         .HasColumnType("nvarchar(100)")
                         .HasMaxLength(100);
@@ -255,11 +269,13 @@ namespace EDUEX.Data.Migrations
                     b.ToTable("Webinars");
                 });
 
-            modelBuilder.Entity("EDUEX.Domain.Session", b =>
+            modelBuilder.Entity("EDUEX.Domain.Education", b =>
                 {
-                    b.HasOne("EDUEX.Domain.Webinar", null)
-                        .WithMany("Sessions")
-                        .HasForeignKey("WebinarId");
+                    b.HasOne("EDUEX.Domain.User", "User")
+                        .WithMany("Educations")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("EDUEX.Domain.UserRole", b =>
@@ -277,16 +293,16 @@ namespace EDUEX.Data.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("EDUEX.Domain.UserWebinar", b =>
+            modelBuilder.Entity("EDUEX.Domain.UserWebinars", b =>
                 {
                     b.HasOne("EDUEX.Domain.User", "User")
-                        .WithMany("UserWebinars")
+                        .WithMany("UserCourses")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("EDUEX.Domain.Webinar", "Webinar")
-                        .WithMany("UserWebinars")
+                        .WithMany("UserCourses")
                         .HasForeignKey("WebinarId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();

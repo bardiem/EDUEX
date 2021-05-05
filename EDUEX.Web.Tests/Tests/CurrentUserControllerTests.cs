@@ -3,6 +3,7 @@ using NUnit.Framework;
 using System.Security.Claims;
 using EDUEX.Web.Api;
 using EDUEX.Web.Dto;
+using EDUEX.Web.Dto.UserDtos;
 
 namespace EDUEX.Web.Tests
 {
@@ -14,18 +15,17 @@ namespace EDUEX.Web.Tests
         [Test]
         public void ReturnOkWhenAdminCallingGetAction()
         {
-            //MyController<CurrentUserController>
-            //    .Instance()
-            //    .WithUser(user =>
-            //     user.WithClaims(new Claim(ClaimTypes.Sid, "1"))
-            //    )
-            //    .Calling(p => p.Get())
-            //    .ShouldReturn()
-            //    .Ok(result => result
-            //            //.WithModelOfType<UserDto>()
-            //            //.Passing(p => p.Roles.Contains("admin")));
+            MyController<CurrentUserController>
+                .Instance()
+                .WithUser(user =>
+                 user.WithClaims(new Claim(ClaimTypes.Sid, "1"))
+                )
+                .Calling(p => p.Get())
+                .ShouldReturn()
+                .Ok(result => result
+                        .WithModelOfType<UserDtoWithEmail>()
+                        .Passing(p => p.Roles.Contains("admin")));
         }
-
         //[Test]
         //public void ReturnOkWhenUserByJwtTokenCallingGetAction()
         //{
@@ -44,17 +44,16 @@ namespace EDUEX.Web.Tests
         [Test]
         public void ReturnOkWhenUserCallingGetAction()
         {
-
-            //MyController<CurrentUserController>
-            //    .Instance()
-            //    .WithUser(user =>
-            //     user.WithClaims(new Claim(ClaimTypes.Sid, "2"))
-            //    )
-            //    .Calling(p => p.Get())
-            //    .ShouldReturn()
-            //    .Ok(result => result
-            //            .WithModelOfType<UserWithEmailDto>()
-            //            .Passing(p => p.Roles.Contains("user")));
+            MyController<CurrentUserController>
+                .Instance()
+                .WithUser(user =>
+                 user.WithClaims(new Claim(ClaimTypes.Sid, "2"))
+                )
+                .Calling(p => p.Get())
+                .ShouldReturn()
+                .Ok(result => result
+                        .WithModelOfType<UserDtoWithEmail>()
+                        .Passing(p => p.Roles.Contains("user")));
         }
 
         [Test]
