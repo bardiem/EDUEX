@@ -25,8 +25,8 @@ namespace EDUEX.DAL
         public void Delete(int id)
             => Execute(context =>
             {
-                var entityInDb = GetUserRole(id);
-                context.UserRoles.Remove(entityInDb);
+                var entity = new UserRole {Id = id };
+                context.UserRoles.Remove(entity);
                 context.SaveChanges();
             });
 

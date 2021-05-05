@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 namespace EDUEX.Web.Api
 {
     [Route("api/value")]
-    [Authorize(Roles = "admin")]
+    //[Authorize(Roles = "admin")]
     public class ValueController : Controller
     {
         public IActionResult Get()
