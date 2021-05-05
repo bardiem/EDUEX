@@ -19,7 +19,7 @@ namespace EDUEX.Domain
         [MaxLength(300)]
         public string PermissionDescription { get; set; }
 
-        public virtual ICollection<UserRole> UserRoles { get; set; }
+        public ICollection<UserRole> UserRoles { get; set; }
 
     }
 }

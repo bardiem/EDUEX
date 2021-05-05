@@ -1,9 +1,5 @@
-﻿using System;
+﻿using EDUEX.Domain;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using EDUEX.Domain;
 
 namespace EDUEX.BL
 {
@@ -17,6 +13,12 @@ namespace EDUEX.BL
 
         User Update(User user);
 
+        UserRole UpdateUserRole(UserRole userRole);
+
         bool IsUserExists(string email);
+
+        UserRole AddRole(int userId, int roleId);
+
+        IList<UserRole> GetUserRoles();
     }
 }

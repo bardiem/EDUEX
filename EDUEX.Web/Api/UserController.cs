@@ -65,5 +65,19 @@ namespace EDUEX.Web.Api
         }
 
 
+
+        [HttpGet("{userId}")]
+        [Route("userRoles")]
+        public IEnumerable<UserRole> GetUserRoles(int userId)
+        {
+            var users = _userBL.GetUserRoles();
+            //var usersView = _mapper.Map<List<UserDtoWithEmail>>(users);
+            foreach (var item in users)
+            {
+                item.User = null;
+            }
+            return users;
+        }
+
     }
 }

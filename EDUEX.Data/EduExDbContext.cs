@@ -29,9 +29,9 @@ namespace EDUEX.Data
 
         public DbSet<Webinar> Webinars { get; set; }
 
-        public DbSet<Education> Educations { get; set; }
+        public DbSet<UserWebinar> UserWebinars { get; set; }
 
-        public DbSet<UserWebinars> UserWebinars { get; set; }
+        public DbSet<Session> Sessions { get; set; }
 
 
         protected override void OnConfiguring(DbContextOptionsBuilder options)
