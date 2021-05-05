@@ -4,14 +4,16 @@ using EDUEX.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace EDUEX.Data.Migrations
 {
     [DbContext(typeof(EduExDbContext))]
-    partial class EduExDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210505120429_RemovedEducation")]
+    partial class RemovedEducation
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
