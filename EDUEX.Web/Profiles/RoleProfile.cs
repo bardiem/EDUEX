@@ -8,7 +8,7 @@ namespace EDUEX.Web.Profiles
     {
         public RoleProfile()
         {
-            CreateMap<Role, RoleDto>();
+            CreateMap<Role, RoleDto>().ReverseMap();
         }
     }
 }

@@ -13,7 +13,6 @@ namespace EDUEX.DAL
 
         Role Create(Role role);
         Role Update(Role role);
-
-        string Delete(int id);
+        void Delete(int id);
     }
 }

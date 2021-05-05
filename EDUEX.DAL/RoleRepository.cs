@@ -12,8 +12,8 @@ namespace EDUEX.DAL
         {
 
         }
-        public Role Create(Role role) =>
-            Execute(context =>
+        public Role Create(Role role)
+            => Execute(context =>
             {
                 var createRole = context.Roles.Add(role);
                 context.SaveChanges();
@@ -29,14 +29,19 @@ namespace EDUEX.DAL
                 return result.Entity;
             });
 
-        public string Delete(int role)
-        => Execute(context =>
-        {
-            var role1 = context.Roles.Where(x => x.Id == role).Single<Role>();
-            context.Roles.Remove(role1);
-            context.SaveChanges();
-            return "Record has sucessfully Deleted";
-        });
+        public void Delete(int id)
+            => Execute(context =>
+            {
+                var role = GetById(id);
+                context.Roles.Remove(role);
+                context.SaveChanges();
+            });
+
+        public Role GetById(int id)
+            => Query(context => context.Roles
+                .FirstOrDefault(p => p.Id == id));
+
+
 
         public IList<Role> GetList() => Query((context) => context.Roles.ToList());
     }

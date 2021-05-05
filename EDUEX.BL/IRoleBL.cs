@@ -15,7 +15,7 @@ namespace EDUEX.BL
 
         Role Update(Role role);
 
-        string Delete(int id);
+        void Delete(int id);
 
     }
 }

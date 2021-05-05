@@ -29,12 +29,12 @@ namespace EDUEX.BL
 
         public Role Update(Role role)
         {
-                return roleRepository.Update(role);
+            return roleRepository.Update(role);
         }
 
-        public string Delete(int role)
+        public void Delete(int role)
         {
-            return roleRepository.Delete(role);
+            roleRepository.Delete(role);
         }
     }
 }

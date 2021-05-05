@@ -48,7 +48,7 @@ namespace EDUEX.Web.Api
         [HttpPost]
         [Produces("application/json")]
         [ProducesResponseType(typeof(RoleDto), (int)HttpStatusCode.OK)]
-        public IActionResult Post(RoleDto roleDto)
+        public IActionResult Post([FromBody]RoleDto roleDto)
         {
             var result = mapper.Map<Role>(roleDto);
             var role = roleBL.Create(result);
@@ -59,16 +59,15 @@ namespace EDUEX.Web.Api
         public IActionResult Put(int id, [FromBody] Role role)
         {
             role.Id = id;
-            roleBL.Update(role);
-            return Ok();
+            var updateRole = roleBL.Update(role);
+            return Ok(updateRole);
         }
 
         [HttpDelete("{id}")]
-        public string DeleteRole(int id)
+        public IActionResult DeleteRole(int id)
         {
-            return roleBL.Delete(id);
+            roleBL.Delete(id);
+            return Ok();
         }
-
-
     }
 }
