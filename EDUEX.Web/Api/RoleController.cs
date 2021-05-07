@@ -5,6 +5,7 @@ using System.Linq;
 using System.Net;
 using EDUEX.BL;
 using EDUEX.Web.Dto;
+using EDUEX.Domain;
 
 namespace EDUEX.Web.Api
 {
@@ -41,6 +42,32 @@ namespace EDUEX.Web.Api
             var role = roles.FirstOrDefault(p => p.Id == id);
             var result = mapper.Map<RoleDto>(role);
             return Ok(result);
+        }
+
+
+        [HttpPost]
+        [Produces("application/json")]
+        [ProducesResponseType(typeof(RoleDto), (int)HttpStatusCode.OK)]
+        public IActionResult Post([FromBody]RoleDto roleDto)
+        {
+            var result = mapper.Map<Role>(roleDto);
+            var role = roleBL.Create(result);
+            return Ok(role);
+        }
+
+        [HttpPut("{id}")]
+        public IActionResult Put(int id, [FromBody] Role role)
+        {
+            role.Id = id;
+            var updateRole = roleBL.Update(role);
+            return Ok(updateRole);
+        }
+
+        [HttpDelete("{id}")]
+        public IActionResult DeleteRole(int id)
+        {
+            roleBL.Delete(id);
+            return Ok();
         }
     }
 }

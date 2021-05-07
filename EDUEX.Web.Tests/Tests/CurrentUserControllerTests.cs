@@ -26,7 +26,6 @@ namespace EDUEX.Web.Tests
                         .WithModelOfType<UserDtoWithEmail>()
                         .Passing(p => p.Roles.Contains("admin")));
         }
-
         //[Test]
         //public void ReturnOkWhenUserByJwtTokenCallingGetAction()
         //{
@@ -45,7 +44,6 @@ namespace EDUEX.Web.Tests
         [Test]
         public void ReturnOkWhenUserCallingGetAction()
         {
-
             MyController<CurrentUserController>
                 .Instance()
                 .WithUser(user =>

@@ -10,5 +10,12 @@ namespace EDUEX.BL
     public interface IRoleBL : IBaseBL
     {
         IList<Role> GetList();
+
+        Role Create(Role role);
+
+        Role Update(Role role);
+
+        void Delete(int id);
+
     }
 }
