@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using OverrideAuthorization = System.Web.Http.OverrideAuthorizationAttribute;
 using OverrideAuthentication = System.Web.Http.OverrideAuthenticationAttribute;
+using Microsoft.Extensions.Localization;
 
 namespace EDUEX.Web.Api
 {
@@ -17,11 +18,13 @@ namespace EDUEX.Web.Api
     {
         private readonly IUserBL _userBL;
         private readonly IMapper _mapper;
+        private readonly IStringLocalizer<BasicUserDto> _localizer;
 
-        public UserController(IUserBL userBL, IMapper mapper)
+        public UserController(IUserBL userBL, IMapper mapper, IStringLocalizer<BasicUserDto> localizer)
         {
             _userBL = userBL;
             _mapper = mapper;
+            _localizer = localizer;
         }
 
         [HttpGet]

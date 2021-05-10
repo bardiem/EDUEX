@@ -1,10 +1,5 @@
-﻿using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Localization;
 
 namespace EDUEX.Web.Api
 {
@@ -12,9 +7,16 @@ namespace EDUEX.Web.Api
     //[Authorize(Roles = "admin")]
     public class ValueController : Controller
     {
+        private readonly IStringLocalizer<ValueController> _localizer;
+
+        public ValueController(IStringLocalizer<ValueController> stringLocalizer)
+        {
+            _localizer = stringLocalizer;
+        }
+
         public IActionResult Get()
         {
-            var list = new string[] { "value1", "value2" };
+            var list = new string[] { _localizer["hello"], "value2" };
             return Ok(list);
         }
     }

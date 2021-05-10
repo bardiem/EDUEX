@@ -1,12 +1,14 @@
-﻿using System;
+﻿using EDUEX.Domain.ValidationAttributes;
+using EDUEX.Web.Resources;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using EDUEX.Domain.ValidationAttributes;
 
 namespace EDUEX.Web.Dto.UserDtos
 {
     public class BasicUserDto
     {
+
         [Range(1, int.MaxValue)]
         public int? Id { get; set; }
 
@@ -21,7 +23,7 @@ namespace EDUEX.Web.Dto.UserDtos
         [MinLength(2)]
         public List<string> Roles { get; set; }
 
-        [DateIsLessThanToday(ErrorMessage = "Атрибут неправильний")]
+        //[DateIsLessThanToday(ErrorMessageResourceName = "WrongBirthDateMsg", ErrorMessageResourceType = typeof(SharedResource))]
         public DateTime BirthDate { get; set; }
 
         [MinLength(5)]

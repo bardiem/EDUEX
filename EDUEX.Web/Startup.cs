@@ -21,6 +21,10 @@ using EDUEX.Web.Middlewares;
 using EDUEX.Web.Services;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
+using System.Globalization;
+using Microsoft.AspNetCore.Localization;
+using Microsoft.Extensions.Options;
+using EDUEX.Web.Resources;
 
 namespace EDUEX.Web
 {
@@ -44,7 +48,36 @@ namespace EDUEX.Web
                 {
                     opt.SerializerSettings.DateFormatString = "yyyy-MM-dd'T'HH:mm:ss'Z'";
                     opt.SerializerSettings.NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore;
-                }).AddXmlSerializerFormatters();
+                })
+                .AddXmlSerializerFormatters()
+                .AddDataAnnotationsLocalization(options => {
+                    options.DataAnnotationLocalizerProvider = (type, factory) =>
+                    {
+                        var assemblyName = new AssemblyName(typeof(SharedResource).GetTypeInfo().Assembly.FullName);
+                        return factory.Create("SharedResource", assemblyName.Name);
+                    };
+                });
+
+            services.AddLocalization(opt => opt.ResourcesPath = "Resources");
+
+
+            services.Configure<RequestLocalizationOptions>(options =>
+            {
+                var suportedCultures = Configuration.GetSection("SuportedCultures")?.GetChildren()?.Select(x => x.Value)?.ToArray();
+
+                options.DefaultRequestCulture = new RequestCulture(suportedCultures[0]);
+
+                var suportedCultureInfos = new CultureInfo[suportedCultures.Length];
+                for (int i = 0; i < suportedCultures.Length; i++)
+                {
+                    suportedCultureInfos[i] = new CultureInfo(suportedCultures[i]);
+                }
+
+                options.SupportedCultures = suportedCultureInfos;
+                options.SupportedUICultures = suportedCultureInfos;
+                options.RequestCultureProviders.Insert(0, new QueryStringRequestCultureProvider());
+            });
+
 
             services.AddSwaggerGen(c =>
             {
@@ -95,6 +128,9 @@ namespace EDUEX.Web
             }
 
             app.UseRequestLog();
+
+            var localizeOptions = app.ApplicationServices.GetService<IOptions<RequestLocalizationOptions>>();
+            app.UseRequestLocalization(localizeOptions.Value);
 
             app.UseRouting();
             app.UseMiddleware<CheckAuthMiddleware>();
@@ -166,6 +202,25 @@ namespace EDUEX.Web
 
             IMapper mapper = mappingConfig.CreateMapper();
             services.AddSingleton(mapper);
+        }
+
+        private void AddLocalization(IApplicationBuilder app)
+        {
+            var suportedCultures = Configuration.GetSection("SuportedCultures")?.GetChildren()?.Select(x => x.Value)?.ToArray();
+            var suportedCultureInfos = new CultureInfo[suportedCultures.Length];
+            for (int i = 0; i < suportedCultures.Length; i++)
+            {
+                suportedCultureInfos[i] = new CultureInfo(suportedCultures[i]);
+            }
+
+            var requestLocatiozationOptions = new RequestLocalizationOptions
+            {
+                DefaultRequestCulture = new RequestCulture(suportedCultures[0]),
+                SupportedCultures = suportedCultureInfos,
+                SupportedUICultures = suportedCultureInfos
+            };
+
+            app.UseRequestLocalization(requestLocatiozationOptions);
         }
     }
 
