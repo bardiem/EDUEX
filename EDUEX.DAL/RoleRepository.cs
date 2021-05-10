@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using EDUEX.Data;
 using EDUEX.Domain;
+using Microsoft.EntityFrameworkCore;
 
 namespace EDUEX.DAL
 {
@@ -32,7 +33,7 @@ namespace EDUEX.DAL
         public void Delete(int id)
             => Execute(context =>
             {
-                var role = GetById(id);
+                var role = new Role { Id = id };
                 context.Roles.Remove(role);
                 context.SaveChanges();
             });
@@ -43,6 +44,7 @@ namespace EDUEX.DAL
 
 
 
-        public IList<Role> GetList() => Query((context) => context.Roles.ToList());
+        public IList<Role> GetList() 
+            => Query((context) => context.Roles.AsNoTracking().ToList());
     }
 }
