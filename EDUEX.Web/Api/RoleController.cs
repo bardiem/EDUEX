@@ -10,6 +10,7 @@ using EDUEX.Domain;
 namespace EDUEX.Web.Api
 {
     [Route("/api/role")]
+    [ApiController]
     public class RoleController : BaseController
     {
 
