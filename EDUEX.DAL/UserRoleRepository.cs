@@ -1,5 +1,6 @@
 ﻿using EDUEX.Data;
 using EDUEX.Domain;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -36,6 +37,7 @@ namespace EDUEX.DAL
 
         public IList<UserRole> GetByUserId(int userId)
             => Query(context => context.UserRoles
+                .AsNoTracking()
                 .Where(u => u.UserId == userId)
                 .ToList());
 

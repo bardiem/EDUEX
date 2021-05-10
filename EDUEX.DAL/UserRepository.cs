@@ -1,5 +1,6 @@
 ﻿using EDUEX.Data;
 using EDUEX.Domain;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,7 +24,7 @@ namespace EDUEX.DAL
 
 
         public IList<User> GetAll()
-            => Query(context => context.Users.ToList());
+            => Query(context => context.Users.AsNoTracking().ToList());
 
 
         public User GetById(int id)
