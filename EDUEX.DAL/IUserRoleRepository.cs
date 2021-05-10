@@ -13,6 +13,8 @@ namespace EDUEX.DAL
 
         IList<UserRole> GetAll();
 
+        IList<UserRole> GetByUserId(int userId);
+
         UserRole Update(UserRole userRole);
     }
 }

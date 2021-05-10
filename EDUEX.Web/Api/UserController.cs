@@ -1,17 +1,16 @@
 ﻿using AutoMapper;
 using EDUEX.BL;
 using EDUEX.Domain;
+using EDUEX.Web.Dto;
 using EDUEX.Web.Dto.UserDtos;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
-using OverrideAuthorization = System.Web.Http.OverrideAuthorizationAttribute;
-using OverrideAuthentication = System.Web.Http.OverrideAuthenticationAttribute;
 
 namespace EDUEX.Web.Api
 {
     [Route("api/user")]
-    //[Authorize(Roles = "user")]
+    [Authorize]
     [ApiController]
     public class UserController : ControllerBase
     {
@@ -24,6 +23,8 @@ namespace EDUEX.Web.Api
             _mapper = mapper;
         }
 
+
+        [Authorize(Roles = "admin")]
         [HttpGet]
         public IEnumerable<UserDtoWithEmail> Get()
         {
@@ -33,9 +34,7 @@ namespace EDUEX.Web.Api
         }
 
 
-        
         [Authorize(Roles = "admin")]
-        [OverrideAuthorization]
         [HttpGet("{id}")]
         public UserDtoWithEmail Get(int id)
         {
@@ -65,18 +64,46 @@ namespace EDUEX.Web.Api
         }
 
 
-
-        [HttpGet("{userId}")]
-        [Route("userRoles")]
-        public IEnumerable<UserRole> GetUserRoles(int userId)
+        [Authorize(Roles = "admin")]
+        [HttpGet]
+        [Route("userRoles/{userId}")]
+        public IEnumerable<UserRoleDto> GetUserRoles(int userId)
         {
-            var users = _userBL.GetUserRoles();
-            //var usersView = _mapper.Map<List<UserDtoWithEmail>>(users);
-            foreach (var item in users)
-            {
-                item.User = null;
-            }
-            return users;
+            var users = _userBL.GetUserRoles(userId);
+            var userDtos = _mapper.Map<List<UserRoleDto>>(users);
+            return userDtos;
+        }
+
+
+        [Authorize(Roles = "admin")]
+        [HttpPost]
+        [Route("userRoles")]
+        public IActionResult AddUserRole([FromBody] UserRoleDto userRoleDto)
+        {
+            var result = _userBL.AddRole(userRoleDto.UserId, userRoleDto.RoleId);
+            return Ok(result);
+        }
+
+
+        [Authorize(Roles = "admin")]
+        [HttpPut]
+        [Route("userRoles/{id}")]
+        public IActionResult PutUserRole(int id, [FromBody] UserRoleDto userRoleDto)
+        {
+            userRoleDto.Id = id;
+            var userRole = _mapper.Map<UserRole>(userRoleDto);
+            var result = _userBL.UpdateUserRole(userRole);
+            return Ok(result);
+        }
+
+
+        [Authorize(Roles = "admin")]
+        [HttpDelete]
+        [Route("userRoles/{id}")]
+        public IActionResult DeleteUserRole(int id)
+        {
+            _userBL.DeleteUserRole(id);
+            return Ok();
         }
 
     }

@@ -26,39 +26,58 @@ namespace EDUEX.BL
             return createdEnt;
         }
 
+
         public User Create(User user)
         {
             return _userRepository.Create(user);
         }
+            
+
+        public void DeleteUserRole(int id)
+        {
+            _userRoleRepository.Delete(id);
+        }
+
 
         public IList<User> GetAll()
         {
             return _userRepository.GetAll();
         }
 
+
         public User GetById(int id)
         {
             return _userRepository.GetById(id);
         }
+
 
         public IList<UserRole> GetUserRoles()
         {
             return _userRoleRepository.GetAll();
         }
 
+
+        public IList<UserRole> GetUserRoles(int userId)
+        {
+            return _userRoleRepository.GetByUserId(userId);
+        }
+
+
         public bool IsUserExists(string email)
         {
             return _userRepository.IsUserExists(email);
         }
+
 
         public User Update(User user)
         {
             return _userRepository.Update(user);
         }
 
+
         public UserRole UpdateUserRole(UserRole userRole)
         {
-            throw new NotImplementedException();
+            return _userRoleRepository.Update(userRole);
         }
     }
 }

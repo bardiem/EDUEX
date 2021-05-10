@@ -33,6 +33,13 @@ namespace EDUEX.DAL
         public IList<UserRole> GetAll()
             => Query(context => context.UserRoles.ToList());
 
+
+        public IList<UserRole> GetByUserId(int userId)
+            => Query(context => context.UserRoles
+                .Where(u => u.UserId == userId)
+                .ToList());
+
+
         public UserRole GetUserRole(int id)
             => Query(context => context.UserRoles
                 .FirstOrDefault(p => p.Id == id));

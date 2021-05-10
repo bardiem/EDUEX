@@ -13,12 +13,17 @@ namespace EDUEX.BL
 
         User Update(User user);
 
-        UserRole UpdateUserRole(UserRole userRole);
-
         bool IsUserExists(string email);
+
+        UserRole UpdateUserRole(UserRole userRole);
 
         UserRole AddRole(int userId, int roleId);
 
+        IList<UserRole> GetUserRoles(int userId);
+
         IList<UserRole> GetUserRoles();
+
+        void DeleteUserRole(int id);
+
     }
 }

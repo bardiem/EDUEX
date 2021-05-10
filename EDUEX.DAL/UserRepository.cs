@@ -30,8 +30,10 @@ namespace EDUEX.DAL
             => Query(context => context.Users
                 .FirstOrDefault(p => p.Id == id));
 
+
         public bool IsUserExists(string email)
             => Query(context => context.Users.Any(u => u.Email == email));
+
 
         public User Update(User user)
             => Execute(context =>
