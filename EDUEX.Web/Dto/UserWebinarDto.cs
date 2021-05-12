@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EDUEX.Domain.ValidationAttributes;
+using System;
 
 namespace EDUEX.Web.Dto
 {

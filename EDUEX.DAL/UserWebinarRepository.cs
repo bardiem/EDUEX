@@ -16,9 +16,9 @@ namespace EDUEX.DAL
         public UserWebinar Create(UserWebinar userWebinar)
             => Execute(context =>
             {
-                var entInDb = context.UserWebinars.Add(userWebinar);
+                var createUserWebinar = context.UserWebinars.Add(userWebinar);
                 context.SaveChanges();
-                return entInDb.Entity;
+                return createUserWebinar.Entity;
             });
 
         public UserWebinar Update(UserWebinar userWebinar)
@@ -37,38 +37,6 @@ namespace EDUEX.DAL
                 context.SaveChanges();
             });
 
-        // not implemented
-
-        public IList<UserWebinar> GetAll()
-            => Query(context => context.UserWebinars.ToList());
-
-        public IList<UserWebinar> GetByUserId(int userWebinaId)
-        {
-            throw new NotImplementedException();
-        }
-
         public IList<UserWebinar> GetList() => Query((context) => context.UserWebinars.ToList());
-
-
-        public UserWebinar GetUserRole(int id)
-        {
-            throw new NotImplementedException();
-        }
-
-
-
-
-
-
-        //public IList<UserRole> GetByUserId(int userId)
-        //    => Query(context => context.UserRoles
-        //        .Where(u => u.UserId == userId)
-        //        .ToList());
-
-
-        //public UserRole GetUserRole(int id)
-        //    => Query(context => context.UserRoles
-        //        .FirstOrDefault(p => p.Id == id));
-
     }
 }

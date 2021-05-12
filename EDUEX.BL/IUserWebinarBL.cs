@@ -5,13 +5,13 @@ using System.Text;
 
 namespace EDUEX.BL
 {
-    public interface IUserWebinarBL
+    public interface IUserWebinarBL : IBaseBL
     {
         IList<UserWebinar> GetList();
 
-        UserWebinar Create(UserWebinar role);
+        UserWebinar Create(UserWebinar userWebinar);
 
-        UserWebinar Update(UserWebinar role);
+        UserWebinar Update(UserWebinar userWebinar);
 
         void Delete(int id);
     }

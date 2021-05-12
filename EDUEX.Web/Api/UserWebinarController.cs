@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace EDUEX.Web.Api
 {
-    [Route("api/userWebinar")]
+    [Route("/api/userWebinar")]
     public class UserWebinarController : ControllerBase
     {
         private readonly IUserWebinarBL userWebinarBL;
@@ -23,6 +23,7 @@ namespace EDUEX.Web.Api
             this.userWebinarBL = _userWebinar;
             this.mapper = _mapper;
         }
+
 
         [HttpGet]
         [Produces("application/json")]
@@ -35,7 +36,6 @@ namespace EDUEX.Web.Api
         }
 
 
-
         [HttpPost]
         [Produces("application/json")]
         [ProducesResponseType(typeof(UserWebinarDto), (int)HttpStatusCode.OK)]
@@ -46,6 +46,7 @@ namespace EDUEX.Web.Api
             return Ok(userWebinar);
         }
 
+
         [HttpPut("{id}")]
         public IActionResult Put(int id, [FromBody] UserWebinar userWebinar)
         {
@@ -54,8 +55,9 @@ namespace EDUEX.Web.Api
             return Ok(updateUserWebinar);
         }
 
+
         [HttpDelete("{id}")]
-        public IActionResult DeleteRole(int id)
+        public IActionResult Delete(int id)
         {
             userWebinarBL.Delete(id);
             return Ok();

@@ -6,7 +6,7 @@ using System.Text;
 
 namespace EDUEX.BL
 {
-    class UserWebinarBL : IUserWebinarBL
+    public class UserWebinarBL : IUserWebinarBL
     {
         private readonly IUserWebinarRepository userWebinarRepository;
 
