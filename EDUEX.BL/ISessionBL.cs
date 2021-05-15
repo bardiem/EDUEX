@@ -11,6 +11,8 @@ namespace EDUEX.BL
 
         IList<Session> GetAll();
 
+        Session GetById(int id);
+
         Session Update(Session session);
 
         void Delete(int Id);

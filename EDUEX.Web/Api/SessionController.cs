@@ -41,8 +41,7 @@ namespace EDUEX.Web.Api
         [ProducesResponseType(typeof(SessionDto), (int)HttpStatusCode.OK)]
         public IActionResult Get(int id)
         {
-            var sessions = sessionBL.GetAll();
-            var session = sessions.FirstOrDefault(p => p.Id == id);
+            var session = sessionBL.GetById(id);
             var result = mapper.Map<SessionDto>(session);
             return Ok(session);
         }

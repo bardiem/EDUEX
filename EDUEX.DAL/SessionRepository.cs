@@ -21,8 +21,13 @@ namespace EDUEX.DAL
                 context.SaveChanges();
                 return createSession.Entity;
             });
+
         public IList<Session> GetAll()
             => Query(context => context.Sessions.AsNoTracking().ToList());
+
+        public Session GetById(int id)
+            => Query(context => context.Sessions
+                .FirstOrDefault(p => p.Id == id));
 
         public Session Update(Session session) 
             => Execute(context =>

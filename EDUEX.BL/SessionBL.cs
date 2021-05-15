@@ -18,6 +18,11 @@ namespace EDUEX.BL
             return _sessionRepository.GetAll();
         }
 
+        public Session GetById(int id)
+        {
+            return _sessionRepository.GetById(id);
+        }
+
         public Session Create(Session role)
         {
             return _sessionRepository.Create(role);
