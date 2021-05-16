@@ -12,13 +12,13 @@ using System.Threading.Tasks;
 
 namespace EDUEX.Web.Api
 {
-    [Route("/api/userWebinar")]
-    public class UserWebinarController : ControllerBase
+    [Route("/api/webinar/userWebinar")]
+    public class WebinarController : ControllerBase
     {
         private readonly IUserWebinarBL userWebinarBL;
         private readonly IMapper mapper;
 
-        public UserWebinarController(IUserWebinarBL _userWebinar, IMapper _mapper)
+        public WebinarController(IUserWebinarBL _userWebinar, IMapper _mapper)
         {
             this.userWebinarBL = _userWebinar;
             this.mapper = _mapper;
@@ -33,6 +33,16 @@ namespace EDUEX.Web.Api
             var userWebinars = userWebinarBL.GetList();
             var result = mapper.Map<List<UserWebinarDto>>(userWebinars);
             return Ok(result);
+        }
+
+        [HttpGet("{id}")]
+        [Produces("application/json")]
+        [ProducesResponseType(typeof(List<UserWebinarDto>), (int)HttpStatusCode.OK)]
+        public UserWebinarDto Get(int id)
+        {
+            var userWebinar = userWebinarBL.GetById(id);
+            var result = mapper.Map<UserWebinarDto>(userWebinar);
+            return result;
         }
 
 

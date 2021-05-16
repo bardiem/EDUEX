@@ -34,5 +34,9 @@ namespace EDUEX.BL
         {
             userWebinarRepository.Delete(id);
         }
+
+        public UserWebinar GetById(int id) {
+            return userWebinarRepository.GetById(id);
+        }
     }
 }

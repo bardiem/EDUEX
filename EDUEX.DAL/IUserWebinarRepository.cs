@@ -9,6 +9,8 @@ namespace EDUEX.DAL
     {
         IList<UserWebinar> GetList();
 
+        UserWebinar GetById(int id);
+
         UserWebinar Create(UserWebinar userWebinar);
 
         UserWebinar Update(UserWebinar userWebinar);

@@ -38,5 +38,9 @@ namespace EDUEX.DAL
             });
 
         public IList<UserWebinar> GetList() => Query((context) => context.UserWebinars.ToList());
+
+        public UserWebinar GetById(int id)
+            => Query(context => context.UserWebinars
+                .FirstOrDefault(p => p.Id == id));
     }
 }
