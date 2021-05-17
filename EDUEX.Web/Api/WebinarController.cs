@@ -4,6 +4,7 @@ using EDUEX.Domain;
 using EDUEX.Web.Dto;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Authorization;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,6 +13,7 @@ using System.Threading.Tasks;
 
 namespace EDUEX.Web.Api
 {
+    [Authorize]
     [Route("/api/webinar/userWebinar")]
     public class WebinarController : ControllerBase
     {
@@ -45,7 +47,7 @@ namespace EDUEX.Web.Api
             return result;
         }
 
-
+        [Authorize(Roles = "admin")]
         [HttpPost]
         [Produces("application/json")]
         [ProducesResponseType(typeof(UserWebinarDto), (int)HttpStatusCode.OK)]
@@ -56,7 +58,7 @@ namespace EDUEX.Web.Api
             return Ok(userWebinar);
         }
 
-
+        [Authorize(Roles = "admin")]
         [HttpPut("{id}")]
         public IActionResult Put(int id, [FromBody] UserWebinar userWebinar)
         {
@@ -65,7 +67,7 @@ namespace EDUEX.Web.Api
             return Ok(updateUserWebinar);
         }
 
-
+        [Authorize(Roles = "admin")]
         [HttpDelete("{id}")]
         public IActionResult Delete(int id)
         {
