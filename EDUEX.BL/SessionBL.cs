@@ -23,19 +23,19 @@ namespace EDUEX.BL
             return _sessionRepository.GetById(id);
         }
 
-        public Session Create(Session role)
+        public Session Create(Session session)
         {
-            return _sessionRepository.Create(role);
+            return _sessionRepository.Create(session);
         }
 
-        public Session Update(Session role)
+        public Session Update(Session session)
         {
-            return _sessionRepository.Update(role);
+            return _sessionRepository.Update(session);
         }
 
-        public void Delete(int role)
+        public void Delete(int session)
         {
-            _sessionRepository.Delete(role);
+            _sessionRepository.Delete(session);
         }
     }
 
