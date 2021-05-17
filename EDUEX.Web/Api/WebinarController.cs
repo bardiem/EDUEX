@@ -114,7 +114,7 @@ namespace EDUEX.Web.Api
         }
 
 
-        [HttpPut("/userWebinar/{id}")]
+        [HttpPut("userWebinar/{id}")]
         public IActionResult Put(int id, [FromBody] UserWebinar userWebinar)
         {
             userWebinar.Id = id;
@@ -123,7 +123,7 @@ namespace EDUEX.Web.Api
         }
 
 
-        [HttpDelete("/userWebinar/{id}")]
+        [HttpDelete("userWebinar/{id}")]
         public IActionResult Delete(int id)
         {
             userWebinarBL.Delete(id);
