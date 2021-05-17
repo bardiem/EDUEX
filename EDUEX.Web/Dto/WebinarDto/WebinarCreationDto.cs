@@ -1,6 +1,4 @@
-﻿using EDUEX.Domain;
-using EDUEX.Domain.Enums;
-using System.Collections.Generic;
+﻿using EDUEX.Domain.Enums;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 

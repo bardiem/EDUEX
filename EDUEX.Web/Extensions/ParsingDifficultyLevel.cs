@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using EDUEX.Domain.Enums;
+﻿using EDUEX.Domain.Enums;
 
 namespace EDUEX.Web.Extensions
 {

@@ -1,11 +1,9 @@
-﻿using EDUEX.Domain;
+﻿using EDUEX.Data;
+using EDUEX.Domain;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Microsoft.EntityFrameworkCore;
-using EDUEX.Data;
 
 namespace EDUEX.DAL
 {
