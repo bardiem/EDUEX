@@ -1,10 +1,22 @@
-﻿using AutoMapper;
+using AutoMapper;
 using EDUEX.BL;
 using EDUEX.Domain;
+using EDUEX.Web.Dto;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Net;
+using System.Threading.Tasks;
+
+using AutoMapper;
+using EDUEX.BL;
+using EDUEX.Domain;
+using EDUEX.Web.Dto;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Net;
-using EDUEX.Web.Dto;
 
 namespace EDUEX.Web.Api
 {
@@ -13,14 +25,16 @@ namespace EDUEX.Web.Api
     public class WebinarController : ControllerBase
     {
         private readonly IWebinarBL webinarBL;
+        private readonly IUserWebinarBL userWebinarBL;
         private readonly IMapper mapper;
 
-        public WebinarController(IWebinarBL webinarBL, IMapper mapper)
+        public WebinarController(IMapper mapper, IUserWebinarBL _userWebinar, IWebinarBL webinarBL)
         {
             this.webinarBL = webinarBL;
+            this.userWebinarBL = _userWebinar;
             this.mapper = mapper;
         }
-
+            
         [HttpGet]
         [Produces("application/json")]
         [ProducesResponseType(typeof(List<WebinarRewiewDto>), (int)HttpStatusCode.OK)]
@@ -67,6 +81,53 @@ namespace EDUEX.Web.Api
             webinarBL.Delete(id);
             return Ok();
         }
+
+        [HttpGet("userWebinar")]
+        [Produces("application/json")]
+        [ProducesResponseType(typeof(List<UserWebinarDto>), (int)HttpStatusCode.OK)]
+        public IActionResult Getu()
+        {
+            var userWebinars = userWebinarBL.GetList();
+            var result = mapper.Map<List<UserWebinarDto>>(userWebinars);
+            return Ok(result);
+        }
+
+        [HttpGet("userWebinar/{id}")]
+        [Produces("application/json")]
+        [ProducesResponseType(typeof(List<UserWebinarDto>), (int)HttpStatusCode.OK)]
+        public UserWebinarDto Getu(int id)
+        {
+            var userWebinar = userWebinarBL.GetById(id);
+            var result = mapper.Map<UserWebinarDto>(userWebinar);
+            return result;
+        }
+
+
+        [HttpPost("userWebinar")]
+        [Produces("application/json")]
+        [ProducesResponseType(typeof(UserWebinarDto), (int)HttpStatusCode.OK)]
+        public IActionResult Post([FromBody] UserWebinarDto userWebinarDto)
+        {
+            var result = mapper.Map<UserWebinar>(userWebinarDto);
+            var userWebinar = userWebinarBL.Create(result);
+            return Ok(userWebinar);
+        }
+
+
+        [HttpPut("/userWebinar/{id}")]
+        public IActionResult Put(int id, [FromBody] UserWebinar userWebinar)
+        {
+            userWebinar.Id = id;
+            var updateUserWebinar = userWebinarBL.Update(userWebinar);
+            return Ok(updateUserWebinar);
+        }
+
+
+        [HttpDelete("/userWebinar/{id}")]
+        public IActionResult Delete(int id)
+        {
+            userWebinarBL.Delete(id);
+            return Ok();
+        }
     }
 }
-
