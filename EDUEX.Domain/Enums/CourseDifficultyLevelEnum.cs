@@ -2,7 +2,7 @@
 {
     public enum CourseDifficultyLevelEnum
 	{
-		Begginer = 'B',
+		Beginner = 'B',
 		Intermediate = 'I',
 		Advanced = 'A'
 	}
