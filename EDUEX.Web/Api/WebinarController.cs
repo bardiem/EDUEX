@@ -2,18 +2,6 @@ using AutoMapper;
 using EDUEX.BL;
 using EDUEX.Domain;
 using EDUEX.Web.Dto;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Threading.Tasks;
-
-using AutoMapper;
-using EDUEX.BL;
-using EDUEX.Domain;
-using EDUEX.Web.Dto;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Net;

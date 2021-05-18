@@ -2,17 +2,15 @@
 using EDUEX.BL;
 using EDUEX.Domain;
 using EDUEX.Web.Dto;
-using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Net;
-using System.Threading.Tasks;
 
 namespace EDUEX.Web.Api
 {
     [Route("api/session")]
+    [Authorize(Roles = "admin, user")]
     [ApiController]
     public class SessionController : ControllerBase
     {
@@ -24,7 +22,7 @@ namespace EDUEX.Web.Api
             this.sessionBL = sessionBL;
             this.mapper = mapper;
         }
-
+        
         [HttpGet]
         [Produces("application/json")]
         [ProducesResponseType(typeof(List<SessionDto>), (int)HttpStatusCode.OK)]
@@ -35,7 +33,6 @@ namespace EDUEX.Web.Api
             return Ok(result);
         }
 
-
         [HttpGet("{id:int}")]
         [Produces("application/json")]
         [ProducesResponseType(typeof(SessionDto), (int)HttpStatusCode.OK)]
@@ -43,9 +40,8 @@ namespace EDUEX.Web.Api
         {
             var session = sessionBL.GetById(id);
             var result = mapper.Map<SessionDto>(session);
-            return Ok(session);
+            return Ok(result);
         }
-
 
         [HttpPost]
         [Produces("application/json")]
