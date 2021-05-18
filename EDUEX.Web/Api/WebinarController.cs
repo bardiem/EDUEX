@@ -2,12 +2,14 @@ using AutoMapper;
 using EDUEX.BL;
 using EDUEX.Domain;
 using EDUEX.Web.Dto;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Net;
 
 namespace EDUEX.Web.Api
 {
+    [Authorize(Roles = "admin, user")]
     [Route("api/webinar")]
     [ApiController]
     public class WebinarController : ControllerBase
@@ -63,6 +65,7 @@ namespace EDUEX.Web.Api
             return Ok(updateWebinar);
         }
 
+        [Authorize(Roles = "admin")]
         [HttpDelete("{id}")]
         public IActionResult DeleteWebinar(int id)
         {
@@ -110,7 +113,7 @@ namespace EDUEX.Web.Api
             return Ok(updateUserWebinar);
         }
 
-
+        [Authorize(Roles = "admin")]
         [HttpDelete("userWebinar/{id}")]
         public IActionResult Delete(int id)
         {
