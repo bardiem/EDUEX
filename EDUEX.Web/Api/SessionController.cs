@@ -2,17 +2,15 @@
 using EDUEX.BL;
 using EDUEX.Domain;
 using EDUEX.Web.Dto;
-using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Net;
-using System.Threading.Tasks;
 
 namespace EDUEX.Web.Api
 {
     [Route("api/session")]
+    [Authorize]
     [ApiController]
     public class SessionController : ControllerBase
     {
@@ -24,7 +22,7 @@ namespace EDUEX.Web.Api
             this.sessionBL = sessionBL;
             this.mapper = mapper;
         }
-
+        [Authorize(Roles ="admin")]
         [HttpGet]
         [Produces("application/json")]
         [ProducesResponseType(typeof(List<SessionDto>), (int)HttpStatusCode.OK)]
@@ -35,7 +33,7 @@ namespace EDUEX.Web.Api
             return Ok(result);
         }
 
-
+        [Authorize(Roles = "admin")]
         [HttpGet("{id:int}")]
         [Produces("application/json")]
         [ProducesResponseType(typeof(SessionDto), (int)HttpStatusCode.OK)]
@@ -43,10 +41,10 @@ namespace EDUEX.Web.Api
         {
             var session = sessionBL.GetById(id);
             var result = mapper.Map<SessionDto>(session);
-            return Ok(session);
+            return Ok(result);
         }
 
-
+        [Authorize(Roles = "admin")]
         [HttpPost]
         [Produces("application/json")]
         [ProducesResponseType(typeof(SessionDto), (int)HttpStatusCode.OK)]
@@ -57,6 +55,7 @@ namespace EDUEX.Web.Api
             return Ok(session);
         }
 
+        [Authorize(Roles = "admin")]
         [HttpPut("{id}")]
         public IActionResult Put(int id, [FromBody] Session session)
         {
@@ -65,6 +64,7 @@ namespace EDUEX.Web.Api
             return Ok(updateSession);
         }
 
+        [Authorize(Roles = "admin")]
         [HttpDelete("{id}")]
         public IActionResult DeleteSession(int id)
         {
