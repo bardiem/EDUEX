@@ -1,14 +1,10 @@
-
-<div class="offset-2 col-9">   
-    <h2>Сесії:</h2>
-</div>
+<h2>Сесії:</h2>
 <div class="container">
-     
     <form #sessionPost="ngForm" (ngSubmit)="Submit(sessionPost.value); sessionPost.reset()"> 
       <div class="form-group row">
         <label for="first_name" class="col-2 col-form-label">Назва</label>
         <div class="col-6">
-          <input type="text" class="form-control"  name="topic" ngModel placeholder="Введіть назву предмету">
+          <input type="text" class="form-control" name="topic" ngModel placeholder="Введіть назву предмету">
         </div>
       </div>
       <div class="form-group row">
@@ -26,8 +22,8 @@
       <div class="form-group row">
         <label for="last_name" class="col-2 col-form-label">Тривалість</label>
         <div class="col-6">
-           <select class="form-select" ngModel  name="duration" >
-            <option selected>Виберіть тривалість сесії</option>
+           <select class="form-select" [(ngModel)]="selectedDuration"  name="duration" >
+            <option [ngValue]="0">Виберіть тривалість сесії</option>
             <option [ngValue]="30">30 хвилин</option>
             <option [ngValue]="60">60 хвилин</option>
             <option [ngValue]="90">90 хвилин</option>
@@ -42,6 +38,5 @@
       </div>
     </form>
 </div>
-
 
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
