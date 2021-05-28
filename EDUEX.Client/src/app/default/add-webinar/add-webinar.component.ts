@@ -1,16 +1,22 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from "@angular/common/http";
 
 @Component({
   selector: 'app-add-webinar',
   templateUrl: './add-webinar.component.html',
   styleUrls: ['./add-webinar.component.scss']
 })
+export class AddWebinarComponent implements OnInit {
 
-export class AddWebinarComponent {
-  private _url: string = '/api/webinar'; 
-
+  private _url: string = '/api/webinar';
   selectedDifficulty: number = 0;
+  lev=1;
+
+  constructor(private http: HttpClient) { }
+
+  ngOnInit() {
+    
+  }
 
   onSubmit(data){
     console.warn(data)
@@ -19,10 +25,5 @@ export class AddWebinarComponent {
       
     })
   }
-  lev=1;
-    constructor(private http: HttpClient) {}
-    
+  
 }
-
-
-

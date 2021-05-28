@@ -2,7 +2,6 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { AddWebinarComponent } from './add-webinar.component';
 
-
 describe('AddWebinarComponent', () => {
   let component: AddWebinarComponent;
   let fixture: ComponentFixture<AddWebinarComponent>;

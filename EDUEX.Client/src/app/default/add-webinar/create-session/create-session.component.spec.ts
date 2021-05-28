@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SessionComponent } from './session.component';
+import { CreateSessionComponent } from './create-session.component';
 
-describe('SessionComponent', () => {
-  let component: SessionComponent;
-  let fixture: ComponentFixture<SessionComponent>;
+describe('CreateSessionComponent', () => {
+  let component: CreateSessionComponent;
+  let fixture: ComponentFixture<CreateSessionComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ SessionComponent ]
+      declarations: [ CreateSessionComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(SessionComponent);
+    fixture = TestBed.createComponent(CreateSessionComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

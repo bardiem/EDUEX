@@ -6,9 +6,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { NavbarComponent } from './navbar/navbar.component';
 import { NavbarButtonsComponent } from './navbar/navbar-buttons/navbar-buttons.component';
 import { NavbarProfileComponent } from './navbar/navbar-profile/navbar-profile.component';
-import { AddWebinarComponent } from './default/add-webinar/add-webinar.component';
 import { FormsModule } from '@angular/forms';
-import { SessionComponent } from './default/add-webinar/session/session.component';
+import { AddWebinarComponent } from './default/add-webinar/add-webinar.component';
+import { CreateSessionComponent } from './default/add-webinar/create-session/create-session.component';
 
 
 @NgModule({
@@ -16,11 +16,7 @@ import { SessionComponent } from './default/add-webinar/session/session.componen
     AppComponent,
     NavbarComponent,
     NavbarButtonsComponent,
-    NavbarProfileComponent,
-    AddWebinarComponent,
-    SessionComponent,
-
-    
+    NavbarProfileComponent
   ],
   imports: [
     BrowserModule,
