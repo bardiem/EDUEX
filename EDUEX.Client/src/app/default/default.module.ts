@@ -5,16 +5,18 @@ import { routes } from './default.router';
 import { IndexComponent } from './index/index.component';
 import { NewTestComponent } from './new-test/new-test.component';
 import { FormsModule} from '@angular/forms';
+import { RegisterComponent } from './register/register.component';
 
 @NgModule({
   declarations: [
     IndexComponent,
     TestComponent,
     NewTestComponent,
-    FormsModule
+    RegisterComponent
     ],
   imports: [
     CommonModule,
+    FormsModule,
     routes
   ]
 })
