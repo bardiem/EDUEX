@@ -4,10 +4,14 @@ import { TestComponent } from './test/test.component';
 import { routes } from './default.router';
 import { IndexComponent } from './index/index.component';
 
+
+
+
 @NgModule({
   declarations: [
     IndexComponent,
-    TestComponent
+    TestComponent,
+
     ],
   imports: [
     CommonModule,

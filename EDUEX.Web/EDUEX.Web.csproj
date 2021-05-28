@@ -31,8 +31,4 @@
     <ProjectReference Include="..\EDUEX.Domain\EDUEX.Domain.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Extensions\" />
-  </ItemGroup>
-
 </Project>

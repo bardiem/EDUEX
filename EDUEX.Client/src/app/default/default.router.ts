@@ -4,6 +4,7 @@ import { TestComponent } from './test/test.component';
 import { IndexComponent } from './index/index.component';
 
 
+
 export const router: Routes = [
     { path: '', component : TestComponent },
     { path: 'test', component : IndexComponent  },
