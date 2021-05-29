@@ -8,10 +8,6 @@ import { NavbarProfileComponent } from './default/navbar/navbar-profile/navbar-p
 import { NavbarButtonsComponent } from './default/navbar/navbar-buttons/navbar-buttons.component';
 import { NavbarComponent } from './default/navbar/navbar.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { AddWebinarComponent } from './default/add-webinar/add-webinar.component';
-import { CreateSessionComponent } from './default/add-webinar/create-session/create-session.component';
-
-
 
 
 @NgModule({
