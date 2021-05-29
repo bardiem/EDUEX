@@ -10,7 +10,7 @@ using System.Net;
 namespace EDUEX.Web.Api
 {
     [Route("api/session")]
-    //[Authorize(Roles = "admin, user")]
+    [Authorize(Roles = "admin, user")]
     [ApiController]
     public class SessionController : ControllerBase
     {

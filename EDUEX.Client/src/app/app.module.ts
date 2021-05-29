@@ -11,12 +11,14 @@ import { AddWebinarComponent } from './default/add-webinar/add-webinar.component
 import { CreateSessionComponent } from './default/add-webinar/create-session/create-session.component';
 
 
+
+
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
     NavbarButtonsComponent,
-    NavbarProfileComponent
+    NavbarProfileComponent,
   ],
   imports: [
     BrowserModule,
