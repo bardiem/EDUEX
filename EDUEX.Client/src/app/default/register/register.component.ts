@@ -12,28 +12,33 @@ import { parseError } from '../shared/error-parser.service';
 export class RegisterComponent implements OnInit {
   private isTeacher: boolean = false;
   private errorMsgs = [];
+  private successMessage = "";
 
   constructor(private userService: UserService) { }
 
   ngOnInit() {
-    this.userService.getAllUsers()
-      .subscribe(data => console.log(data));
   }
 
   onSubmit(form: NgForm){
     if(form.value.birthDate == []){
       form.value.birthDate = null;
     }
-    
+
     this.userService.postUser(form.value)
       .subscribe(
         success => {
-          console.log(success); 
+          this.showSuccessBlock();
           form.resetForm();
         },
         error => this.errorMsgs = parseError(error)
       );
 
+  }
+
+  showSuccessBlock(){
+    this.successMessage = "Реєстрація пройшла успішно.";
+    this.errorMsgs = [];
+    setTimeout(() => this.successMessage = "", 5000);
   }
 
 }
