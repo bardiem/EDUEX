@@ -11,6 +11,8 @@ import { AddWebinarComponent } from './add-webinar/add-webinar.component';
 import { CreateSessionComponent } from './add-webinar/create-session/create-session.component';
 import { WebinarsComponent } from './webinars/webinars.component';
 import { WebinarsItemComponent } from './webinars/webinars-item/webinars-item.component';
+import { WebinarDetailsComponent } from './webinars/webinar-details/webinar-details.component';
+import { UserProfileComponent } from './user-profile/user-profile.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,9 @@ import { WebinarsItemComponent } from './webinars/webinars-item/webinars-item.co
     AddWebinarComponent,
     CreateSessionComponent,
     WebinarsComponent,
-    WebinarsItemComponent
+    WebinarsItemComponent,
+    WebinarDetailsComponent,
+    UserProfileComponent
     ],
   imports: [
     CommonModule,

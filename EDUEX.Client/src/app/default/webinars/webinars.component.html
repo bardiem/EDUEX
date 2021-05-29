@@ -1,18 +1,22 @@
-<div>
-    <div>
-        <a routerLink="#"><button type="button" class="btn btn-primary rounded-lg">Primary</button></a>
-        
-        <form>
-            <select class="form-control form-control-sm">
-                <option>Предмет</option>
-            </select>
-            <select class="form-control form-control-sm">
-                <option>Сортування</option>
-            </select>
+<div class="p-5">
+    <div class="d-flex justify-content-between mb-4">
+        <a routerLink="/webinar/add" class="ml-3"><button type="button" class="btn btn-primary rounded-lg">+</button></a>
+
+        <form class="form-inline">
+            <div class="form-group mb-2">
+                <select class="form-control form-control-sm">
+                    <option>Предмет</option>
+                </select>
+              </div>
+              <div class="form-group mx-sm-3 mb-2">
+                <select class="form-control form-control-sm">
+                    <option>Сортування</option>
+                </select>
+              </div>
         </form>
     </div>
 
-
-
+    <app-webinars-item></app-webinars-item>
+    <app-webinars-item></app-webinars-item>
     <app-webinars-item></app-webinars-item>
 </div>

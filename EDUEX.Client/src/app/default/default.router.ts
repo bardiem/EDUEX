@@ -6,13 +6,17 @@ import { AddWebinarComponent } from './add-webinar/add-webinar.component';
 import { RegisterComponent } from './register/register.component';
 import { AuthGuard } from '../guards/auth.guard';
 import { WebinarsComponent } from './webinars/webinars.component';
+import { WebinarDetailsComponent } from './webinars/webinar-details/webinar-details.component';
+import { UserProfileComponent } from './user-profile/user-profile.component';
 
 export const router: Routes = [
     { path: '', component : IndexComponent },
     { path: 'register', component: RegisterComponent},
     { path: 'test', component : TestComponent, canActivate: [AuthGuard]},
-    { path: 'add-webinar', component: AddWebinarComponent},
-    { path: 'webinars', component: WebinarsComponent}
+    { path: 'webinar/add', component: AddWebinarComponent},
+    { path: 'webinars', component: WebinarsComponent},
+    { path: 'webinar/details', component: WebinarDetailsComponent},
+    { path: 'user-profile', component: UserProfileComponent}
 ];
 
 
