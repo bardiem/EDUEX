@@ -1,14 +1,17 @@
-<div class="collapse navbar-collapse d-flex justify-content-end" id="navbarText">     
-    <form class="d-flex" >
+<div class="collapse navbar-collapse d-flex justify-content-end" id="navbarText">
+  <div class="alert alert-danger m-1" *ngIf="invalidLogin">
+    Емейл або пароль неправильні
+  </div>   
+    <form #loginForm="ngForm" (ngSubmit)="logIn(loginForm)" class="d-flex" >
       <div class="row">
           <div class="col m-1">
-            <input type="text" [(ngModel)]="Email" name="email" class="form-control" placeholder="Емейл">
+            <input type="text" ngModel name="email" class="form-control" placeholder="Емейл">
           </div>
           <div class="col m-1">
-            <input type="text" [(ngModel)]="Password" name="password" class="form-control" placeholder="Пароль">
+            <input type="password" ngModel name="password" class="form-control" placeholder="Пароль">
           </div>
       </div>
-      <button class="btn btn-outline-primary m-1" (click)="logIn()" type="submit">Ввійти</button>
+      <button class="btn btn-outline-primary m-1" type="submit">Ввійти</button>
       <a routerLink="/register"><button class="btn btn-outline-primary m-1">Зареєструватись</button></a>
     </form>
 </div>

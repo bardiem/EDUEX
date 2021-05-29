@@ -10,6 +10,10 @@ export class UserService{
 
   constructor(private _http: HttpClient) {  }
 
+  getCurrentUser(){
+    return this._http.get<IUser>('/api/current-user')
+  }
+
   getAllUsers(){
     return this._http.get<IUser>('/api/user');
   }

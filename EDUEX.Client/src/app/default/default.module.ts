@@ -6,6 +6,7 @@ import { IndexComponent } from './index/index.component';
 import { NewTestComponent } from './new-test/new-test.component';
 import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { RegisterComponent } from './register/register.component';
+import { AuthGuard } from './guards/auth.guard';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,9 @@ import { RegisterComponent } from './register/register.component';
     FormsModule,
     ReactiveFormsModule,
     routes
+  ],
+  providers: [
+    AuthGuard
   ]
 })
 export class DefaultModule { }

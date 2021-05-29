@@ -8,13 +8,13 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class NavbarProfileComponent implements OnInit {
 
-  UserFullName = "Богдан Яцишин";
-  UserBalance = "120.00";
+  UserFullName = "";
+  UserBalance = "";
   constructor(private _userService: UserService) { }
   
 
   ngOnInit() {
-    this._userService.getUser(1)
+    this._userService.getCurrentUser()
       .subscribe(data => {
         this.UserFullName = data.firstName + ' ' + data.lastName;
         this.UserBalance = data.balance.toString();

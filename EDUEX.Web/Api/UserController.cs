@@ -3,7 +3,6 @@ using EDUEX.BL;
 using EDUEX.Domain;
 using EDUEX.Web.Dto;
 using EDUEX.Web.Dto.UserDtos;
-using EDUEX.Web.Validators;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
@@ -11,7 +10,7 @@ using System.Collections.Generic;
 namespace EDUEX.Web.Api
 {
     [Route("api/user")]
-    //[Authorize]
+    [Authorize]
     [ApiController]
     public class UserController : ControllerBase
     {
@@ -58,7 +57,7 @@ namespace EDUEX.Web.Api
             }
 
             var user = _mapper.Map<User>(userDto);
-            
+
             var result = _userBL.Create(user);
             return Ok(result);
         }

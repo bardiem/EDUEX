@@ -4,12 +4,13 @@ import { TestComponent } from './test/test.component';
 import { IndexComponent } from './index/index.component';
 import { NewTestComponent } from './new-test/new-test.component';
 import { RegisterComponent } from './register/register.component';
+import { AuthGuard } from './guards/auth.guard';
 
 
 export const router: Routes = [
     { path: '', component : TestComponent },
     { path: 'test', component : IndexComponent  },
-    { path: 'newTest', component: NewTestComponent},
+    { path: 'newTest', component: NewTestComponent, canActivate: [AuthGuard]},
     { path: 'register', component: RegisterComponent}
 ]
 

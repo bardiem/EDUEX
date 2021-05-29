@@ -11,7 +11,7 @@
         </div>
         
         </div>
-        <app-navbar-buttons></app-navbar-buttons>
-        <!-- <app-navbar-profile></app-navbar-profile> -->
+        <app-navbar-buttons *ngIf="!authService.loggedIn()"></app-navbar-buttons>
+        <app-navbar-profile *ngIf="authService.loggedIn()"></app-navbar-profile>
     </div>
 </nav>
