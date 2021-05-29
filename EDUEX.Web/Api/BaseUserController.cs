@@ -1,12 +1,9 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using EDUEX.BL;
+using EDUEX.Domain;
+using Microsoft.AspNetCore.Mvc;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Security.Claims;
-using System.Text;
-using System.Threading.Tasks;
-using EDUEX.BL;
-using EDUEX.Domain;
 
 namespace EDUEX.Web.Api
 {

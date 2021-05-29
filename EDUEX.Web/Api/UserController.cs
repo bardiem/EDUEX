@@ -16,15 +16,17 @@ namespace EDUEX.Web.Api
     {
         private readonly IUserBL _userBL;
         private readonly IMapper _mapper;
+        private readonly IHashing _hasher;
 
-        public UserController(IUserBL userBL, IMapper mapper)
+        public UserController(IUserBL userBL, IMapper mapper, IHashing hasher)
         {
             _userBL = userBL;
             _mapper = mapper;
+            _hasher = hasher;
         }
 
 
-        [Authorize(Roles = "admin")]
+        //[Authorize(Roles = "admin")]
         [HttpGet]
         public IEnumerable<UserDtoWithEmail> Get()
         {
@@ -34,7 +36,7 @@ namespace EDUEX.Web.Api
         }
 
 
-        [Authorize(Roles = "admin")]
+        //[Authorize(Roles = "admin")]
         [HttpGet("{id}")]
         public UserDtoWithEmail Get(int id)
         {
@@ -48,6 +50,12 @@ namespace EDUEX.Web.Api
         [HttpPost]
         public IActionResult Post([FromBody] CreateUserDto userDto)
         {
+            userDto.Password = _hasher.GetHash(userDto.Password);
+            if (userDto.Roles == null)
+            {
+                userDto.Roles = new List<string> { "user" };
+            }
+
             var user = _mapper.Map<User>(userDto);
 
             var result = _userBL.Create(user);

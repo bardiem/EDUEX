@@ -8,20 +8,24 @@ import { CreateSessionComponent } from './add-webinar/create-session/create-sess
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { NewTestComponent } from './new-test/new-test.component';
+import { FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { RegisterComponent } from './register/register.component';
+import { AuthGuard } from './guards/auth.guard';
 
 @NgModule({
   declarations: [
     IndexComponent,
     TestComponent,
-    AddWebinarComponent,
-    CreateSessionComponent,
-    NewTestComponent
+    RegisterComponent
     ],
   imports: [
     CommonModule,
     FormsModule,
     HttpClientModule,
     routes
+  ],
+  providers: [
+    AuthGuard
   ]
 })
 export class DefaultModule { }
