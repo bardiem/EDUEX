@@ -21,6 +21,8 @@ using EDUEX.Web.Middlewares;
 using EDUEX.Web.Services;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
+using EDUEX.Web.Validators;
+using FluentValidation.AspNetCore;
 
 namespace EDUEX.Web
 {
@@ -40,6 +42,7 @@ namespace EDUEX.Web
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers()
+                .AddFluentValidation(fv => fv.RegisterValidatorsFromAssemblyContaining<Startup>())
                 .AddNewtonsoftJson(opt =>
                 {
                     opt.SerializerSettings.DateFormatString = "yyyy-MM-dd'T'HH:mm:ss'Z'";
@@ -79,6 +82,7 @@ namespace EDUEX.Web
                     new Func<IEduExDbContext>(() => provider.GetService<IEduExDbContext>())
                 );
             services.AddScoped<IIdentityService, IdentityService>();
+            services.AddScoped<IHashing, Sha512Hashing>();
 
             RegisterBL(services);
             RegisterRepositories(services);
@@ -167,6 +171,7 @@ namespace EDUEX.Web
             IMapper mapper = mappingConfig.CreateMapper();
             services.AddSingleton(mapper);
         }
+
     }
 
     internal class CheckAuthMiddleware
