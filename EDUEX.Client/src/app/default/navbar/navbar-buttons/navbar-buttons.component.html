@@ -1,0 +1,14 @@
+<div class="collapse navbar-collapse d-flex justify-content-end" id="navbarText">     
+    <form class="d-flex" >
+      <div class="row">
+          <div class="col m-1">
+            <input type="text" [(ngModel)]="Email" name="email" class="form-control" placeholder="Емейл">
+          </div>
+          <div class="col m-1">
+            <input type="text" [(ngModel)]="Password" name="password" class="form-control" placeholder="Пароль">
+          </div>
+      </div>
+      <button class="btn btn-outline-primary m-1" (click)="logIn()" type="submit">Ввійти</button>
+      <a routerLink="/register"><button class="btn btn-outline-primary m-1">Зареєструватись</button></a>
+    </form>
+</div>

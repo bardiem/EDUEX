@@ -10,7 +10,7 @@ using System.Collections.Generic;
 namespace EDUEX.Web.Api
 {
     [Route("api/user")]
-    [Authorize]
+    //Authorize]
     [ApiController]
     public class UserController : ControllerBase
     {
@@ -24,7 +24,7 @@ namespace EDUEX.Web.Api
         }
 
 
-        [Authorize(Roles = "admin")]
+        //[Authorize(Roles = "admin")]
         [HttpGet]
         public IEnumerable<UserDtoWithEmail> Get()
         {
@@ -34,7 +34,7 @@ namespace EDUEX.Web.Api
         }
 
 
-        [Authorize(Roles = "admin")]
+        //[Authorize(Roles = "admin")]
         [HttpGet("{id}")]
         public UserDtoWithEmail Get(int id)
         {

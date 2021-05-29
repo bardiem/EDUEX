@@ -28,5 +28,7 @@ namespace EDUEX.Web.Dto.UserDtos
         [MaxLength(150)]
         public string Position { get; set; }
 
+        public decimal Balance { get; set; }
+
     }
 }
