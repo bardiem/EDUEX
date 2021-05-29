@@ -10,6 +10,7 @@ export const router: Routes = [
     { path: 'test', component : IndexComponent},
     { path: 'add-webinar', component: AddWebinarComponent},
     { path: 'newTest', component: NewTestComponent}
+];
 
 
 export const routes: ModuleWithProviders = RouterModule.forChild(router);
