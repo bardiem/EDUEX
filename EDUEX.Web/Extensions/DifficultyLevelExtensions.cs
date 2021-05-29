@@ -2,7 +2,7 @@
 
 namespace EDUEX.Web.Extensions
 {
-    public static class ParsingDifficultyLevel
+    public static class DifficultyLevelExtensions
     {
         public static CourseDifficultyLevelEnum GetLevel(this string Level)
         {
