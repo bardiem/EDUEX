@@ -7,6 +7,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { NavbarComponent } from './default/navbar/navbar.component';
 import { NavbarButtonsComponent } from './default/navbar/navbar-buttons/navbar-buttons.component';
 import { NavbarProfileComponent } from './default/navbar/navbar-profile/navbar-profile.component';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -19,6 +20,7 @@ import { NavbarProfileComponent } from './default/navbar/navbar-profile/navbar-p
   imports: [
     BrowserModule,
     HttpClientModule,
+    FormsModule,
     routes
   ],
   providers: [],
