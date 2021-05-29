@@ -3,6 +3,7 @@ using EDUEX.BL;
 using EDUEX.Domain;
 using EDUEX.Web.Dto;
 using EDUEX.Web.Dto.UserDtos;
+using EDUEX.Web.Validators;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
@@ -10,17 +11,19 @@ using System.Collections.Generic;
 namespace EDUEX.Web.Api
 {
     [Route("api/user")]
-    //Authorize]
+    //[Authorize]
     [ApiController]
     public class UserController : ControllerBase
     {
         private readonly IUserBL _userBL;
         private readonly IMapper _mapper;
+        private readonly IHashing _hasher;
 
-        public UserController(IUserBL userBL, IMapper mapper)
+        public UserController(IUserBL userBL, IMapper mapper, IHashing hasher)
         {
             _userBL = userBL;
             _mapper = mapper;
+            _hasher = hasher;
         }
 
 
@@ -48,8 +51,14 @@ namespace EDUEX.Web.Api
         [HttpPost]
         public IActionResult Post([FromBody] CreateUserDto userDto)
         {
-            var user = _mapper.Map<User>(userDto);
+            userDto.Password = _hasher.GetHash(userDto.Password);
+            if (userDto.Roles == null)
+            {
+                userDto.Roles = new List<string> { "user" };
+            }
 
+            var user = _mapper.Map<User>(userDto);
+            
             var result = _userBL.Create(user);
             return Ok(result);
         }

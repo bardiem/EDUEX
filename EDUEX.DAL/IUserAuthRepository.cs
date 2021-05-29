@@ -9,7 +9,8 @@ namespace EDUEX.DAL
 
         Task<User> GetUserByEmailAsync(string userEmail);
 
-        User GetByEmailAndPassword(string email, string password);
+        User GetUserByEmail(string userEmail);
 
+        User GetByEmailAndPassword(string email, string password);
     }
 }

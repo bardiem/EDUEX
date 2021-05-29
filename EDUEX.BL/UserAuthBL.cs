@@ -21,5 +21,10 @@ namespace EDUEX.BL
         {
             return userAuthRepository.GetByEmailAndPassword(email, password);
         }
+
+        public User GetByEmail(string email)
+        {
+            return userAuthRepository.GetUserByEmail(email);
+        }
     }
 }

@@ -31,7 +31,6 @@ namespace EDUEX.Domain
 
         public ICollection<UserRole> UserRoles { get; set; }
 
-        [Required]
         [MaxLength(150)]
         public string Position { get; set; }
 

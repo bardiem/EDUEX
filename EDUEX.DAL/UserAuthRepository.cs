@@ -22,6 +22,8 @@ namespace EDUEX.DAL
                 .ThenInclude(ur => ur.Role)
                 .FirstOrDefault(p => p.Email == email && p.Password == password));
 
+        public User GetUserByEmail(string userEmail)
+            => Query(context => context.Users.FirstOrDefault(p => p.Email == userEmail));
 
         public Task<User> GetUserByEmailAsync(string userEmail)
             => Query(context => context.Users.FirstOrDefaultAsync(p => p.Email == userEmail));

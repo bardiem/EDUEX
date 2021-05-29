@@ -7,5 +7,7 @@ namespace EDUEX.BL
         User GetUserById(int id);
 
         User GetByEmailAndPassword(string email, string password);
+
+        User GetByEmail(string email);
     }
 }
