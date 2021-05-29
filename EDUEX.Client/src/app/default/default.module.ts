@@ -7,13 +7,15 @@ import { AddWebinarComponent } from './add-webinar/add-webinar.component';
 import { CreateSessionComponent } from './add-webinar/create-session/create-session.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { NewTestComponent } from './new-test/new-test.component';
 
 @NgModule({
   declarations: [
     IndexComponent,
     TestComponent,
     AddWebinarComponent,
-    CreateSessionComponent
+    CreateSessionComponent,
+    NewTestComponent
     ],
   imports: [
     CommonModule,

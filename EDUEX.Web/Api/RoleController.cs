@@ -6,10 +6,12 @@ using System.Net;
 using EDUEX.BL;
 using EDUEX.Web.Dto;
 using EDUEX.Domain;
+using Microsoft.AspNetCore.Authorization;
 
 namespace EDUEX.Web.Api
 {
     [Route("/api/role")]
+    [Authorize]
     [ApiController]
     public class RoleController : BaseController
     {
