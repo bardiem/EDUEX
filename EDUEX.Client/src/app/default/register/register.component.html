@@ -5,6 +5,9 @@
         {{errorMsg}}
       </div>
     </div>
+    <div class="alert alert-success" *ngIf="successMessage">
+      {{successMessage}}
+    </div>
     <form class="w-100" #registrationForm="ngForm" novalidate (ngSubmit)="onSubmit(registrationForm)">
 
       <div class="form-group row">
