@@ -9,16 +9,18 @@ import { RegisterComponent } from './register/register.component';
 import { AuthGuard } from '../guards/auth.guard';
 import { AddWebinarComponent } from './add-webinar/add-webinar.component';
 import { CreateSessionComponent } from './add-webinar/create-session/create-session.component';
-import { NewTestComponent } from './new-test/new-test.component';
+import { WebinarsComponent } from './webinars/webinars.component';
+import { WebinarsItemComponent } from './webinars/webinars-item/webinars-item.component';
 
 @NgModule({
   declarations: [
     IndexComponent,
     TestComponent,
-    NewTestComponent,
     RegisterComponent,
     AddWebinarComponent,
-    CreateSessionComponent
+    CreateSessionComponent,
+    WebinarsComponent,
+    WebinarsItemComponent
     ],
   imports: [
     CommonModule,

@@ -2,17 +2,17 @@ import { ModuleWithProviders } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { TestComponent } from './test/test.component';
 import { IndexComponent } from './index/index.component';
-import { NewTestComponent } from './new-test/new-test.component';
 import { AddWebinarComponent } from './add-webinar/add-webinar.component';
 import { RegisterComponent } from './register/register.component';
 import { AuthGuard } from '../guards/auth.guard';
+import { WebinarsComponent } from './webinars/webinars.component';
 
 export const router: Routes = [
-    { path: '', component : TestComponent },
+    { path: '', component : IndexComponent },
     { path: 'register', component: RegisterComponent},
-    { path: 'test', component : IndexComponent},
+    { path: 'test', component : TestComponent, canActivate: [AuthGuard]},
     { path: 'add-webinar', component: AddWebinarComponent},
-    { path: 'newTest', component: NewTestComponent, canActivate: [AuthGuard]}
+    { path: 'webinars', component: WebinarsComponent}
 ];
 
 
