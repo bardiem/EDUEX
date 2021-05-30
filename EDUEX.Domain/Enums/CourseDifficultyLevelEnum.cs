@@ -2,8 +2,8 @@
 {
     public enum CourseDifficultyLevelEnum
 	{
-		Beginner = 'B',
-		Intermediate = 'I',
-		Advanced = 'A'
+		Beginner = 0,
+		Intermediate = 1,
+		Advanced = 2
 	}
 }

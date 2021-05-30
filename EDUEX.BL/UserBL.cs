@@ -9,11 +9,13 @@ namespace EDUEX.BL
     {
         private readonly IUserRepository _userRepository;
         private readonly IUserRoleRepository _userRoleRepository;
+        private readonly IWebinarRepository _webinarRepository;
 
-        public UserBL(IUserRepository userRepository, IUserRoleRepository userRoleRepository)
+        public UserBL(IUserRepository userRepository, IUserRoleRepository userRoleRepository, IWebinarRepository webinarRepository)
         {
             _userRepository = userRepository;
             _userRoleRepository = userRoleRepository;
+            _webinarRepository = webinarRepository;
         }
 
         public UserRole AddRole(int userId, int roleId)
@@ -62,6 +64,10 @@ namespace EDUEX.BL
             return _userRoleRepository.GetByUserId(userId);
         }
 
+        public User GetUserWithWebinars(int id)
+        {
+            return _userRepository.GetWithWebinarsById(id);
+        }
 
         public bool IsUserExists(string email)
         {

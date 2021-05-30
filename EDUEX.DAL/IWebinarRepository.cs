@@ -11,6 +11,8 @@ namespace EDUEX.DAL
 
         Webinar GetById(int id);
 
+        Webinar GetWithSessionsById(int id);
+
         Webinar Update(Webinar webinar);
 
         void Delete(int id);

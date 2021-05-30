@@ -15,8 +15,6 @@ namespace EDUEX.Domain
         [MaxLength(200)]
         public string Link { get; set; }
 
-      
-
         public DateTime StartDate { get; set; }
 
         public DateTime EndDate { get; set; }

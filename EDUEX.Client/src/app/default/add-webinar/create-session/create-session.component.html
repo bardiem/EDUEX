@@ -1,6 +1,6 @@
 <h2>Сесії:</h2>
 <div class="container">
-  <form #sessionPost="ngForm" (ngSubmit)="Submit(sessionPost.value); sessionPost.reset()">
+  <form #sessionPost="ngForm" (ngSubmit)="submit(sessionPost);">
     <div class="form-group row my-4">
       <label for="first_name" class="col-2 col-form-label">Назва</label>
       <div class="col-6">

@@ -1,5 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
+import { Session } from 'inspector';
+import { ISession } from 'src/app/models/ISession';
 
 @Component({
   selector: 'app-create-session',
@@ -8,16 +11,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CreateSessionComponent implements OnInit {
   private selectedDuration: number = 0;
-  private _url: string = '/api/session';
+  private sessions: ISession;
 
   constructor(private http: HttpClient) { }
 
   ngOnInit() {
   }
 
-  Submit(dat){
-    console.warn(dat)
-    this.http.post(this._url, dat)
+  submit(form: NgForm){
+
+    this.http.post('/api/session', form.value)
       .subscribe((res)=>{console.warn(res)
     })
   }

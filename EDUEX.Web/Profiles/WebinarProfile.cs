@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using EDUEX.Domain;
 using EDUEX.Web.Dto;
+using EDUEX.Web.Dto.WebinarDto;
 
 namespace EDUEX.Web.Profiles
 {
@@ -8,9 +9,14 @@ namespace EDUEX.Web.Profiles
     {
         public WebinarProfile()
         {
-            CreateMap<Webinar, WebinarCreationDto>().ReverseMap();
+            CreateMap<Webinar, WebinarCreationDto>()
+                .ReverseMap();
 
-            CreateMap<Webinar, WebinarRewiewDto>().ReverseMap();
+            CreateMap<Webinar, WebinarReviewDto>()
+                .ReverseMap();
+
+            CreateMap<Webinar, WebinarWithSessionsDto>()
+                .ReverseMap();
         }
     }
 }

@@ -31,6 +31,21 @@ namespace EDUEX.DAL
             => Query(context => context.Users
                 .FirstOrDefault(p => p.Id == id));
 
+        public User GetWithWebinarsById(int id)
+            => Query(context => context.Users
+                .Include(u => u.UserWebinars)
+                .Select(u=> new User
+                {
+                    Id = u.Id,
+                    FirstName = u.FirstName,
+                    LastName = u.LastName,
+                    Balance = u.Balance,
+                    BirthDate = u.BirthDate,
+                    Email = u.Email,
+                    Position = u.Position,
+                    UserWebinars = u.UserWebinars.Select(uw=> new UserWebinar{Webinar = uw.Webinar}).OrderBy(w => w.Webinar.EnrollDeadline).ToList()
+                })
+                .FirstOrDefault(p => p.Id == id));
 
         public bool IsUserExists(string email)
             => Query(context => context.Users.Any(u => u.Email == email));

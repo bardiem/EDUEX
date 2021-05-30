@@ -1,4 +1,5 @@
 ﻿using EDUEX.Domain.Enums;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -21,6 +22,8 @@ namespace EDUEX.Domain
         [Required]
         [MaxLength(100)]
         public string Subject { get; set; }
+
+        public DateTime EnrollDeadline { get; set; }
 
         public CourseDifficultyLevelEnum Level { get; set; }
 

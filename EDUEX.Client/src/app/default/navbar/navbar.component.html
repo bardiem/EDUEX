@@ -1,17 +1,17 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light w-100 p-2 border">
-    <div class="d-flex justify-content-between w-100">
-        <div class="d-flex justify-content-between align-items-center">
-        <div>
-          <a class="navbar-brand m-10" href="#">
-            <img src="../../../assets/logo.PNG" class="navbar-img" width="40" height="40" alt="">
+  <div class="d-flex justify-content-between w-100">
+    <div class="d-flex justify-content-between align-items-center">
+      <div>
+        <a class="navbar-brand m-10" href="#">
+          <img src="../../../assets/logo.PNG" class="navbar-img" width="40" height="40" alt="">
         </a>
-        </div>
-        <div class="px-3">
-          <a class="navbar-brand" href="#">{{PageName}}</a>
-        </div>
-        
-        </div>
-        <app-navbar-buttons *ngIf="!authService.loggedIn()"></app-navbar-buttons>
-        <app-navbar-profile *ngIf="authService.loggedIn()"></app-navbar-profile>
+      </div>
+      <div class="px-3">
+        <a class="navbar-brand">{{PageName}}</a>
+      </div>
+
     </div>
+    <app-navbar-buttons *ngIf="!authService.loggedIn()"></app-navbar-buttons>
+    <app-navbar-profile *ngIf="authService.loggedIn()"></app-navbar-profile>
+  </div>
 </nav>

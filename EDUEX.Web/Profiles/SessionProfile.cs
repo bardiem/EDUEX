@@ -10,9 +10,7 @@ namespace EDUEX.Web.Profiles
         public SessionProfile()
         {
             CreateMap<Session, SessionDto>()
-                .ForMember(p => p.Duration, opt => opt.MapFrom(r => r.StartDate.GetDuration(r.EndDate)))
-                .ReverseMap()
-                .ForMember(a => a.EndDate, opt => opt.MapFrom(s => s.StartDate.AddMinutesInInt(s.Duration)));
+                .ReverseMap();
         }
 
     }

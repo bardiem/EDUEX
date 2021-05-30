@@ -1,6 +1,8 @@
 ﻿using EDUEX.DAL;
 using EDUEX.Domain;
+using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace EDUEX.BL
 {
@@ -36,6 +38,17 @@ namespace EDUEX.BL
         public void Delete(int webinar)
         {
             _webinarRepository.Delete(webinar);
+        }
+
+        public DateTime GetEarliestSessionStart(int id)
+        {
+            var webinar = GetWithSessionsById(id);
+            return webinar.Sessions.Min(s => s.StartDate);
+        }
+
+        public Webinar GetWithSessionsById(int id)
+        {
+            return _webinarRepository.GetWithSessionsById(id);
         }
     }
 }

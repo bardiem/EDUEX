@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { IUser } from '../models/IUser';
+import { IUserWithWebinars } from '../models/IUserWithWebinars';
 
 @Injectable({
   providedIn: 'root'
@@ -20,6 +21,10 @@ export class UserService{
 
   getUser(id: number){
     return this._http.get<IUser>('/api/user/' + id);
+  }
+
+  getUserWithWebinars(id: number){
+    return this._http.get<IUserWithWebinars>('/api/user/userWithWebinars/' + id)
   }
 
   postUser(user: IUser){

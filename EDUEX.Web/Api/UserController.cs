@@ -6,6 +6,7 @@ using EDUEX.Web.Dto.UserDtos;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace EDUEX.Web.Api
 {
@@ -26,7 +27,7 @@ namespace EDUEX.Web.Api
         }
 
 
-        //[Authorize(Roles = "admin")]
+        [Authorize(Roles = "admin")]
         [HttpGet]
         public IEnumerable<UserDtoWithEmail> Get()
         {
@@ -36,12 +37,27 @@ namespace EDUEX.Web.Api
         }
 
 
-        //[Authorize(Roles = "admin")]
+        [Authorize(Roles = "admin, user")]
         [HttpGet("{id}")]
         public UserDtoWithEmail Get(int id)
         {
             var user = _userBL.GetById(id);
             var userView = _mapper.Map<UserDtoWithEmail>(user);
+            return userView;
+        }
+
+
+        [Authorize(Roles = "admin, user")]
+        [Route("userWithWebinars/{id:int}")]
+        [HttpGet]
+        public UserWithWebinars GetWithWebinars(int id)
+        {
+            var user = _userBL.GetUserWithWebinars(id);
+            var webinars = user.UserWebinars.Select(u => u.Webinar);
+
+            var userView = _mapper.Map<UserWithWebinars>(user);
+            userView.Webinars = _mapper.Map<IList<WebinarReviewDto>>(webinars);
+
             return userView;
         }
 

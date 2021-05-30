@@ -31,6 +31,13 @@ namespace EDUEX.DAL
             => Query(context => context.Webinars
                 .FirstOrDefault(p => p.Id == id));
 
+
+        public Webinar GetWithSessionsById(int id)
+            => Query(context => context.Webinars
+                .Include(w => w.Sessions)
+                .FirstOrDefault(p => p.Id == id));
+
+
         public Webinar Update(Webinar webinar)
             => Execute(context =>
             {

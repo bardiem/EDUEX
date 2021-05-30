@@ -1,4 +1,5 @@
 ﻿using EDUEX.Domain;
+using System;
 using System.Collections.Generic;
 
 namespace EDUEX.BL
@@ -11,8 +12,12 @@ namespace EDUEX.BL
 
         Webinar GetById(int id);
 
+        Webinar GetWithSessionsById(int id);
+
         Webinar Update(Webinar webinar);
 
         void Delete(int id);
+
+        DateTime GetEarliestSessionStart(int id);
     }
 }

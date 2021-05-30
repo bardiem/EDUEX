@@ -11,15 +11,13 @@ namespace EDUEX.Web.Dto
         [MaxLength(100)]
         public string Topic { get; set; }
 
-        public int Duration { get; set; }
-
         [Url]
         [MaxLength(200)]
         public string Link { get; set; }
 
         public DateTime StartDate { get; set; }
 
-       
+        public DateTime EndDate { get; set; }
 
     }
 }

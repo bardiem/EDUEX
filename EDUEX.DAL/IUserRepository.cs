@@ -7,6 +7,8 @@ namespace EDUEX.DAL
     {
         User GetById(int id);
 
+        User GetWithWebinarsById(int id);
+
         User Create(User user);
 
         IList<User> GetAll();

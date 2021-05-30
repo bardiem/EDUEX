@@ -7,6 +7,8 @@ namespace EDUEX.BL
     {
         User GetById(int id);
 
+        User GetUserWithWebinars(int id);
+
         User Create(User user);
 
         IList<User> GetAll();

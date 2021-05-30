@@ -2,6 +2,7 @@ using AutoMapper;
 using EDUEX.BL;
 using EDUEX.Domain;
 using EDUEX.Web.Dto;
+using EDUEX.Web.Dto.WebinarDto;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
@@ -27,22 +28,31 @@ namespace EDUEX.Web.Api
             
         [HttpGet]
         [Produces("application/json")]
-        [ProducesResponseType(typeof(List<WebinarRewiewDto>), (int)HttpStatusCode.OK)]
+        [ProducesResponseType(typeof(List<WebinarReviewDto>), (int)HttpStatusCode.OK)]
         public IActionResult Get()
         {
             var webinars = webinarBL.GetAll();
-            var result = mapper.Map<List<WebinarRewiewDto>>(webinars);
+            var result = mapper.Map<List<WebinarReviewDto>>(webinars);
             return Ok(result);
         }
 
 
         [HttpGet("{id:int}")]
         [Produces("application/json")]
-        [ProducesResponseType(typeof(WebinarRewiewDto), (int)HttpStatusCode.OK)]
+        [ProducesResponseType(typeof(WebinarReviewDto), (int)HttpStatusCode.OK)]
         public IActionResult Get(int id)
         {
             var webinar = webinarBL.GetById(id);
-            var result = mapper.Map<WebinarRewiewDto>(webinar);
+            var result = mapper.Map<WebinarReviewDto>(webinar);
+            return Ok(result);
+        }
+
+        [HttpGet]
+        [Route("webinarWithSessions/{id:int}")]
+        public IActionResult GetWithSessions(int id)
+        {
+            var webinar = webinarBL.GetWithSessionsById(id);
+            var result = mapper.Map<WebinarWithSessionsDto>(webinar);
             return Ok(result);
         }
 
@@ -53,6 +63,8 @@ namespace EDUEX.Web.Api
         public IActionResult Post([FromBody] WebinarCreationDto webinarDto)
         {
             var result = mapper.Map<Webinar>(webinarDto);
+            result.EnrollDeadline = webinarBL.GetEarliestSessionStart(result.Id).AddHours(-1).AddMinutes(-1);
+
             var webinar = webinarBL.Create(result);
             return Ok(webinar);
         }
