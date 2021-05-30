@@ -15,14 +15,16 @@ namespace EDUEX.Web.Api
     public class SessionController : ControllerBase
     {
         private readonly ISessionBL sessionBL;
+        private readonly IWebinarBL webinarBL;
         private readonly IMapper mapper;
 
-        public SessionController(ISessionBL sessionBL, IMapper mapper)
+        public SessionController(ISessionBL sessionBL, IMapper mapper, IWebinarBL webinarBL)
         {
             this.sessionBL = sessionBL;
             this.mapper = mapper;
+            this.webinarBL = webinarBL;
         }
-        
+
         [HttpGet]
         [Produces("application/json")]
         [ProducesResponseType(typeof(List<SessionDto>), (int)HttpStatusCode.OK)]

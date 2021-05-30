@@ -22,6 +22,23 @@ namespace EDUEX.DAL
                 return webinar;
             });
 
+        public Webinar CreateWithUserWebinar(Webinar webinar, int userId)
+            => Execute(context =>
+            {
+                context.Webinars.Add(webinar);
+                context.SaveChanges();
+
+                context.UserWebinars.Add(new UserWebinar
+                {
+                    UserId = userId,
+                    EnrollDate = DateTime.UtcNow,
+                    WebinarId = webinar.Id,
+                    AccessType = Domain.Enums.CourseAccessTypeEnum.Teacher
+                });
+                context.SaveChanges();
+                return webinar;
+            });
+
 
         public IList<Webinar> GetAll()
             => Query(context => context.Webinars.AsNoTracking().ToList());
@@ -53,5 +70,11 @@ namespace EDUEX.DAL
                 context.Webinars.Remove(webinar);
                 context.SaveChanges();
             });
+
+        public IList<string> GetSubjects()
+            => Execute(context => context.Webinars
+                .Select(w => w.Subject)
+                .Distinct()
+                .ToList());
     }
 }

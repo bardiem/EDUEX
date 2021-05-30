@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { SharedDataService } from 'src/app/services/share-data.service';
 import { UserService } from 'src/app/services/user.service';
 import { parseError } from '../shared/error-parser.service';
 
@@ -14,10 +15,10 @@ export class RegisterComponent implements OnInit {
   private errorMsgs = [];
   private successMessage = "";
 
-  constructor(private userService: UserService) { }
+  constructor(private userService: UserService, private sharedService: SharedDataService) { }
 
   ngOnInit() {
-    this.userService.getAllUsers().subscribe(data=>console.log(data))
+    this.sharedService.emitChange('Реєстрація');
   }
 
   onSubmit(form: NgForm){

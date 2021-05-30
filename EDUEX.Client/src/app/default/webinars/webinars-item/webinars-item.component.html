@@ -1,18 +1,16 @@
 <div class="card">
     <div class="card-body">
         <div class="d-flex justify-content-between">
-            <div class="m-2"><b>Angular forms</b></div>
-            <div class="m-2"><b class="text-warning">Середній</b></div>
-            <div class="m-2">Веб-розробка</div>
+            <div class="m-2 topics-container"><b>{{webinar.name}}</b></div>
+            <div class="m-2 topics-container text-center"><b class="text-warning">{{difficulty}}</b></div>
+            <div class="m-2 topics-container text-right pr-2">{{webinar.subject}}</div>
         </div>
         <div class="d-flex justify-content-between">
             <div class="m-2">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt laboriosam ea nesciunt
-                id quaerat tempore facere voluptatum at aliquid excepturi. Blanditiis quaerat ab sapiente
-                illum eveniet corporis repellendus nihil earum!
+                {{webinar.description}}
             </div>
             <div class="d-flex flex-column m-2">
-                <div class="m-2">100,00 грн</div>
+                <div class="m-2 pl-4">{{webinar.price}} грн</div>
                 <a routerLink="/webinar/details" class="ml-3"><button type="button"
                         class="btn btn-primary m-2">Записатись</button></a>
             </div>

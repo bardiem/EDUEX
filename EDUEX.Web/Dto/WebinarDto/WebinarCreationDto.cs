@@ -23,5 +23,8 @@ namespace EDUEX.Web.Dto
         [Column(TypeName = "decimal(6, 2)")]
         public decimal Price { get; set; }
 
+        [Required]
+        public int UserId { get; set; }
+
     }
 }

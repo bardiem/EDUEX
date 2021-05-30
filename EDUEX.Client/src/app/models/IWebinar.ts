@@ -1,10 +1,6 @@
+import { ICreateWebinar } from './ICreateWebinar';
 
-export interface IWebinar {
+export interface IWebinar extends ICreateWebinar {
     id: number;
-    name: string;
-    description: string;
-    level: number;
     enrollDeadline: Date;
-    subject: string;
-    price: number;
 }

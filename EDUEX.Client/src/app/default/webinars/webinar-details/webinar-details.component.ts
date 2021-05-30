@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { IWebinarWithSessions } from 'src/app/models/IWebinarWithSessions';
 import { WebinarWithSessions } from 'src/app/models/WebinarWithSessions';
+import { SharedDataService } from 'src/app/services/share-data.service';
 import { WebinarService } from 'src/app/services/webinar.service';
 
 @Component({
@@ -15,10 +16,12 @@ export class WebinarDetailsComponent implements OnInit {
 
   private webinar: IWebinarWithSessions = new WebinarWithSessions();
 
-  constructor(private webinarService: WebinarService) { }
+  constructor(private webinarService: WebinarService, private sharedService: SharedDataService) { }
 
 
   ngOnInit() {
+    this.sharedService.emitChange('Деталі вебінару');
+
     this.webinarService.getWebinarWithSessions(this.webinarId)
       .subscribe(data => { 
         this.webinar = data;

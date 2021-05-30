@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SharedDataService } from 'src/app/services/share-data.service';
 
 @Component({
   selector: 'app-index',
@@ -7,9 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class IndexComponent implements OnInit {
 
-  constructor() { }
+  constructor(private sharedService: SharedDataService) { }
 
   ngOnInit() {
+    this.sharedService.emitChange('Домашня сторінка');
   }
 
 }

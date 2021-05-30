@@ -4,19 +4,21 @@
 
         <form class="form-inline">
             <div class="form-group mb-2">
-                <select class="form-control form-control-sm">
-                    <option>Предмет</option>
+                <select [(ngModel)]="selectedSubject" name="subject" class="form-control form-control-sm">
+                    <option value="">Предмет</option>
+                    <option *ngFor="let item of subjects" [value]="item">{{item}}</option>
                 </select>
               </div>
               <div class="form-group mx-sm-3 mb-2">
-                <select class="form-control form-control-sm">
-                    <option>Сортування</option>
+                <select class="form-control form-control-sm" [(ngModel)]="orderType" name="orderBy">
+                    <option value="newFirst">За новизною</option>
+                    <option value="cheapestFirst">Найдешевші</option>
+                    <option value="expensiveFirst">Найдорожчі</option>
                 </select>
               </div>
         </form>
     </div>
-
-    <app-webinars-item></app-webinars-item>
-    <app-webinars-item></app-webinars-item>
-    <app-webinars-item></app-webinars-item>
+    <div *ngFor="let webinar of webinars">
+        <app-webinars-item [webinar]="webinar"></app-webinars-item>
+    </div>
 </div>

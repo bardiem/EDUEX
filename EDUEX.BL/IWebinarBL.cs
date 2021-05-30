@@ -8,6 +8,8 @@ namespace EDUEX.BL
     {
         Webinar Create(Webinar webinar);
 
+        Webinar Create(Webinar webinar, int userId);
+
         IList<Webinar> GetAll();
 
         Webinar GetById(int id);
@@ -19,5 +21,7 @@ namespace EDUEX.BL
         void Delete(int id);
 
         DateTime GetEarliestSessionStart(int id);
+
+        IList<string> GetSubjects();
     }
 }

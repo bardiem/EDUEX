@@ -7,9 +7,13 @@ namespace EDUEX.DAL
     {
         Webinar Create(Webinar webinar);
 
+        Webinar CreateWithUserWebinar(Webinar webinar, int userId);
+
         IList<Webinar> GetAll();
 
         Webinar GetById(int id);
+
+        IList<string> GetSubjects();
 
         Webinar GetWithSessionsById(int id);
 

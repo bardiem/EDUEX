@@ -5,6 +5,7 @@ using EDUEX.Web.Dto;
 using EDUEX.Web.Dto.WebinarDto;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System;
 using System.Collections.Generic;
 using System.Net;
 
@@ -43,6 +44,7 @@ namespace EDUEX.Web.Api
         public IActionResult Get(int id)
         {
             var webinar = webinarBL.GetById(id);
+            webinar.EnrollDeadline = webinarBL.GetEarliestSessionStart(webinar.Id).AddHours(-1).AddMinutes(-1);
             var result = mapper.Map<WebinarReviewDto>(webinar);
             return Ok(result);
         }
@@ -52,6 +54,7 @@ namespace EDUEX.Web.Api
         public IActionResult GetWithSessions(int id)
         {
             var webinar = webinarBL.GetWithSessionsById(id);
+            webinar.EnrollDeadline = webinarBL.GetEarliestSessionStart(webinar.Id).AddHours(-1).AddMinutes(-1);
             var result = mapper.Map<WebinarWithSessionsDto>(webinar);
             return Ok(result);
         }
@@ -63,10 +66,8 @@ namespace EDUEX.Web.Api
         public IActionResult Post([FromBody] WebinarCreationDto webinarDto)
         {
             var result = mapper.Map<Webinar>(webinarDto);
-            result.EnrollDeadline = webinarBL.GetEarliestSessionStart(result.Id).AddHours(-1).AddMinutes(-1);
-
-            var webinar = webinarBL.Create(result);
-            return Ok(webinar);
+            var webinar = webinarBL.Create(result, webinarDto.UserId);
+            return Ok(mapper.Map<WebinarCreationDto>(webinar));
         }
 
         [HttpPut("{id}")]
@@ -105,11 +106,20 @@ namespace EDUEX.Web.Api
             return result;
         }
 
+        [HttpGet]
+        [Route("subjects")]
+        [Produces("application/json")]
+        [ProducesResponseType(typeof(List<UserWebinarDto>), (int)HttpStatusCode.OK)]
+        public IActionResult GetSubjects(int id)
+        {
+            return Ok(webinarBL.GetSubjects());
+        }
+
 
         [HttpPost("userWebinar")]
         [Produces("application/json")]
         [ProducesResponseType(typeof(UserWebinarDto), (int)HttpStatusCode.OK)]
-        public IActionResult Post([FromBody] UserWebinarDto userWebinarDto)
+        public IActionResult PostUserWebinar([FromBody] UserWebinarDto userWebinarDto)
         {
             var result = mapper.Map<UserWebinar>(userWebinarDto);
             var userWebinar = userWebinarBL.Create(result);

@@ -1,7 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { Session } from 'inspector';
 import { ISession } from 'src/app/models/ISession';
 
 @Component({
@@ -10,8 +9,8 @@ import { ISession } from 'src/app/models/ISession';
   styleUrls: ['./create-session.component.scss']
 })
 export class CreateSessionComponent implements OnInit {
-  private selectedDuration: number = 0;
-  private sessions: ISession;
+  private selectedDuration = 0;
+  private sessions: ISession[] = [];
 
   constructor(private http: HttpClient) { }
 
@@ -19,10 +18,18 @@ export class CreateSessionComponent implements OnInit {
   }
 
   submit(form: NgForm){
+    let session: ISession = {
+      id: form.value.id,
+      topic: form.value.topic,
+      endDate: new Date(),
+      link: form.value.link,
+      startDate: form.value.startDate
+    };
 
-    this.http.post('/api/session', form.value)
-      .subscribe((res)=>{console.warn(res)
-    })
+    session.endDate = new Date(form.value.startDate);
+    session.endDate.setMinutes(session.endDate.getMinutes() + form.value.duration)
+    this.sessions.push(session);
+    form.resetForm();
   }
 
 }

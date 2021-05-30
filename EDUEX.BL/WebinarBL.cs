@@ -9,15 +9,23 @@ namespace EDUEX.BL
     public class WebinarBL : IWebinarBL
     {
         private readonly IWebinarRepository _webinarRepository;
+        private readonly IUserWebinarRepository _userWebinarRepository;
 
-        public WebinarBL(IWebinarRepository webinarRepository)
+        public WebinarBL(IWebinarRepository webinarRepository, 
+            IUserWebinarRepository userWebinarRepository)
         {
             _webinarRepository = webinarRepository;
+            _userWebinarRepository = userWebinarRepository;
         }
 
         public Webinar Create(Webinar webinar)
         {
             return _webinarRepository.Create(webinar);
+        }
+
+        public Webinar Create(Webinar webinar, int userId)
+        {
+            return _webinarRepository.CreateWithUserWebinar(webinar, userId);
         }
 
         public IList<Webinar> GetAll()
@@ -49,6 +57,11 @@ namespace EDUEX.BL
         public Webinar GetWithSessionsById(int id)
         {
             return _webinarRepository.GetWithSessionsById(id);
+        }
+
+        public IList<string> GetSubjects()
+        {
+            return _webinarRepository.GetSubjects();
         }
     }
 }
