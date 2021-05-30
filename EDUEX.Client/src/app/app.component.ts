@@ -7,14 +7,5 @@ import { SharedDataService } from './services/share-data.service';
 })
 
 export class AppComponent {
-
-  constructor(private sharedService: SharedDataService){
-    sharedService.changeEmitted$.subscribe(
-      text => {
-          this.title = text;
-      });
-  }
-
-
-  title = '';
+  constructor(){ }
 }

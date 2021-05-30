@@ -1,18 +1,26 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { AuthenticationService } from 'src/app/services/authentication.service';
+import { SharedDataService } from 'src/app/services/share-data.service';
 
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.scss']
 })
-export class NavbarComponent implements OnInit{
+export class NavbarComponent implements OnInit, AfterViewInit{
 
-  @Input('title') PageName;
+  PageName;
 
-  constructor(private authService: AuthenticationService) { }
+  constructor(private authService: AuthenticationService, private sharedService: SharedDataService) { }
+  ngAfterViewInit() {
+    this.sharedService.changeEmitted$.subscribe(
+      text => {
+          this.PageName = text;
+      });
+  }
 
   ngOnInit() {
+    
   }
 
 
