@@ -9,7 +9,7 @@ using System.Net;
 
 namespace EDUEX.Web.Api
 {
-    [Authorize(Roles = "admin, user")]
+   // [Authorize(Roles = "admin, user")]
     [Route("api/webinar")]
     [ApiController]
     public class WebinarController : ControllerBase

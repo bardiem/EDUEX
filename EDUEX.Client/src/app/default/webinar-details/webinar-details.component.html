@@ -1,0 +1,32 @@
+<div class="shadow-lg p-3 mb-5 bg-body rounded ">
+  <div class="d-flex justify-content-between">
+    <div>
+      <h2>{{webinarDetails.name}}</h2>
+      <p>{{webinarDetails.subject}}</p>
+      <p class="text-warning">{{webinarDetails.level | numToDifficulty}}</p>
+    </div>
+    <div>
+      <p style="text-align: right">{{webinarDetails.price | currency:' ':'code'}} грн</p>
+      <button class="btn btn-primary btn-lg">Записатись</button>
+    </div>
+  </div>
+  <div>
+    <p>
+      {{webinarDetails.description}}
+    </p>
+  </div>
+  <h3>Сесії:</h3>
+  <div>
+    <div *ngFor="let item of filteredSessions" class="p-3 border">
+    <!--  {{item | json}} -->
+
+    <div class="d-flex justify-content-between">
+      <h6>
+        {{item.topic}}
+      </h6>
+      <h6>{{item.startDate | date : "dd.MM.yyyy,  HH:mm"}}</h6>
+    </div>
+
+    </div>
+  </div>
+</div>

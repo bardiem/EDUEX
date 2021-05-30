@@ -4,7 +4,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 export const router: Routes = [
     { path: '', loadChildren: './default/default.module#DefaultModule' },
-    { path: '**', redirectTo: '' }
+    // { path: '**', redirectTo: '' }
 ]
 
 export const routes: ModuleWithProviders = RouterModule.forRoot(router);

@@ -15,7 +15,7 @@ namespace EDUEX.DAL
         }
         public UserWebinar Create(UserWebinar userWebinar)
             => Execute(context =>
-            {
+            { 
                 var createUserWebinar = context.UserWebinars.Add(userWebinar);
                 context.SaveChanges();
                 return createUserWebinar.Entity;

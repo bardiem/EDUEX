@@ -3,11 +3,10 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { routes } from './app.router';
-import { HttpModule } from '@angular/http';
 import { NavbarComponent } from './navbar/navbar.component';
 import { NavbarButtonsComponent } from './navbar/navbar-buttons/navbar-buttons.component';
 import { NavbarProfileComponent } from './navbar/navbar-profile/navbar-profile.component';
-
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -18,7 +17,7 @@ import { NavbarProfileComponent } from './navbar/navbar-profile/navbar-profile.c
   ],
   imports: [
     BrowserModule,
-    HttpModule,
+    HttpClientModule,
     routes
   ],
   providers: [],

@@ -19,5 +19,7 @@ namespace EDUEX.Domain
 
         public DateTime EndDate { get; set; }
 
+        public int webinarId { get; set; }
+
     }
 }
