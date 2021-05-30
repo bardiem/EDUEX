@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { IWebinarWithSessions } from 'src/app/models/IWebinarWithSessions';
 import { WebinarWithSessions } from 'src/app/models/WebinarWithSessions';
 import { SharedDataService } from 'src/app/services/share-data.service';
@@ -16,10 +17,15 @@ export class WebinarDetailsComponent implements OnInit {
 
   private webinar: IWebinarWithSessions = new WebinarWithSessions();
 
-  constructor(private webinarService: WebinarService, private sharedService: SharedDataService) { }
+  constructor(
+    private webinarService: WebinarService, 
+    private sharedService: SharedDataService,
+    private activeRoute: ActivatedRoute
+    ) { }
 
 
   ngOnInit() {
+    this.webinarId = parseInt(this.activeRoute.snapshot.paramMap.get('id'));
     this.sharedService.emitChange('Деталі вебінару');
 
     this.webinarService.getWebinarWithSessions(this.webinarId)

@@ -11,6 +11,8 @@ namespace EDUEX.DAL
 
         IList<Webinar> GetAll();
 
+        IList<Webinar> GetBySubject(string subject);
+
         Webinar GetById(int id);
 
         IList<string> GetSubjects();

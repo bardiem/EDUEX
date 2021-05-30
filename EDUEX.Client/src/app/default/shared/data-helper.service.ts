@@ -17,6 +17,6 @@ export class DateHelper{
     {
         var newDate = new Date(date);
         var now = new Date();
-        return newDate > now;
+        return newDate < now;
     }
 }

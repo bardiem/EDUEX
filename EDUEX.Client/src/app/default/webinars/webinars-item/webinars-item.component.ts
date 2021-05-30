@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { IWebinar } from 'src/app/models/IWebinar';
 
 @Component({
@@ -11,7 +12,7 @@ export class WebinarsItemComponent implements OnInit {
 
   difficulty;
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
     if(this.webinar.level==1)
@@ -20,6 +21,10 @@ export class WebinarsItemComponent implements OnInit {
       this.difficulty = "Середній";
     else if(this.webinar.level==3)
       this.difficulty = "Важкий";
+  }
+
+  signUp(){
+    this.router.navigate(["/webinar/details", this.webinar.id]);
   }
 
 }

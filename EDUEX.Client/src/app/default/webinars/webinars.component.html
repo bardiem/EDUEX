@@ -5,7 +5,7 @@
         <form class="form-inline">
             <div class="form-group mb-2">
                 <select [(ngModel)]="selectedSubject" name="subject" class="form-control form-control-sm">
-                    <option value="">Предмет</option>
+                    <option value="">Виберіть предмет</option>
                     <option *ngFor="let item of subjects" [value]="item">{{item}}</option>
                 </select>
               </div>
@@ -15,6 +15,9 @@
                     <option value="1">Найдешевші</option>
                     <option value="2">Найдорожчі</option>
                 </select>
+              </div>
+              <div class="form-group mx-sm-3 mb-2">
+                <button type="button" class="btn btn-primary rounded-lg" (click)="applyFilter()">Примінити фільтр</button>
               </div>
         </form>
     </div>

@@ -62,7 +62,7 @@
     <p>Вебінари:</p>
     <div class="d-flex flex-column" *ngFor="let item of user.webinars">
         <div class="d-flex justify-content-between">
-            <div><a routerLink="/webinar/details">{{item.name}}</a></div>
+            <div><a class="link-primary" (click)="goToWebinar(item.id)">{{item.name}}</a></div>
             <div [class.text-success]="!isAlreadyPassed(item.enrollDeadline)" [class.text-danger]="isAlreadyPassed(item.enrollDeadline)">{{item.enrollDeadline | date : short}}</div>
         </div>
     </div>

@@ -31,7 +31,7 @@ export class NavbarButtonsComponent implements OnInit {
         const token = (<any>response).token;
         localStorage.setItem("jwt", token);
         form.resetForm();
-        //this.router.navigate(["/"]);
+        this.router.navigate(["/webinars"]);
         this.isLogged = true;
       },
       error => {

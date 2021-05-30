@@ -2,7 +2,10 @@
   <div class="d-flex justify-content-between w-100">
     <div class="d-flex justify-content-between align-items-center">
       <div>
-        <a class="navbar-brand m-10" href="#">
+        <a *ngIf="authService.loggedIn()" class="navbar-brand m-10" href="/webinars">
+          <img src="../../../assets/logo.PNG" class="navbar-img" width="40" height="40" alt="">
+        </a>
+        <a *ngIf="!authService.loggedIn()" class="navbar-brand m-10" href="/">
           <img src="../../../assets/logo.PNG" class="navbar-img" width="40" height="40" alt="">
         </a>
       </div>

@@ -24,8 +24,10 @@ export class WebinarService{
     return this._http.post<any>('/api/userWebinar/', {userId: userId, webinarId: webinarId, enrollDate: Date.now()});
   }
 
-  getWebinars(){
-    return this._http.get<IWebinar[]>('/api/webinar/');
+  getWebinars(subjectName: string = null, orderType: number = 0){
+    let query = "?subject=" +subjectName + "&orderType="+ orderType;
+    console.log(query);
+    return this._http.get<IWebinar[]>('/api/webinar/' +query);
   }
 
   getSubjects(){

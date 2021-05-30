@@ -43,7 +43,7 @@ namespace EDUEX.DAL
                     BirthDate = u.BirthDate,
                     Email = u.Email,
                     Position = u.Position,
-                    UserWebinars = u.UserWebinars.Select(uw=> new UserWebinar{Webinar = uw.Webinar}).OrderBy(w => w.Webinar.EnrollDeadline).ToList()
+                    UserWebinars = u.UserWebinars.Select(uw=> new UserWebinar{Webinar = uw.Webinar}).OrderByDescending(w => w.Webinar.EnrollDeadline).ToList()
                 })
                 .FirstOrDefault(p => p.Id == id));
 

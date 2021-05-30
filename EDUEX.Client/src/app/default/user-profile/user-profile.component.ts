@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { IUserWithWebinars } from 'src/app/models/IUserWithWebinars';
 import { UserWithWebinar } from 'src/app/models/UserWithWebinar';
 import { AuthenticationService } from 'src/app/services/authentication.service';
@@ -17,7 +18,11 @@ export class UserProfileComponent implements OnInit {
   private age: number;
   private isAlreadyPassed = DateHelper.isAlreadyPassed;
 
-  constructor(private userService: UserService, private authService: AuthenticationService, private sharedService: SharedDataService) { }
+  constructor(
+    private userService: UserService, 
+    private authService: AuthenticationService, 
+    private sharedService: SharedDataService,
+    private router: Router) { }
 
   ngOnInit() {
 
@@ -37,6 +42,10 @@ export class UserProfileComponent implements OnInit {
 
   logOut(){
     this.authService.logOutUser();
+  }
+
+  goToWebinar(id){
+    this.router.navigate(["/webinar/details", id]);
   }
 
 }

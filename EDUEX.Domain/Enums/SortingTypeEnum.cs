@@ -4,6 +4,6 @@
     {
         NewFirst,
         CheapFirst,
-        ExpensibeFirst
+        ExpensiveFirst
     }
 }

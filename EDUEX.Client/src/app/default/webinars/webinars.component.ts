@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { IWebinar } from 'src/app/models/IWebinar';
-import { Webinar } from 'src/app/models/Webinar';
 import { SharedDataService } from 'src/app/services/share-data.service';
 import { WebinarService } from 'src/app/services/webinar.service';
 
@@ -12,7 +11,7 @@ import { WebinarService } from 'src/app/services/webinar.service';
 export class WebinarsComponent implements OnInit {
   subjects: string[] = [];
   selectedSubject: string = "";
-  orderType: string = "newFirst";
+  orderType: string = "0";
   webinars: IWebinar[] = [];
 
   constructor(private webinarService: WebinarService, private sharedService: SharedDataService) { }
@@ -23,10 +22,18 @@ export class WebinarsComponent implements OnInit {
     this.webinarService.getSubjects()
       .subscribe(data => this.subjects = data);
 
-    this.webinarService.getWebinars()
+    this.loadWebinars();
+  }
+
+  loadWebinars(){
+    this.webinarService.getWebinars(this.selectedSubject, parseInt(this.orderType))
       .subscribe(data=>{
         this.webinars = data;
       })
+  }
+  
+  applyFilter(){
+    this.loadWebinars();
   }
 
 }

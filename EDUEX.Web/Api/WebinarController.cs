@@ -1,11 +1,11 @@
 using AutoMapper;
 using EDUEX.BL;
 using EDUEX.Domain;
+using EDUEX.Domain.Contracts.Requests.Queries;
 using EDUEX.Web.Dto;
 using EDUEX.Web.Dto.WebinarDto;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using System;
 using System.Collections.Generic;
 using System.Net;
 
@@ -26,13 +26,13 @@ namespace EDUEX.Web.Api
             this.userWebinarBL = _userWebinar;
             this.mapper = mapper;
         }
-            
+
         [HttpGet]
         [Produces("application/json")]
         [ProducesResponseType(typeof(List<WebinarReviewDto>), (int)HttpStatusCode.OK)]
-        public IActionResult Get()
+        public IActionResult Get([FromQuery] WebinarSortingQuery query)
         {
-            var webinars = webinarBL.GetAll();
+            var webinars = webinarBL.GetBySubjectOrdered(query);
             var result = mapper.Map<List<WebinarReviewDto>>(webinars);
             return Ok(result);
         }
@@ -44,7 +44,7 @@ namespace EDUEX.Web.Api
         public IActionResult Get(int id)
         {
             var webinar = webinarBL.GetById(id);
-            webinar.EnrollDeadline = webinarBL.GetEarliestSessionStart(webinar.Id).AddHours(-1).AddMinutes(-1);
+            UpdateEnrollDeadline(webinar);
             var result = mapper.Map<WebinarReviewDto>(webinar);
             return Ok(result);
         }
@@ -54,7 +54,7 @@ namespace EDUEX.Web.Api
         public IActionResult GetWithSessions(int id)
         {
             var webinar = webinarBL.GetWithSessionsById(id);
-            webinar.EnrollDeadline = webinarBL.GetEarliestSessionStart(webinar.Id).AddHours(-1).AddMinutes(-1);
+            UpdateEnrollDeadline(webinar);
             var result = mapper.Map<WebinarWithSessionsDto>(webinar);
             return Ok(result);
         }
@@ -141,6 +141,13 @@ namespace EDUEX.Web.Api
         {
             userWebinarBL.Delete(id);
             return Ok();
+        }
+
+        private void UpdateEnrollDeadline(Webinar webinar)
+        {
+            var earliestStart = webinarBL.GetEarliestSessionStart(webinar.Id);
+            if(earliestStart.HasValue)
+                webinar.EnrollDeadline = earliestStart.Value.AddHours(-1).AddMinutes(-1);
         }
     }
 }

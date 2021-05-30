@@ -43,6 +43,9 @@ namespace EDUEX.DAL
         public IList<Webinar> GetAll()
             => Query(context => context.Webinars.AsNoTracking().ToList());
 
+        public IList<Webinar> GetBySubject(string subject)
+            => Query(context => context.Webinars
+            .AsNoTracking().Where(w=>w.Subject == subject || subject == null).ToList());
 
         public Webinar GetById(int id)
             => Query(context => context.Webinars
