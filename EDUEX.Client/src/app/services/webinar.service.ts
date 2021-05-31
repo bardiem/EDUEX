@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { ICreateWebinar } from '../models/ICreateWebinar';
+import { ICreateWebinarWithSessions } from '../models/ICreateWebinarWithSessions';
 import { IWebinar } from '../models/IWebinar';
 import { IWebinarWithSessions } from '../models/IWebinarWithSessions';
 
@@ -17,7 +18,11 @@ export class WebinarService{
   }
 
   postWebinar(webinar: ICreateWebinar){
-    return this._http.post<IWebinarWithSessions>('/api/webinar/', webinar);
+    return this._http.post<ICreateWebinar>('/api/webinar/', webinar);
+  }
+
+  postWebinarWithSessions(webinar: ICreateWebinarWithSessions){
+    return this._http.post<ICreateWebinarWithSessions>('/api/webinar/postWithSessions', webinar);
   }
 
   postUserWebinar(userId: number, webinarId: number){

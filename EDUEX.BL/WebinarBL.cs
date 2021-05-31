@@ -30,6 +30,7 @@ namespace EDUEX.BL
             return _webinarRepository.CreateWithUserWebinar(webinar, userId);
         }
 
+
         public IList<Webinar> GetAll()
         {
             return _webinarRepository.GetAll();

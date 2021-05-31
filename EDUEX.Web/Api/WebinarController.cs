@@ -70,6 +70,19 @@ namespace EDUEX.Web.Api
             return Ok(mapper.Map<WebinarCreationDto>(webinar));
         }
 
+        [HttpPost]
+        [Produces("application/json")]
+        [Route("postWithSessions")]
+        [ProducesResponseType(typeof(WebinarCreationDto), (int)HttpStatusCode.OK)]
+        public IActionResult PostWithSessions([FromBody] WebinarWithSessionCreationDto webinarDto)
+        {
+            var result = mapper.Map<Webinar>(webinarDto);
+
+            var sessions = mapper.Map<List<Session>>(webinarDto.Sessions);
+            var webinar = webinarBL.Create(result, webinarDto.UserId);
+            return Ok(mapper.Map<WebinarCreationDto>(webinar));
+        }
+
         [HttpPut("{id}")]
         public IActionResult Put(int id, [FromBody] Webinar webinar)
         {

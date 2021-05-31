@@ -45,7 +45,7 @@
                     rows="3" placeholder="Опис"></textarea>
             </div>
         </div>
-        <app-create-session></app-create-session>
+        <app-create-session (event)="sessions=$event" ></app-create-session>
         <div class="form-group row">
             <div class="offset-8 col-9">
                 <button type="submit" class="btn btn-primary">Добавити</button>

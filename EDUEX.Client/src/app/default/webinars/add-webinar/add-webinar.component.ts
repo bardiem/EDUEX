@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { SessionService } from 'src/app/services/session.service';
+import { ISession } from 'src/app/models/ISession';
 import { SharedDataService } from 'src/app/services/share-data.service';
 import { UserService } from 'src/app/services/user.service';
 import { WebinarService } from 'src/app/services/webinar.service';
@@ -12,6 +12,8 @@ import { parseError } from '../../shared/error-parser.service';
   styleUrls: ['./add-webinar.component.scss']
 })
 export class AddWebinarComponent implements OnInit {
+
+  sessions: ISession[] = [];
   userId: number;
   errorMsgs: string[] = [];
   successMessage: string = "";
@@ -19,7 +21,6 @@ export class AddWebinarComponent implements OnInit {
 
   constructor(
     private webinarService: WebinarService, 
-    private sessionService: SessionService, 
     private userService: UserService,
     private sharedService: SharedDataService) { }
 
@@ -35,10 +36,10 @@ export class AddWebinarComponent implements OnInit {
     form.value.userId = this.userId;
     form.value.level = parseInt(form.value.level);
     form.value.price = parseFloat(form.value.price);
-    console.log(form.value)
+    form.value.sessions = this.sessions;
     
-    this.webinarService.postWebinar(form.value)
-      .subscribe(webinar => {
+    this.webinarService.postWebinarWithSessions(form.value)
+      .subscribe(success => {
         this.showSuccessBlock();
         form.resetForm();
       }, 

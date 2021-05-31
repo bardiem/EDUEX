@@ -22,6 +22,7 @@ namespace EDUEX.DAL
                 return webinar;
             });
 
+
         public Webinar CreateWithUserWebinar(Webinar webinar, int userId)
             => Execute(context =>
             {

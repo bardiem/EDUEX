@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ISession } from 'src/app/models/ISession';
 
@@ -11,6 +11,8 @@ import { ISession } from 'src/app/models/ISession';
 export class CreateSessionComponent implements OnInit {
   private selectedDuration = 0;
   private sessions: ISession[] = [];
+
+  @Output() event = new EventEmitter<ISession[]>();
 
   constructor(private http: HttpClient) { }
 
@@ -30,6 +32,8 @@ export class CreateSessionComponent implements OnInit {
     session.endDate.setMinutes(session.endDate.getMinutes() + form.value.duration)
     this.sessions.push(session);
     form.resetForm();
+
+    this.event.emit(this.sessions)
   }
 
 }

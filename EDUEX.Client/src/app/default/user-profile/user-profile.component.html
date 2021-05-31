@@ -1,58 +1,59 @@
 <div class="d-flex justify-content-center">
     <div class="user-data small-container">
         <div class="row my-3">
-            <div class="col">
+            <div class="col-4">
                 <div>Ім'я:</div>
             </div>
-            <div class="col">
+            <div class="col-8">
                 <div>{{user.firstName}}</div>
             </div>
         </div>
 
         <div class="row my-3">
-            <div class="col">
+            <div class="col-4">
                 <div>Прізвище:</div>
             </div>
-            <div class="col">
+            <div class="col-8">
                 <div>{{user.lastName}}</div>
             </div>
         </div>
 
         <div class="row my-3">
-            <div class="col">
+            <div class="col-4">
                 <div>Емейл:</div>
             </div>
-            <div class="col">
+            <div class="col-8">
                 <div>{{user.email}}</div>
             </div>
         </div>
 
         <div class="row my-3">
-            <div class="col">
+            <div class="col-4">
                 <div>Вік:</div>
             </div>
-            <div class="col">
+            <div class="col-8">
                 <div>{{age}}</div>
             </div>
         </div>
 
-        <div *ngIf="user?.position" class="row my-3">
-            <div class="col">
+        <div *ngIf="user.position" class="row my-3">
+            <div class="col-4">
                 <div>Позиція:</div>
             </div>
-            <div class="col">
+            <div class="col-8">
                 <div>{{user.position}}</div>
             </div>
         </div>
 
         <div class="row my-3">
-            <div class="col">
+            <div class="col-4">
                 <div>Баланс:</div>
             </div>
-            <div class="col">
+            <div class="col-8">
                 <div>
                     {{user.balance}} грн. 
-                    <button type="button" class="btn btn-primary">Вивести гроші</button>
+                    <button type="button" class="btn btn-primary mx-3">Внести</button>
+                    <button type="button" class="btn btn-success mx-3">Вивести</button>
                 </div>
             </div>
         </div>

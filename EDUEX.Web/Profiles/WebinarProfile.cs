@@ -17,6 +17,9 @@ namespace EDUEX.Web.Profiles
 
             CreateMap<Webinar, WebinarWithSessionsDto>()
                 .ReverseMap();
+
+            CreateMap<Webinar, WebinarWithSessionCreationDto>()
+                .ReverseMap();
         }
     }
 }
