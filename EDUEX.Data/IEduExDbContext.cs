@@ -18,6 +18,7 @@ namespace EDUEX.Data
 
         public DbSet<UserWebinar> UserWebinars { get; set; }
 
+        public DbSet<Subject> Subjects { get; set; }
 
         int SaveChanges();
     }

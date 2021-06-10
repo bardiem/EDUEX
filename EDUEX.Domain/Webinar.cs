@@ -19,9 +19,13 @@ namespace EDUEX.Domain
         [MaxLength(300)]
         public string Description { get; set; }
 
-        [Required]
-        [MaxLength(100)]
-        public string Subject { get; set; }
+        //[Required]
+        //[MaxLength(100)]
+        //public string Subject { get; set; }
+
+        public Subject Subject { get; set; }
+
+        public int SubjectId { get; set; }
 
         public DateTime EnrollDeadline { get; set; }
 
