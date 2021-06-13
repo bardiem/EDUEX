@@ -44,9 +44,9 @@ namespace EDUEX.DAL
         public IList<Webinar> GetAll()
             => Query(context => context.Webinars.AsNoTracking().ToList());
 
-        public IList<Webinar> GetBySubject(string subject)
-            => Query(context => context.Webinars
-            .AsNoTracking().Where(w=>w.Subject == subject || subject == null).ToList());
+        //public IList<Webinar> GetBySubject(string subject)
+        //    => Query(context => context.Webinars
+        //    .AsNoTracking().Where(w=>w.Subject == subject || subject == null).ToList());
 
         public Webinar GetById(int id)
             => Query(context => context.Webinars
@@ -75,10 +75,10 @@ namespace EDUEX.DAL
                 context.SaveChanges();
             });
 
-        public IList<string> GetSubjects()
-            => Execute(context => context.Webinars
-                .Select(w => w.Subject)
-                .Distinct()
-                .ToList());
+        //public IList<string> GetSubjects()
+        //    => Execute(context => context.Webinars
+        //        .Select(w => w.Subject)
+        //        .Distinct()
+        //        .ToList());
     }
 }

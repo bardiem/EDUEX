@@ -21,5 +21,7 @@ namespace EDUEX.Domain
         public string Area { get; set; }
 
         public ICollection<Webinar> Webinars { get; set; }
+
+        public ICollection<Course> Courses { get; set; }
     }
 }
