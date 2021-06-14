@@ -23,7 +23,13 @@ namespace EDUEX.Web.Tests.InMemory
 
         public DbSet<UserWebinar> UserWebinars { get; set; }
 
+        public DbSet<Subject> Subjects { get; set; }
 
+        public DbSet<Course> Courses { get; set; }
+
+        public DbSet<Domain.Task> Tasks { get; set; }
+
+        public DbSet<Lection> Lections { get; set; }
 
         public MockWebTemplateDbContext(DbContextOptions options) : base(options)
         {

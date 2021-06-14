@@ -16,5 +16,10 @@ namespace EDUEX.Domain
 
         public string Text { get; set; }
 
+        public int CourseId { get; set; }
+
+        public Course Course { get; set; }
+
+
     }
 }

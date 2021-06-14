@@ -33,6 +33,14 @@ namespace EDUEX.Data
 
         public DbSet<Session> Sessions { get; set; }
 
+        public DbSet<Subject> Subjects { get; set; }
+
+        public DbSet<Course> Courses { get; set; }
+
+        public DbSet<Task> Tasks { get; set; }
+
+        public DbSet<Lection> Lections { get; set; }
+
 
         protected override void OnConfiguring(DbContextOptionsBuilder options)
         {

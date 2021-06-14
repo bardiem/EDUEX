@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -19,6 +20,8 @@ namespace EDUEX.Domain
 
         public int SubjectId { get; set; }
 
+        public Subject Subject { get; set; }
+
         [Required]
         [MaxLength(100)]
         public string Topic { get; set; }
@@ -27,6 +30,10 @@ namespace EDUEX.Domain
         public decimal Price { get; set; }
 
         public DateTime StartDate { get; set; }
+
+        public ICollection<Task> Tasks { get; set; }
+
+        public ICollection<Lection> Lections { get; set; }
     }
 }
 

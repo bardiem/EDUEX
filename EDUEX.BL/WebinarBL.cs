@@ -36,20 +36,20 @@ namespace EDUEX.BL
             return _webinarRepository.GetAll();
         }
 
-        public IList<Webinar> GetBySubjectOrdered(WebinarSortingQuery query)
-        {
-            var result = _webinarRepository.GetBySubject(query.Subject);
-            switch (query.OrderType)
-            {
-                case SortingTypeEnum.CheapFirst:
-                    return result.OrderBy(r => r.Price).ToList();
-                case SortingTypeEnum.ExpensiveFirst:
-                    return result.OrderByDescending(r => r.Price).ToList();
-                default:
-                    return result.OrderByDescending(r => r.EnrollDeadline).ToList();
-            }
+        //public IList<Webinar> GetBySubjectOrdered(WebinarSortingQuery query)
+        //{
+        //    var result = _webinarRepository.GetBySubject(query.Subject);
+        //    switch (query.OrderType)
+        //    {
+        //        case SortingTypeEnum.CheapFirst:
+        //            return result.OrderBy(r => r.Price).ToList();
+        //        case SortingTypeEnum.ExpensiveFirst:
+        //            return result.OrderByDescending(r => r.Price).ToList();
+        //        default:
+        //            return result.OrderByDescending(r => r.EnrollDeadline).ToList();
+        //    }
 
-        }
+        //}
 
         public Webinar GetById(int id)
         {
@@ -79,9 +79,9 @@ namespace EDUEX.BL
             return _webinarRepository.GetWithSessionsById(id);
         }
 
-        public IList<string> GetSubjects()
-        {
-            return _webinarRepository.GetSubjects();
-        }
+        //public IList<string> GetSubjects()
+        //{
+        //    return _webinarRepository.GetSubjects();
+        //}
     }
 }
