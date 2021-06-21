@@ -27,15 +27,15 @@ namespace EDUEX.Web.Api
             this.mapper = mapper;
         }
 
-        //[HttpGet]
-        //[Produces("application/json")]
-        //[ProducesResponseType(typeof(List<WebinarReviewDto>), (int)HttpStatusCode.OK)]
-        //public IActionResult Get([FromQuery] WebinarSortingQuery query)
-        //{
-        //    var webinars = webinarBL.GetBySubjectOrdered(query);
-        //    var result = mapper.Map<List<WebinarReviewDto>>(webinars);
-        //    return Ok(result);
-        //}
+        [HttpGet]
+        [Produces("application/json")]
+        [ProducesResponseType(typeof(List<WebinarReviewDto>), (int)HttpStatusCode.OK)]
+        public IActionResult Get([FromQuery] WebinarSortingQuery query)
+        {
+            var webinars = webinarBL.GetBySubjectOrdered(query);
+            var result = mapper.Map<List<WebinarReviewDto>>(webinars);
+            return Ok(result);
+        }
 
 
         [HttpGet("{id:int}")]
@@ -118,15 +118,6 @@ namespace EDUEX.Web.Api
             var result = mapper.Map<UserWebinarDto>(userWebinar);
             return result;
         }
-
-        //[HttpGet]
-        //[Route("subjects")]
-        //[Produces("application/json")]
-        //[ProducesResponseType(typeof(List<UserWebinarDto>), (int)HttpStatusCode.OK)]
-        //public IActionResult GetSubjects(int id)
-        //{
-        //    return Ok(webinarBL.GetSubjects());
-        //}
 
 
         [HttpPost("userWebinar")]

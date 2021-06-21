@@ -4,8 +4,8 @@
 
         <form class="form-inline">
             <div class="form-group mb-2">
-                <select [(ngModel)]="selectedSubject" name="subject" class="form-control form-control-sm">
-                    <option value="">Виберіть предмет</option>
+                <select [(ngModel)]="selectedSubjectId" name="subject" class="form-control form-control-sm">
+                    <option value=0>Виберіть предмет</option>
                     <option *ngFor="let item of subjects" [value]="item">{{item}}</option>
                 </select>
               </div>

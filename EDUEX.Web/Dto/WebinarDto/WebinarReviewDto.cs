@@ -21,8 +21,7 @@ namespace EDUEX.Web.Dto
         public DateTime EnrollDeadline { get; set; }
 
         [Required]
-        [MaxLength(100)]
-        public string Subject { get; set; }
+        public int SubjectId { get; set; }
 
         public CourseDifficultyLevelEnum Level { get; set; }
 

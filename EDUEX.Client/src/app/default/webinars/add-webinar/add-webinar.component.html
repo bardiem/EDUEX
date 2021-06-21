@@ -18,8 +18,10 @@
         <div class="form-group row my-4">
             <label for="last_name" class="col-2 col-form-label">Предмет</label>
             <div class="col-6">
-                <input type="text" class="form-control" id="last_name" name="subject" ngModel
-                    placeholder="Введіть назву предмету">
+                <select class="form-select form-control" [(ngModel)]="selectedSubject" name="subjectId">
+                    <option value=0>Виберіть премет</option>
+                    <option *ngFor="let item of subjects" [value]="item.id">{{item.name}}</option>
+                </select>
             </div>
         </div>
         <div class="form-group row my-4">

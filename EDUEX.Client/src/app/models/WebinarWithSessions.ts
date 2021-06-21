@@ -10,11 +10,11 @@ export class WebinarWithSessions extends Webinar implements IWebinarWithSessions
         public description: string = null,
         public level: number = null,
         public enrollDeadline: Date = null,
-        public subject: string = null,
+        public subjectId: number = null,
         public price: number = null,
         public userId: number = null,
         public sessions: ISession[] = null
     ){
-        super(id, name, description, level, enrollDeadline, subject, price, userId);
+        super(id, name, description, level, enrollDeadline, subjectId, price, userId);
     }
 }

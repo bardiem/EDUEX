@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ISession } from 'src/app/models/ISession';
+import { ISubject } from 'src/app/models/ISubject';
 import { SharedDataService } from 'src/app/services/share-data.service';
 import { UserService } from 'src/app/services/user.service';
 import { WebinarService } from 'src/app/services/webinar.service';
@@ -13,11 +14,14 @@ import { parseError } from '../../shared/error-parser.service';
 })
 export class AddWebinarComponent implements OnInit {
 
+  subjects: ISubject[] = [];
   sessions: ISession[] = [];
+  subjectId: number;
   userId: number;
   errorMsgs: string[] = [];
   successMessage: string = "";
   selectedDifficulty: number = 0;
+  selectedSubject: number = 0;
 
   constructor(
     private webinarService: WebinarService, 
@@ -29,6 +33,9 @@ export class AddWebinarComponent implements OnInit {
 
     this.userService.getCurrentUser()
       .subscribe(currentUser=> this.userId = currentUser.id);
+
+      this.webinarService.getSubjects()
+      .subscribe(data => this.subjects = data);
   }
 
   onSubmit(form: NgForm){

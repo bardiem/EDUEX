@@ -7,7 +7,7 @@ export class Webinar implements IWebinar {
         public description: string = null,
         public level: number = null,
         public enrollDeadline: Date = null,
-        public subject: string = null,
+        public subjectId: number = null,
         public price: number = null,
         public userId: number = null
     ){}

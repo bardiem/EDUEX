@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { ICreateWebinar } from '../models/ICreateWebinar';
 import { ICreateWebinarWithSessions } from '../models/ICreateWebinarWithSessions';
+import { ISubject } from '../models/ISubject';
 import { IWebinar } from '../models/IWebinar';
 import { IWebinarWithSessions } from '../models/IWebinarWithSessions';
 
@@ -29,14 +30,14 @@ export class WebinarService{
     return this._http.post<any>('/api/userWebinar/', {userId: userId, webinarId: webinarId, enrollDate: Date.now()});
   }
 
-  getWebinars(subjectName: string = null, orderType: number = 0){
-    let query = "?subject=" +subjectName + "&orderType="+ orderType;
+  getWebinars(subjectId: number = null, orderType: number = 0){
+    let query = "?subjectId=" +subjectId + "&orderType="+ orderType;
     console.log(query);
     return this._http.get<IWebinar[]>('/api/webinar/' +query);
   }
 
   getSubjects(){
-    return this._http.get<string[]>('/api/webinar/subjects/');
+    return this._http.get<ISubject[]>('api/subjects');
   }
 
 }

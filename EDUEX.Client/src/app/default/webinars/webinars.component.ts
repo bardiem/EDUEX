@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { IWebinar } from 'src/app/models/IWebinar';
 import { SharedDataService } from 'src/app/services/share-data.service';
 import { WebinarService } from 'src/app/services/webinar.service';
+import { ISubject } from 'src/app/models/ISubject';
 
 @Component({
   selector: 'app-webinars',
@@ -9,10 +10,11 @@ import { WebinarService } from 'src/app/services/webinar.service';
   styleUrls: ['./webinars.component.scss']
 })
 export class WebinarsComponent implements OnInit {
-  subjects: string[] = [];
+  subjects: ISubject[] = [];
   selectedSubject: string = "";
   orderType: string = "0";
   webinars: IWebinar[] = [];
+  selectedSubjectId: number = 0;
 
   constructor(private webinarService: WebinarService, private sharedService: SharedDataService) { }
 
@@ -26,7 +28,7 @@ export class WebinarsComponent implements OnInit {
   }
 
   loadWebinars(){
-    this.webinarService.getWebinars(this.selectedSubject, parseInt(this.orderType))
+    this.webinarService.getWebinars(this.selectedSubjectId, parseInt(this.orderType))
       .subscribe(data=>{
         this.webinars = data;
       })

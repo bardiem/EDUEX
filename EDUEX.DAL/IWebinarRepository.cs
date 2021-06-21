@@ -11,11 +11,9 @@ namespace EDUEX.DAL
 
         IList<Webinar> GetAll();
 
-        //IList<Webinar> GetBySubject(string subject);
+        IList<Webinar> GetBySubjectId(int id);
 
         Webinar GetById(int id);
-
-        //IList<string> GetSubjects();
 
         Webinar GetWithSessionsById(int id);
 

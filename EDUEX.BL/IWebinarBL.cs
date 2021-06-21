@@ -14,7 +14,7 @@ namespace EDUEX.BL
 
         IList<Webinar> GetAll();
 
-        //IList<Webinar> GetBySubjectOrdered(WebinarSortingQuery query);
+        IList<Webinar> GetBySubjectOrdered(WebinarSortingQuery query);
 
         Webinar GetById(int id);
 
@@ -26,6 +26,5 @@ namespace EDUEX.BL
 
         DateTime? GetEarliestSessionStart(int id);
 
-        //IList<string> GetSubjects();
     }
 }

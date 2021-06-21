@@ -4,7 +4,7 @@ namespace EDUEX.Domain.Contracts.Requests.Queries
 {
     public class WebinarSortingQuery
     {
-        public string Subject { get; set; }
+        public int SubjectId { get; set; }
         public SortingTypeEnum OrderType { get; set; }
     }
 }
